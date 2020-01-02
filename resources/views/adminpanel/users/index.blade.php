@@ -29,13 +29,19 @@
                 <th scope="row">{{$no++}}</th>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td><a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-edit"></i></a></td>
                 <td>
-                  <a class="delete" data-id="{{ $user->id }}" href="#"><i class="fa fa-trash"></i></a>
-                  <form id="deleteForm{{$user->id}}" method="post" action="{{ route('users.destroy', $user->id) }}">
-                   @csrf @method('delete')
-               </form>
-           </td>
+                    @if($user->is_admin == 0)
+                        <a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-edit"></i></a>
+                    @endif
+                </td>
+                <td>
+                    @if($user->is_admin == 0)
+                        <a class="delete" data-id="{{ $user->id }}" href="#"><i class="fa fa-trash"></i></a>
+                        <form id="deleteForm{{$user->id}}" method="post" action="{{ route('users.destroy', $user->id) }}">
+                            @csrf @method('delete')
+                        </form>
+                    @endif
+                </td>
        </tr>
        @endforeach
        @endif

@@ -4,83 +4,67 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $users = User::orderBy('created_at', 'DESC')->get();
         return view('adminpanel.users.index', compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('adminpanel.users.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name'            => 'required|string|max:255',
+            'email'           => 'required|string|email|max:255|unique:users',
+            'password'        => 'required|string|min:6|confirmed',
+        ]);
+        $user = User::create([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  => Hash::make($request->password),
+        ]);
+        Session::flash('success','User Created Successfully');
+        return redirect()->route('users.index');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function show(User $user)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function edit(User $user)
     {
-        //
+        return view('adminpanel.users.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $validate = $request->validate([
+            'name'            => 'required|string|max:255',
+            'email'           => 'required|string|email|max:255|unique:users',$id,
+            'password'        => 'required|string|min:6|confirmed',
+        ]);
+        $user = User::where('id',$id)->update([
+            'name'      => $request->name,
+            'email'     => $request->email,
+            'password'  => Hash::make($request->password),
+        ]);
+        Session::flash('success','User Updated Successfully');
+        return redirect()->route('users.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(User $user)
     {
-        //
+        $delete_user = $user->delete();
+        Session::flash('success','User Deleted Successfully');
+        return redirect()->route('users.index');
     }
 }
