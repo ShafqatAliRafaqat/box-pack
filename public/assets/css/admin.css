@@ -779,7 +779,7 @@ select.form-control:not([size]):not([multiple]) {
   color: #ffc107;
 }
 
-.unread, .read, .pending, .cancel, .approved {
+.unread, .read, .pending, .approved {
   background-color: #dc3545;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
