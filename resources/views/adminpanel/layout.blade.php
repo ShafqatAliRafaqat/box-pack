@@ -17,16 +17,17 @@
   <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="assets/img/apple-touch-icon-144x144-precomposed.png">
 	
   <!-- Bootstrap core CSS-->
-  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/js/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- Icon fonts-->
   <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
   <!-- Plugin styles -->
   <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/js/sweetalert/sweetalert.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('assets/js/datatables/css/datatables.min.css') }}">
   <!-- Main styles -->
   <link href="{{ asset('assets/css/admin.css') }}" rel="stylesheet">
   <!-- Your custom styles -->
-  <link href="{{ asset('assets/css/admin.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
 	
 </head>
 
@@ -219,22 +220,27 @@
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <!-- Page level plugin JavaScript-->
     <script src="{{ asset('assets/vendor/chart.js/Chart.js') }}"></script>
     <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.js') }}"></script>
     <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
-	<script src="{{ asset('assets/vendor/jquery.selectbox-0.2.js') }}"></script>
     <script src="{{ asset('assets/vendor/retina-replace.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweetalert/sweetalert.js') }}"></script>
-    
-	<script src="{{ asset('assets/vendor/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('assets/js/fileupload.js') }}" ></script>    
+    <script src="{{ asset('assets/js/fileupload2.js') }}" ></script>
+    <script src="{{ asset('assets/js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-inputmask.min.js') }}"></script>
+    <script src="{{ asset('assets/js/tinymce-config.js') }}" ></script>
+    <script src="{{asset('assets/js/bootstrap-imageupload.js')}}"></script>
+
+	  <script src="{{ asset('assets/vendor/jquery.magnific-popup.min.js') }}"></script>
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/admin.js') }}"></script>
-	<!-- Custom scripts for this page-->
+	  <!-- Custom scripts for this page-->
     <script src="{{ asset('assets/js/admin-charts.js') }}"></script>
 	@yield('scripts')
 </body>
