@@ -26,23 +26,17 @@ class CategoryController extends Controller
         $validate = $request->validate([
             'title'          => 'required',
             'type'           => 'required',
-            // 'picture'        => 'required',
+            'picture'        => 'required',
         ]);
         if ($request->file('picture')) {
-            $destinationPath = '/backend/uploads/categories/';                  // Defining th uploading path if not exist create new
-            if(!File::exists($destinationPath)) {
-                File::makeDirectory($destinationPath, $mode = 0777, true, true);
-            }//     Uploading the Image to folder
-            $image       = $request->file('picture');
-            $filename    = time().'.'.$image->getClientOriginalExtension();
-            $location    = public_path($destinationPath.$filename);
-            Image::make($image)->save($location);
+            $filename = time().'-'.request()->picture->getClientOriginalName();
+            request()->picture->move(public_path('uploads/categories/'), $filename);
         }else{
             $filename = null;
         }
         $category = Category::create([
             'title'         => $request->title,
-            'picture'       => $request->filename,
+            'picture'       => $filename,
             'description'   => $request->description,
             'type'          => $request->type,
             'is_active'     => $request->is_active,
@@ -65,11 +59,38 @@ class CategoryController extends Controller
 
     public function update(Request $request, Category $category)
     {
-        dd($request->all());
+        $validate = $request->validate([
+            'title'          => 'required',
+            'type'           => 'required',
+        ]);
+        if ($request->file('picture')) {
+            $oldImageLoc = public_path('uploads/categories/' . $category->picture);
+            File::delete($oldImageLoc);
+            $filename = time().'-'.request()->picture->getClientOriginalName();
+            request()->picture->move(public_path('uploads/categories/'), $filename);
+        }else{
+            $filename = $category->picture;
+        }
+        $category = $category->update([
+            'title'         => $request->title,
+            'picture'       => $filename,
+            'description'   => $request->description,
+            'type'          => $request->type,
+            'is_active'     => $request->is_active,
+            'in_menu'       => $request->in_menu,
+        ]);
+        Session::flash('success','Category Updated Successfully');
+        return redirect()->route('category.index');
     }
 
     public function destroy(Category $category)
     {
-        //
+        if($category->picture){
+            $oldImageLoc = public_path('uploads/categories/' . $category->picture);
+            File::delete($oldImageLoc);
+        }
+        $category->delete();
+        Session::flash('success','Category Deleted Successfully');
+        return redirect()->route('category.index');
     }
 }

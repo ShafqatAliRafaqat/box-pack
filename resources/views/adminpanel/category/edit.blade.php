@@ -15,7 +15,7 @@
                         <h3 class="h6 text-uppercase mb-0">Edit Category</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="{{ route('category.update', $category->id) }}">
+                        <form class="form-horizontal" method="post" action="{{ route('category.update', $category->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
@@ -34,7 +34,7 @@
                             <label class="col-md-2 form-control-label">Picture</label>
                             <div class="col-md-4">
                                 <input type="file" name="picture" placeholder="Picture"
-                                class="form-control {{ $errors->has('picture') ? 'is-invalid' : '' }}" value="{{ $category->picture }}">
+                                class="form-control {{ $errors->has('picture') ? 'is-invalid' : '' }}" value="">
 
                                 @if($errors->has('picture'))
                                 <div class="invalid-feedback ml-3">{{ $errors->first('picture') }}</div>

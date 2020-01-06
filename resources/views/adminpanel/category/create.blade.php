@@ -1,6 +1,6 @@
 @extends('adminpanel.layout')
 @section('styles')
-<link rel="stylesheet" href="{{ asset('backend/css/fileupload.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/fileupload.css') }}">
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 @section('content')
@@ -15,7 +15,7 @@
                         <h3 class="h6 text-uppercase mb-0">Create Category</h3>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="{{ route('category.store') }}">
+                        <form class="form-horizontal" method="post" action="{{ route('category.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                             <label class="col-md-2 form-control-label">Title</label>
@@ -32,9 +32,7 @@
                             <div class="form-group row">
                             <label class="col-md-2 form-control-label">Picture</label>
                             <div class="col-md-4">
-                                <input type="file" name="picture" placeholder="Picture"
-                                class="form-control {{ $errors->has('picture') ? 'is-invalid' : '' }}" value="{{ old('picture') }}" required>
-
+                                  <input type="file" name="picture" id="files" class=" {{ $errors->has('picture') ? 'is-invalid' : '' }}" value="{{ old('picture') }}" required >
                                 @if($errors->has('picture'))
                                 <div class="invalid-feedback ml-3">{{ $errors->first('picture') }}</div>
                                 @endif
@@ -96,6 +94,7 @@
 @section('scripts')
 <script src="{{ asset('assets/js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
 <script src="{{ asset('assets/js/tinymce-config.js') }}" ></script>
+<script src="{{ asset('assets/js/fileupload.js') }}" ></script>
 <script src="{{ asset('assets/js/sweetalert/sweetalert.js') }}"></script>
 <!-- <script src="https://cdn.tiny.cloud/1/APIKEY/tinymce/5/tinymce.min.js"></script> -->
 <script>
