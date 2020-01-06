@@ -63,13 +63,13 @@
                             <label class="col-md-2 form-control-label">Show in Menu</label>
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
-                                <input id="show_in_menu" value="1" type="checkbox" name="show_in_menu" class="custom-control-input">
-                                <label for="show_in_menu" class="custom-control-label">Show in Main Menu</label>
+                                <input id="in_menu" value="1" type="checkbox" name="in_menu" class="custom-control-input">
+                                <label for="in_menu" class="custom-control-label">Show in Main Menu</label>
                                 </div>
                             </div>
                             </div>
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Article</label>
+                            <label class="col-md-2 form-control-label">Discription</label>
                             <div class="col-md-10">
                                 <textarea placeholder="Enter Details" class="form-control" id="description" name="description"  cols="30" rows="10">{{ old('article') }}</textarea>
                                 <input name="image" type="file" id="upload" class="hidden" onchange="">

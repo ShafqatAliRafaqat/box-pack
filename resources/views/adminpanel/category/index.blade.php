@@ -31,8 +31,8 @@
                     <th scope="row">{{$no++}}</th>
                     <td>{{ $c->title }}</td>
                     <td>{{ $c->type }}</td>
-                    <td>{{ $d->is_active == 1 ? 'Active' : 'Not Active' }}</td>
-                    <td>{{ $d->in_menu == 1 ? 'Show in Menu' : 'Dont Show in menu '}}</td>
+                    <td>{{ $c->is_active == 1 ? 'Active' : 'Not Active' }}</td>
+                    <td>{{ $c->in_menu == 1 ? 'Show in Menu' : 'Dont Show in menu '}}</td>
                     <td><a href="{{ route('category.edit', $c->id) }}"><i class="fa fa-edit"></i></a></td>
                     <td>
                     <a class="delete" data-id="{{ $c->id }}" href="#"><i class="fa fa-trash"></i></a>
