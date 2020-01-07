@@ -64,7 +64,7 @@
         var id = $(this).data('id');
         swal({
             title: "Are you sure?",
-            text: "You want to delete User!",
+            text: "You want to delete Category!",
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-danger",
@@ -76,7 +76,7 @@
         function(){
             setTimeout(function () {
                 $('#deleteForm'+id).submit();
-                swal("Deleted!", "User has been deleted.", "success");
+                swal("Deleted!", "Category has been deleted.", "success");
             }, 2000);
         });
     });

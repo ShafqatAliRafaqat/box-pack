@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
+use App\ProductImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -85,6 +87,16 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        $products = Product::where('category_id',$category->id)->get();
+        foreach($products as $product){
+            $product_images = ProductImages::where('product_id',$product->id)->get();
+            foreach($product_images as $image){
+                $oldImageLoc = public_path('uploads/products/' . $image->picture);
+                File::delete($oldImageLoc);
+                $image->delete();
+            }
+            $product->delete();
+        }
         if($category->picture){
             $oldImageLoc = public_path('uploads/categories/' . $category->picture);
             File::delete($oldImageLoc);

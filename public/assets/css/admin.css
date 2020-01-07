@@ -802,7 +802,7 @@ select.form-control:not([size]):not([multiple]) {
   line-height: 1;
 }
 
-.unread, .cancel {
+.unread {
   background-color: #dc3545;
 }
 

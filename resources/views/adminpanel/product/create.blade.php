@@ -85,7 +85,7 @@
 
                             <div class="form-group row">
                             <div class="col-md-9 ml-auto">
-                                <button type="submit" class="btn btn-primary">Save Category</button>
+                                <button type="submit" class="btn btn-primary">Save Product</button>
                             </div>
                             </div>
                         </form>
