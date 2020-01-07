@@ -18,7 +18,7 @@
                         <form class="form-horizontal" method="post" action="{{ route('category.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Title</label>
+                            <label class="col-md-2 form-control-label">Title<span class="asterisk"> *</span></label>
                             <div class="col-md-10">
                                     <input type="text" name="title" placeholder="Enter Category Title"
                                     class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" value="{{ old('title') }}" required>
@@ -30,14 +30,14 @@
                             </div>
 
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Picture</label>
+                            <label class="col-md-2 form-control-label">Picture <span class="asterisk"> *</span></label>
                             <div class="col-md-4">
                                   <input type="file" name="picture" id="files" class=" {{ $errors->has('picture') ? 'is-invalid' : '' }}" value="{{ old('picture') }}" required >
                                 @if($errors->has('picture'))
                                 <div class="invalid-feedback ml-3">{{ $errors->first('picture') }}</div>
                                 @endif
                             </div>
-                            <label class="col-md-2 form-control-label">Type</label>
+                            <label class="col-md-2 form-control-label">Type <span class="asterisk"> *</span></label>
                             <div class="col-md-4">
                                 <select name="type" class="form-control selectpicker">
                                     <option value="">Select Catagory Type</option>
@@ -51,7 +51,7 @@
                             </div>
                             </div>
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Active</label>
+                            <label class="col-md-2 form-control-label">Active </label>
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
                                 <input id="is_active" value="1" type="checkbox" name="is_active" class="custom-control-input">

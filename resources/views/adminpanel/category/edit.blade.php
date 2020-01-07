@@ -19,7 +19,7 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Title</label>
+                            <label class="col-md-2 form-control-label">Title <span class="asterisk"> *</span></label>
                             <div class="col-md-10">
                                     <input type="text" name="title" placeholder="Enter Category Title"
                                     class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" value="{{ $category->title }}" required>
@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Picture</label>
+                            <label class="col-md-2 form-control-label">Picture <span class="asterisk"> *</span></label>
                             <div class="col-md-4">
                                 <input type="file" name="picture" placeholder="Picture"
                                 class="form-control {{ $errors->has('picture') ? 'is-invalid' : '' }}" value="">
@@ -40,7 +40,7 @@
                                 <div class="invalid-feedback ml-3">{{ $errors->first('picture') }}</div>
                                 @endif
                             </div>
-                            <label class="col-md-2 form-control-label">Type</label>
+                            <label class="col-md-2 form-control-label">Type <span class="asterisk"> *</span></label>
                             <div class="col-md-4">
                                 <select name="type" class="form-control selectpicker">
                                     <option value="">Select Catagory Type</option>

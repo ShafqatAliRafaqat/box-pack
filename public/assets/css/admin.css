@@ -50,7 +50,13 @@ body.fixed-nav {
   min-height: calc(100vh - 62px);
   padding-top: 1rem;
 }
+.asterisk {
+  color: red;
+}
 
+.asterisk-blue {
+  color: blue;
+}
 .scroll-to-top {
   position: fixed;
   right: 15px;

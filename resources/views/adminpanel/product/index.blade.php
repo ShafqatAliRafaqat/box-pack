@@ -18,6 +18,7 @@
                      <th>Title</th>
                      <th>Discription</th>
                      <th>Category</th>
+                     <th>Main Picture</th>
                      <th>Active</th>
                      <th>Edit</th>
                      <th>Delete</th>
@@ -30,13 +31,16 @@
                 <tr>
                     <th scope="row">{{$no++}}</th>
                     <td>{{ $p->title }}</td>
-                    <td>{{ $p->description }}</td>
-                    <td>{{ $p->category_id }}</td>
+                    <td>{{ strip_tags($p->description) }}</td>
+                    <td>
+                        <?php $category_name = category_name($p->category_id); ?>
+                        {{ $category_name->title }}
+                    </td>
                     <td>{{ $p->is_active == 1 ? 'Active' : 'Not Active' }}</td>
                     <td><a href="{{ route('products.edit', $p->id) }}"><i class="fa fa-edit"></i></a></td>
                     <td>
                     <a class="delete" data-id="{{ $p->id }}" href="#"><i class="fa fa-trash"></i></a>
-                    <form id="deleteForm{{$p->id}}" method="post" action="{{ route('products.destroy', $c->id) }}">
+                    <form id="deleteForm{{$p->id}}" method="post" action="{{ route('products.destroy', $p->id) }}">
                         @csrf @method('delete')
                     </form>
                     </td>
