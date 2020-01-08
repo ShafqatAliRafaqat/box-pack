@@ -16,7 +16,7 @@
                   <tr>
                      <th>#</th>
                      <th>Title</th>
-                     <th>Discription</th>
+                     <th>description</th>
                      <th>Category</th>
                      <th>Main Picture</th>
                      <th>Active</th>

@@ -1,5 +1,6 @@
 <?php
 
+use App\BlogImages;
 use App\Category;
 use App\ProductImages;
 use Carbon\Carbon;
@@ -20,6 +21,10 @@ function product_image($product_id){
 }
 function ProductOtherImages($product_id){
     $image = ProductImages::where('product_id',$product_id)->where('main_picture',0)->select('picture')->get();
+    return $image;
+}
+function BlogImages($blog_id){
+    $image = BlogImages::where('blog_id',$blog_id)->select('picture')->get();
     return $image;
 }
 ?>

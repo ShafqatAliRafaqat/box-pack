@@ -67,7 +67,7 @@
                             </div>
                             </div>
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Discription</label>
+                            <label class="col-md-2 form-control-label">description</label>
                             <div class="col-md-10">
                                 <textarea placeholder="Enter Details" class="form-control" id="description" name="description"  cols="30" rows="10">{{ old('article') }}</textarea>
                                 <input name="image" type="file" id="upload" class="hidden" onchange="">
