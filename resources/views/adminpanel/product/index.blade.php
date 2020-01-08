@@ -42,9 +42,9 @@
 					</td>
                     <td>{{ $p->is_active == 1 ? 'Active' : 'Not Active' }}</td>
                     <td>
-                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#otherImagesModal">
+                    <a type="button" class="btn bt-sm" style="color:#007bff;" data-toggle="modal" data-target="#otherImagesModal_{{$p->id}}">
                         Images
-                    </button>
+                    </a>
                     </td>
                     <td><a href="{{ route('products.edit', $p->id) }}"><i class="fa fa-edit mr-2"></i></a>
                     <a class="delete" data-id="{{ $p->id }}" href="#"><i class="fa fa-trash"></i></a>
@@ -53,11 +53,11 @@
                     </form>
                     </td>
                     </tr>
-                    <div class="modal fade" id="otherImagesModal" tabindex="-1" role="dialog" aria-labelledby="otherImagesModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="otherImagesModal_{{$p->id}}" tabindex="-1" role="dialog" aria-labelledby="otherImagesModalLabel_{{$p->id}}" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="otherImagesModalLabel">{{$p->title}} Images</h5>
+                                <h5 class="modal-title" id="otherImagesModalLabel_{{$p->id}}">{{$p->title}} Images</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
