@@ -41,9 +41,9 @@
                             <div class="col-md-4">
                                 <select name="type" class="form-control selectpicker">
                                     <option value="">Select Catagory Type</option>
-                                    <option value="Type1">Type 1</option>
-                                    <option value="Type2">Type 2</option>
-                                    <option value="Type3">Type 3</option>
+                                    <option value="Type1">Box by Industry</option>
+                                    <option value="Type2">Box by Style</option>
+                                    <option value="Type3">Other</option>
                                 </select>
                                 @if($errors->has('type'))
                                     <div class="invalid-feedback ml-3">{{ $errors->first('type') }}</div>

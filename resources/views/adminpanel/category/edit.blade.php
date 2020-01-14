@@ -44,9 +44,9 @@
                             <div class="col-md-4">
                                 <select name="type" class="form-control selectpicker">
                                     <option value="">Select Catagory Type</option>
-                                    <option value="Type1" {{($category->type == "Type1")? 'selected':''}}>Type 1</option>
-                                    <option value="Type2" {{($category->type == 'Type2')? 'selected':''}}>Type 2</option>
-                                    <option value="Type3" {{($category->type == 'Type3')? 'selected':''}}>Type 3</option>
+                                    <option value="Type1" {{($category->type == "Type1")? 'selected':''}}>Box by Industry</option>
+                                    <option value="Type2" {{($category->type == 'Type2')? 'selected':''}}>Box by Style</option>
+                                    <option value="Type3" {{($category->type == 'Type3')? 'selected':''}}>Other</option>
                                 </select>
                                 @if($errors->has('type'))
                                     <div class="invalid-feedback ml-3">{{ $errors->first('type') }}</div>

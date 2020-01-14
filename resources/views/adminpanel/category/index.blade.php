@@ -31,7 +31,15 @@
                 <tr>
                     <th scope="row">{{$no++}}</th>
                     <td>{{ $c->title }}</td>
-                    <td>{{ $c->type }}</td>
+                    <td> 
+                        @if($c->type == 'Type1')
+                        Box by Industry
+                        @elseif($c->type == 'Type2')
+                        Box by Style
+                        @else
+                        Other 
+                        @endif
+                    </td>
                     <td>
 						<img src="{{ asset('uploads/categories/'. $c->picture) }}" width="50" height="50" />
 					</td>
