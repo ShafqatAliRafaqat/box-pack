@@ -65,11 +65,23 @@
           </a>
         </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Quote">
-            <a class="nav-link {{ Request::segment(2) == 'users' ? 'active' : ''}}" href="{{ route('users.index') }}">
-            <i class="fa fa-fw fa-heart"></i>
+            <a class="nav-link {{ Request::segment(2) == 'quotes' ? 'active' : ''}}" href="{{ route('quotes') }}">
+            <i class="fa fa-question-circle"></i>
             <span class="nav-link-text">Quote</span>
           </a>
-        </li>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Product Faq">
+          <a class="nav-link {{ Request::segment(2) == 'product_faq' ? 'active' : ''}}" href="{{ route('product_faq') }}">
+          <i class="fa fa-question-circle"></i>
+          <span class="nav-link-text">Product Faq</span>
+        </a>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Contacts">
+        <a class="nav-link {{ Request::segment(2) == 'contacts' ? 'active' : ''}}" href="{{ route('contacts') }}">
+        <i class="fa fa-address-book"></i>
+        <span class="nav-link-text">Contacts</span>
+      </a>
+    </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Users">
             <a class="nav-link {{ Request::segment(2) == 'users' ? 'active' : ''}}" href="{{ route('users.index') }}">
             <i class="fa fa-users fa-plus-circle"></i>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -69,5 +70,32 @@ class UserController extends Controller
         $delete_user = $user->delete();
         Session::flash('success','User Deleted Successfully');
         return redirect()->route('users.index');
+    }
+    public function allQuote()
+    {
+        $quotes = DB::table('quote')->orderBy('updated_at','DESC')->get();
+        return view('adminpanel.quote.index', compact('quotes'));
+    }
+    public function contacts()
+    {
+        $contacts = DB::table('contact_us')->where('box_type',null)->get();
+        return view('adminpanel.contact.index', compact('contacts'));
+    }
+    public function productFaq()
+    {
+        $productfaqs = DB::table('contact_us')->where('box_type','!=',null)->get();
+        return view('adminpanel.contact.product_faq', compact('productfaqs'));
+    }
+    public function deleteQuote($id)
+    {
+        $quotes = DB::table('quote')->where('id',$id)->delete();
+        Session::flash('success','Quote Deleted Successfully');
+        return redirect()->back();
+    }
+    public function deleteContact($id)
+    {
+        $contact_us = DB::table('contact_us')->where('id',$id)->delete();
+        Session::flash('success','Data Deleted Successfully');
+        return redirect()->back();
     }
 }

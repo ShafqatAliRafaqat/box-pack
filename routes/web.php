@@ -26,12 +26,18 @@ Route::group(['middleware'=>['auth'],'prefix' => 'admin'], function(){
 	Route::resource('users', 'UserController');
 	Route::resource('blogs', 'BlogController');
 
+	Route::post('/delete_quote/{id}', 'UserController@deleteQuote')->name('delete_quote');
+	Route::get('/quote', 'UserController@allQuote')->name('quotes');
+	Route::post('/delete_contact/{id}', 'UserController@deleteContact')->name('delete_contact');
+	Route::get('/contacts', 'UserController@contacts')->name('contacts');
+	Route::get('/product_faq', 'UserController@productFaq')->name('product_faq');
+
 });
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/about_us', 'HomeController@aboutUs')->name('about_us');
-Route::get('/contact_us', 'HomeController@contactUs')->name('contact_us');
-Route::get('/private_policy', 'HomeController@privatePolicy')->name('private_policy');
-Route::get('/terms_of_use', 'HomeController@termsOfUse')->name('terms_of_use');
+Route::get('/about_us', 'DashboardController@aboutUs')->name('about_us');
+Route::get('/contact_us', 'DashboardController@contactUs')->name('contact_us');
+Route::get('/private_policy', 'DashboardController@privatePolicy')->name('private_policy');
+Route::get('/terms_of_use', 'DashboardController@termsOfUse')->name('terms_of_use');
 
 Route::get('/category', 'CategoryController@categories')->name('category');
 Route::get('/blog', 'BlogController@blog')->name('blog');
