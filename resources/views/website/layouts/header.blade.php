@@ -35,7 +35,7 @@
             </div>
             <nav class="navbar navbar-expand-lg navbar-light" data-toggle="sticky-onscroll">
                 <div class="container">
-                    <a href="index.html" class="navbar-brand">
+                    <a href="/" class="navbar-brand">
                         <!-- Logo Image Here -->
                         <img class="logo-img" src="{{ asset('website/assets/images/Common/pack-printers.logo.svg')}}" alt="packaging head">
                     </a>
@@ -46,125 +46,125 @@
                     <div id="net-nav" class="collapse navbar-collapse">
                         <ul class="navbar-nav ml-auto text-center text-md-left">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="boxByIndustry.html"
-                                    onclick="window.location.href='boxByIndustry.html'" target="_blank"
+                                <a class="nav-link dropdown-toggle" href="{{ route('category') }}" 
+                                    onclick="window.location.href='/category'"target="_blank"
                                     id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     box by industry
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                    <a class="dropdown-item" href="cbdcustompackaging.html">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/navbar-images/cbd-packaging-boxes-60x60.png')}}" alt="">
                                         CBD Packaging Boxes
                                     </a>
-                                    <a class="dropdown-item" href="customCosmeticBox.html">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd1-1.png')}}" alt="">
                                         custom cosmetic box
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd1-2.png')}}" alt="">
                                         custom display package
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd1-3.png')}}" alt="">
                                         custom eco friendly boxes
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd1-5.png')}}" alt="">
                                         custom gift boxes
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd1-7.png')}}" alt="">
                                         custom retail boxes
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd1-8.png')}}" alt="">
                                         custom retail packaging
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/navbar-images/Chinese-Food-Boxes-50x50.png')}}" alt="">
                                         food & beverages boxes
                                     </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="boxByStyle.html"
-                                    onclick="window.location.href='boxByStyle.html'" target="_blank"
+                                <a class="nav-link dropdown-toggle" href="{{ route('category') }}" 
+                                    onclick="window.location.href='/category'"target="_blank"
                                     id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     box by style
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                    <a class="dropdown-item" href="bottomClosure.html">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd2-1.png')}}" alt="">
                                         bottom closure
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd2-2.png')}}" alt="">
                                         CD Covers
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd2-3.png')}}" alt="">
                                         figure & pattern
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd2-4.png')}}" alt="">
                                         fold & assemble
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd2-5.png')}}" alt="">
                                         rectangular
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd2-6.png')}}" alt="">
                                         showcase exhibit
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd2-7.png')}}" alt="">
                                         top closure
                                     </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="others.html"
-                                    onclick="window.location.href='others.html'" target="_blank" id="navbarDropdown4"
+                                <a class="nav-link dropdown-toggle" href="{{ route('category') }}" 
+                                    onclick="window.location.href='/category'"target="_blank" id="navbarDropdown4"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Others
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                                    <a class="dropdown-item" href="customStickers.html">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/navbar-images/Die-Cut-Folders-50x50.png')}}" alt="">
                                         presentation folder
                                     </a>
-                                    <a class="dropdown-item" href="customStickers.html">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/navbar-images/stickers-and-lables-50x50.png')}}" alt="">
                                         custom stickers & lables
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/navbar-images/Cling-Decals-50x50.png')}}" alt="">
                                         decals
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/navbar-images/Magazine-Printing-50x50.png')}}" alt="">
                                         magazines
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/navbar-images/bottle-neckers-50x50.png')}}" alt="">
                                         bottle necker
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('product') }}">
                                         other
                                     </a>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="blog.html">blog</a>
+                                <a class="nav-link" href="{{ route('blog') }}">blog</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-btn" href="getFreeQuote.html">
+                                <a class="nav-link nav-btn" href="{{ route('quote') }}">
                                     <span>get free quote</span>
                                 </a>
                             </li>

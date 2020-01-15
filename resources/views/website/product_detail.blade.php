@@ -1,189 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Custom Address Labels</title>
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="assets/css/vendor/1-sanitize.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/2-bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/vendor/imagepreviewer.min.css">
-        <link rel="stylesheet" href="assets/css/styles.min.css">
-    </head>
-
-    <body data-spy="scroll" data-target="#net-nav" data-offset="50">
-
-        <!-- Main Page Header -->
-        <header class="mainHeader">
-            <!-- NavBar  -->
-            <div id="top" class="headtop">
-                <div class="container position-relative">
-                    <div class="top-links mr-0 pr-0 mr-md-5 pr-md-4">
-                        <a href="tel:+182345678">Call Us: <i>+18-23-4567-8</i></a>
-                        <a href="mailto:info@packprinters.com">Email: <i>info@packprinters.com</i></a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- Search Bar -->
-            <div class="search-bar">
-                <img src="assets/images/icons/magnifying-glass.png" alt="search">
-                <input type="text" placeholder="Search...">
-                <span class="close-searchBar">x</span>
-            </div>
-            <nav class="navbar navbar-expand-lg navbar-light" data-toggle="sticky-onscroll">
-                <div class="container">
-                    <a href="index.html" class="navbar-brand">
-                        <!-- Logo Image Here -->
-                        <img class="logo-img" src="assets/images/Common/pack-printers.logo.svg" alt="packaging head">
-                    </a>
-                    <button class="navbar-toggler" data-target="#net-nav" data-toggle="collapse" aria-controls="net-nav"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div id="net-nav" class="collapse navbar-collapse">
-                        <ul class="navbar-nav ml-auto text-center text-md-left">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Home</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    box by industry <span class="sr-only">(current)</span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                    <a class="dropdown-item" href="cbdcustompackaging.html">
-                                        <img src="assets/images/navbar-images/cbd-packaging-boxes-60x60.png" alt="">
-                                        CBD Packaging Boxes
-                                    </a>
-                                    <a class="dropdown-item" href="customCosmeticBox.html">
-                                        <img src="assets/images/Common/dd1-1.png" alt="">
-                                        custom cosmetic box
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd1-2.png" alt="">
-                                        custom display package
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd1-3.png" alt="">
-                                        custom eco friendly boxes
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd1-5.png" alt="">
-                                        custom gift boxes
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd1-7.png" alt="">
-                                        custom retail boxes
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd1-8.png" alt="">
-                                        custom retail packaging
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/navbar-images/Chinese-Food-Boxes-50x50.png" alt="">
-                                        food & beverages boxes
-                                    </a>
-
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="boxByStyle.html"
-                                    onclick="window.location.href='boxByStyle.html'" target="_blank"
-                                    id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    box by style
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                    <a class="dropdown-item" href="bottomClosure.html
-                                    ">
-                                        <img src="assets/images/Common/dd2-1.png" alt="">
-                                        bottom closure
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd2-2.png" alt="">
-                                        CD Covers
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd2-3.png" alt="">
-                                        figure & pattern
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd2-4.png" alt="">
-                                        fold & assemble
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd2-5.png" alt="">
-                                        rectangular
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd2-6.png" alt="">
-                                        showcase exhibit
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/Common/dd2-7.png" alt="">
-                                        top closure
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown active">
-                                <a class="nav-link dropdown-toggle" href="others.html"
-                                    onclick="window.location.href='others.html'" target="_blank" id="navbarDropdown4"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Others
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                                    <a class="dropdown-item" href="customStickers.html">
-                                        <img src="assets/images/navbar-images/Die-Cut-Folders-50x50.png" alt="">
-                                        presentation folder
-                                    </a>
-                                    <a class="dropdown-item" href="customStickers.html">
-                                        <img src="assets/images/navbar-images/stickers-and-lables-50x50.png" alt="">
-                                        custom stickers & lables
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/navbar-images/Cling-Decals-50x50.png" alt="">
-                                        decals
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/navbar-images/Magazine-Printing-50x50.png" alt="">
-                                        magazines
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <img src="assets/images/navbar-images/bottle-neckers-50x50.png" alt="">
-                                        bottle necker
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        other
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="blog.html">blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav-btn" href="getFreeQuote.html">
-                                    <span>get free quote</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link search">
-                                    <img src="assets/images/icons/magnifying-glass.png" alt="search icon">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-
-        <!-- Main Area -->
-        <main>
-
+@extends('website.layouts.layout')
+@section('title', 'Pack Printers :: Custom Packaging Service')
+@section('main_content')
             <section class="boxesByIndustry">
                 <header class="commonHeader">
                     <h1 class="text-capitalize"> Custom Address Labels </h1>
@@ -210,13 +27,13 @@
                                 <div class="imagePreviewer">
                                     <ul id="lightSlider">
                                         <li data-thumb="assets/images/customCreamBoxes/Cream-Packaging.jpg">
-                                            <img src="assets/images/customCreamBoxes/Cream-Packaging.jpg" />
+                                            <img src="website/assets/images/customCreamBoxes/Cream-Packaging.jpg" />
                                         </li>
                                         <li data-thumb="assets/images/customCreamBoxes/Cream-Boxes.jpg">
-                                            <img src="assets/images/customCreamBoxes/Cream-Boxes.jpg" />
+                                            <img src="website/assets/images/customCreamBoxes/Cream-Boxes.jpg" />
                                         </li>
                                         <li data-thumb="assets/images/customCreamBoxes/5.-png.png">
-                                            <img src="assets/images/customCreamBoxes/5.-png.png" />
+                                            <img src="website/assets/images/customCreamBoxes/5.-png.png" />
                                         </li>
                                     </ul>
                                 </div>
@@ -414,7 +231,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="assets/images/icons/cancel.png">
+                                <img src="website/assets/images/icons/cancel.png">
                                 <h5>
                                     No Die & Plate Charges
                                 </h5>
@@ -423,7 +240,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="assets/images/icons/box.png">
+                                <img src="website/assets/images/icons/box.png">
                                 <h5>
                                     starting from 100 boxes
                                 </h5>
@@ -432,7 +249,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="assets/images/icons/calendar.png">
+                                <img src="website/assets/images/icons/calendar.png">
                                 <h5>
                                     fast turnarounds 8-10 business days
                                 </h5>
@@ -441,7 +258,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="assets/images/icons/ribbon.png">
+                                <img src="website/assets/images/icons/ribbon.png">
                                 <h5>
                                     high quality offset printing
                                 </h5>
@@ -450,7 +267,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="assets/images/icons/wallet.png">
+                                <img src="website/assets/images/icons/wallet.png">
                                 <h5>
                                     competitive pricing
                                 </h5>
@@ -476,7 +293,7 @@
                             <div class="col-6 col-md-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="assets/images/other-images/custom-stickers/Anniversary-Seals-179x179.png"
+                                        <img src="website/assets/images/other-images/custom-stickers/Anniversary-Seals-179x179.png"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -489,7 +306,7 @@
                             <div class="col-6 col-md-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="assets/images/other-images/custom-stickers/auto-and-car-decals-179x179.png"
+                                        <img src="website/assets/images/other-images/custom-stickers/auto-and-car-decals-179x179.png"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -502,7 +319,7 @@
                             <div class="col-6 col-md-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png"
+                                        <img src="website/assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -515,7 +332,7 @@
                             <div class="col-6 col-sm-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="assets/images/other-images/custom-stickers/auto-and-car-stickers-179x179.png"
+                                        <img src="website/assets/images/other-images/custom-stickers/auto-and-car-stickers-179x179.png"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -543,7 +360,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="assets/images/icons/secure-payment-1.png">
+                                            <img src="website/assets/images/icons/secure-payment-1.png">
                                             <h5>secure payment</h5>
                                             <p>visa, masterCard, PayPal etc</p>
                                         </div>
@@ -551,7 +368,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="assets/images/icons/shiping-1.png" style="width: 80px;">
+                                            <img src="website/assets/images/icons/shiping-1.png" style="width: 80px;">
                                             <h5>world wide shipping</h5>
                                             <p>6-8 business days</p>
                                         </div>
@@ -559,7 +376,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="assets/images/icons/design-support-1.png" style="width: 61px;">
+                                            <img src="website/assets/images/icons/design-support-1.png" style="width: 61px;">
                                             <h5>free design support</h5>
                                             <p>with 2D and 3D mockup</p>
                                         </div>
@@ -567,7 +384,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3">
                                         <div class="benifit-item">
-                                            <img src="assets/images/icons/customize-1.png" style="width: 58px;">
+                                            <img src="website/assets/images/icons/customize-1.png" style="width: 58px;">
                                             <h5>custom size & design</h5>
                                             <p>premium custom boxes</p>
                                         </div>
@@ -730,162 +547,46 @@
             <div class="prods-slider">
                 <div class="slider-wrap" data-aos="fade-left" data-aos-duration="1700">
                     <div class="left-slider-btn">
-                        <img src="assets/images/icons/arrow.png" alt="arrow">
+                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
                     </div>
                     <div class="slide-area">
                         <div class="owlOne owl-carousel owl-theme">
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="assets/images/Common/CBD-Box-With-Bottle.jpg" alt="Slider Image">
+                                <img class="" src="website/assets/images/Common/CBD-Box-With-Bottle.jpg" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="assets/images/Common/Chinese-product-Tuck-End-Box.jpg"
+                                <img class="" src="website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg"
                                     alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="assets/images/Common/Corrugated-Kraft-Boxes.jpg" alt="Slider Image">
+                                <img class="" src="website/assets/images/Common/Corrugated-Kraft-Boxes.jpg" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="assets/images/Common/Mix_Tuck_End_Boxes.jpg" alt="Slider Image">
+                                <img class="" src="website/assets/images/Common/Mix_Tuck_End_Boxes.jpg" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="assets/images/Common/Sleeve-Chocolate-Box.jpg" alt="Slider Image">
+                                <img class="" src="website/assets/images/Common/Sleeve-Chocolate-Box.jpg" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="assets/images/Common/Tuck-Box.jpg" alt="Slider Image">
+                                <img class="" src="website/assets/images/Common/Tuck-Box.jpg" alt="Slider Image">
                             </a>
                         </div>
                     </div>
                     <div class="right-slider-btn">
-                        <img src="assets/images/icons/arrow.png" alt="arrow">
+                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
                     </div>
                 </div>
             </div>
 
-        </main>
-
-        <!-- Footer -->
-        <footer>
-            <div class="container pb-5" data-aos="fade-up" data-aos-duration="1500">
-                <!-- Clients Slider -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="clients-slider">
-                            <h4>
-                                TRUSTED BY THE WORLD'S TOP BRANDS
-                            </h4>
-                            <div class="clients owl-carousel owl-theme" data-aos="flip-up" data-aos-duration="2000">
-                                <div class="item">
-                                    <img class="" src="assets/images/Common/marriot.svg" alt="Client Logo">
-                                </div>
-                                <div class="item">
-                                    <img class="" src="assets/images/Common/metlife.svg" alt="Client Logo">
-                                </div>
-                                <div class="item">
-                                    <img class="" src="assets/images/Common/old_spice.svg" alt="Client Logo">
-                                </div>
-                                <div class="item">
-                                    <img class="" src="assets/images/Common/pandora.svg" alt="Client Logo">
-                                </div>
-                                <div class="item">
-                                    <img class="" src="assets/images/Common/ticketmaster.svg" alt="Client Logo">
-                                </div>
-                                <div class="item">
-                                    <img class="" src="assets/images/Common/adidas.svg" alt="Client Logo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-between" data-aos="slide-up" data-aos-duration="1700">
-                    <div class="col-lg-3">
-                        <a class="foot-img" href="#">
-                            <img src="assets/images/Common/pack-printers.logo.svg" alt="footer Logo">
-                        </a>
-                        <p>
-                            Every custom box we create is made just for
-                            you. You can customize every inch of your
-                            box design inside and out, while our state of
-                            the art printing ensures you'll love the
-                            quality of your finished packaging boxes.
-                        </p>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="links">
-                            <h5>
-                                box by industry
-                            </h5>
-                            <a href="cbdboxes.html" target="_blank">CBD Packaging Boxes</a>
-                            <a href="customCosmeticBox.html" target="_blank">Custom Cosmetic Box</a>
-                            <a href="customCosmeticBox.html" target="_blank">Custom display packaging</a>
-                            <a href="customCosmeticBox.html" target="_blank">food and beverages boxes</a>
-                            <a href="customCosmeticBox.html" target="_blank">Custom retail packaging</a>
-                            <a href="customCosmeticBox.html" target="_blank">Custom eco friendly boxes</a>
-                            <a href="customCosmeticBox.html" target="_blank">Custom retail Box</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="links">
-                            <h5>
-                                quick links
-                            </h5>
-                            <a href="contactUs.html" target="_blank">Contact Us</a>
-                            <a href="aboutUs.html" target="_blank">About Us</a>
-                            <a href="termsOfUse.html" target="_blank">Terms of Use</a>
-                            <a href="privatePolicy.html" target="_blank">Private policy</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="links">
-                            <h5>
-                                contact
-                            </h5>
-                            <a href="http://www.googlemaps.com" target="_blank">Street: 114 spartan ave, staten <br>
-                                island,
-                                New Your, USA</a>
-                            <a href="tel:18184767382" target="_blank">1-818-476-7382</a>
-                            <a href="mailto:info@packprinters.com" target="_blank">info@packprinters.com</a>
-                        </div>
-                        <div class="social-icons">
-                            - &nbsp;
-                            <a href="httpe://www.facebook.com" target="_blank">
-                                <img src="assets/images/icons/facebook.png" alt="facebook"></a>
-                            <a href="httpe://www.twitter.com" target="_blank">
-                                <img src="assets/images/icons/twitter.png" alt="twitter"></a>
-                            <a href="httpe://www.instagram.com" target="_blank">
-                                <img src="assets/images/icons/instagram.png" alt="instagram"></a>
-                            <a href="httpe://www.behance.com" target="_blank">
-                                <img src="assets/images/icons/behance.png" alt="behnace"></a>
-                            <a href="httpe://www.pinterest.com" target="_blank">
-                                <img src="assets/images/icons/pinterest.png" alt="pinterest"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footbar">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="footwrap">
-                                <img src="assets/images/Common/certificate.png" alt="certificates bar">
-                                <p>
-                                    2019 Pack Printers. All Rights Reserved
-                                </p>
-                                <img src="assets/images/Common/payment-icons.png" alt="payment bar">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </footer>
-
+@endsection
+@section('scripts')
         <!-- JavaScript Files -->
-        <script src="assets/js/vendor/1-jquery-3.4.0.min.js"></script>
-        <script src="assets/js/vendor/2-bootstrap.min.js"></script>
-        <script src="assets/js/vendor/3-popper.min.js"></script>
-        <script src="assets/js/vendor/4-simplebar.min.js"></script>
-        <script src="assets/js/vendor/imagepreviewer.min.js"></script>
-        <script src="assets/js/scripts.min.js"></script>
+        <script src="website/assets/js/vendor/1-jquery-3.4.0.min.js"></script>
+        <script src="website/assets/js/vendor/2-bootstrap.min.js"></script>
+        <script src="website/assets/js/vendor/3-popper.min.js"></script>
+        <script src="website/assets/js/vendor/4-simplebar.min.js"></script>
+        <script src="website/assets/js/vendor/imagepreviewer.min.js"></script>
+        <script src="website/assets/js/scripts.min.js"></script>
         <script>
             //  Image Slider With Thumbnail Initialization
             $('#lightSlider').lightSlider({
@@ -908,6 +609,5 @@
             // To use zoom with img elements, they will need to be wrapped with another element.
 
         </script>
-    </body>
+@endsection
 
-</html>

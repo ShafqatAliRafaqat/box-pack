@@ -19,7 +19,10 @@ class UserController extends Controller
     {
         return view('adminpanel.users.create');
     }
-
+    public function quote()
+    {
+        return view('website.quote');
+    }
     public function store(Request $request)
     {
         $validate = $request->validate([

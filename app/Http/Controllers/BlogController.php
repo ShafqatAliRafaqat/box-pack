@@ -55,7 +55,14 @@ class BlogController extends Controller
     {
         
     }
-
+    public function blog()
+    {
+        return view('website.blog');
+    }
+    public function blogDetail()
+    {
+        return view('website.blog_detail');
+    }
     public function edit(Blog $blog)
     {
         return view('adminpanel.blog.edit', compact('blog'));

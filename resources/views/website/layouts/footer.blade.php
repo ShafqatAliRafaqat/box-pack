@@ -31,7 +31,7 @@
     </div>
     <div class="row justify-content-between" data-aos="slide-up" data-aos-duration="1700">
         <div class="col-lg-3">
-            <a class="foot-img" href="#">
+            <a class="foot-img" href="/">
                 <img src="{{ asset('website/assets/images/Common/pack-printers.logo.svg')}}" alt="footer Logo">
             </a>
             <p>
@@ -61,10 +61,10 @@
                 <h5>
                     quick links
                 </h5>
-                <a href="contactUs.html" target="_blank">Contact Us</a>
-                <a href="aboutUs.html" target="_blank">About Us</a>
-                <a href="termsOfUse.html" target="_blank">Terms of Use</a>
-                <a href="privatePolicy.html" target="_blank">Private policy</a>
+                <a href="{{ route('contact_us') }}" target="_blank">Contact Us</a>
+                <a href="{{ route('about_us') }}" target="_blank">About Us</a>
+                <a href="{{ route('terms_of_use') }}" target="_blank">Terms of Use</a>
+                <a href="{{ route('private_policy') }}" target="_blank">Private policy</a>
             </div>
         </div>
         <div class="col-lg-3">

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('website/assets/css/vendor/2-bootstrap.min.css') }}">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="{{ asset('website/assets/css/styles.min.css') }}">
+        @yield('styles')
     </head>
 
     <body data-spy="scroll" data-target="#net-nav" data-offset="50">
@@ -41,6 +42,7 @@
             });
 
         </script>
+    @yield('scripts')
     </body>
 
 </html>

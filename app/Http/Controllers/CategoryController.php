@@ -52,6 +52,10 @@ class CategoryController extends Controller
     {
         //
     }
+    public function categories()
+    {
+        return view('website.category');
+    }
 
     public function edit(Category $category)
     {

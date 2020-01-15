@@ -23,7 +23,14 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('adminpanel.product.create',compact('categories'));
     }
-
+    public function product()
+    {
+        return view('website.product');
+    }
+    public function productDetail()
+    {
+        return view('website.product_detail');
+    }
     public function store(Request $request)
     {
         $validate = $request->validate([
