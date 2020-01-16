@@ -7,176 +7,180 @@
                     <p>
                         all custom boxes you need for your product
                     </p>
-                </header>
-
-                <div class="quoteForm">
-                    <div class="container">
-                        <!-- Beat My Quote Row -->
-                        <form action="post">
-                            <div class="row">
-                                <!-- Quote Form Item -->
-                                <div class="col-md-3">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            your name *
-                                        </h5>
-                                        <input type="text" class="form-control" placeholder="Your Name *" required>
+                </header>                
+                    <div class="quoteForm">
+                        <div class="container">
+                        @include('adminpanel.notification')
+                            <!-- Beat My Quote Row -->
+                            <form method="post" id="customer-form" action="{{ route('store_quote') }}" enctype="multipart/form-data">
+                            @csrf
+                                <div class="row">
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-3">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                your name *
+                                            </h5>
+                                            <input type="text" class="form-control" name="name" placeholder="Your Name *" required>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-3">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                your email *
+                                            </h5>
+                                            <input type="email" class="form-control" name ="email" placeholder="Your Email *" required>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-3">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                your phone *
+                                            </h5>
+                                            <input type="tel" class="form-control" name="phone" placeholder="Your Phone *" required>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-3">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                company name *
+                                            </h5>
+                                            <input type="text" class="form-control" name="company_name" placeholder="Company Name *" required>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-3">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Select Box Type:
+                                            </h5>
+                                            <select id="my-select" name="" class="form-control" name="box_type">
+                                                <option value="">Select Catagory Type</option>
+                                                <option value="Box by Industry">Box by Industry</option>
+                                                <option value="Box by Style">Box by Style</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-3">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Size:
+                                            </h5>
+                                            <input type="text" class="form-control" name="width" placeholder="Width *" required>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-3">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Size:
+                                            </h5>
+                                            <input type="text" class="form-control" name="height" placeholder="Height *" required>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-3">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Size:
+                                            </h5>
+                                            <input type="text" class="form-control" name="length" placeholder="Length *" required>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-6">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Unit
+                                            </h5>
+                                            <select id="" class="form-control" name="unit">
+                                                <option value="CM">CM</option>
+                                                <option value="MM">MM</option>
+                                                <option value="INCHES">INCHES</option>
+                                                <option value="FEET">FEET</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-6">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Color Option
+                                            </h5>
+                                            <select id="" class="form-control" name="color" >
+                                                <option value="White">White</option>
+                                                <option value="Tan">Tan</option>
+                                                <option value="Yellow">Yellow</option>
+                                                <option value="Orange">Orange</option>
+                                                <option value="Red">Red</option>
+                                                <option value="Pink">Pink</option>
+                                                <option value="Purple">Purple</option>
+                                                <option value="Blue">Blue</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-4">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Quantity:
+                                            </h5>
+                                            <input type="text" class="form-control" name="quantity" placeholder="Qty1 *" required>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-4">
+                                        <div class="input-wrap">
+                                            <h5> &nbsp;
+                                            </h5>
+                                            <input type="text" class="form-control" name="quantity1" placeholder="Qty2">
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-4">
+                                        <div class="input-wrap">
+                                            <h5> &nbsp;
+                                            </h5>
+                                            <input type="text" class="form-control" name="quantity2" placeholder="Qty3">
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-6">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Additional Comments:
+                                            </h5>
+                                            <textarea id="my-textarea" class="form-control" name="comment" rows="3"
+                                                placeholder="Let us know what you need! Box dimensions, number of boxes you need, design – we can help."></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- Quote Form Item -->
+                                    <div class="col-md-6">
+                                        <div class="input-wrap">
+                                            <h5>
+                                                Attach File:
+                                            </h5>
+                                            <input type="file" name="file" id="file">
+                                            <label for="file" style="font-size: 14px;">Maximum file size 12 MB.(jpg, png,
+                                                gif, doc, docx, xls, xlsx,
+                                                pdf, ai, cdr)</label>
+                                        </div>
+                                    </div>
+                                    <!-- Submit Button -->
+                                    <div class="col-md-2 text-center text-md-left">
+                                        <button type="submit" class="mb-5 mb-md-0">
+                                            send
+                                        </button>
                                     </div>
                                 </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-3">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            your email *
-                                        </h5>
-                                        <input type="email" class="form-control" placeholder="Your Email *" required>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-3">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            your phone *
-                                        </h5>
-                                        <input type="tel" class="form-control" placeholder="Your Phone *" required>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-3">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            company name *
-                                        </h5>
-                                        <input type="text" class="form-control" placeholder="Company Name *" required>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-3">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Select Box Type:
-                                        </h5>
-                                        <select id="my-select" class="form-control" name="">
-                                            <option>Text</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-3">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Size:
-                                        </h5>
-                                        <input type="text" class="form-control" placeholder="Width *" required>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-3">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Size:
-                                        </h5>
-                                        <input type="text" class="form-control" placeholder="Height *" required>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-3">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Size:
-                                        </h5>
-                                        <input type="text" class="form-control" placeholder="Length *" required>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-6">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Unit
-                                        </h5>
-                                        <select id="" class="form-control" name="">
-                                            <option>CM</option>
-                                            <option>MM</option>
-                                            <option>INCHES</option>
-                                            <option>FEET</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-6">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Color Option
-                                        </h5>
-                                        <select id="" class="form-control" name="">
-                                            <option value="0">1 Color</option>
-                                            <option value="1">2 Color</option>
-                                            <option value="2">3 Color</option>
-                                            <option value="3">4 Color</option>
-                                            <option value="4">4/1 Color</option>
-                                            <option value="5">4/2 Color</option>
-                                            <option value="6">4/3 Color</option>
-                                            <option value="7">4/4 Color</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-4">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Quantity:
-                                        </h5>
-                                        <input type="text" class="form-control" placeholder="Qty1 *" required>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-4">
-                                    <div class="input-wrap">
-                                        <h5> &nbsp;
-                                        </h5>
-                                        <input type="text" class="form-control" placeholder="Qty2">
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-4">
-                                    <div class="input-wrap">
-                                        <h5> &nbsp;
-                                        </h5>
-                                        <input type="text" class="form-control" placeholder="Qty3">
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-6">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Additional Comments:
-                                        </h5>
-                                        <textarea id="my-textarea" class="form-control" name="" rows="3"
-                                            placeholder="Let us know what you need! Box dimensions, number of boxes you need, design – we can help."></textarea>
-                                    </div>
-                                </div>
-                                <!-- Quote Form Item -->
-                                <div class="col-md-6">
-                                    <div class="input-wrap">
-                                        <h5>
-                                            Attach File:
-                                        </h5>
-                                        <input type="file" name="file" id="file">
-                                        <label for="file" style="font-size: 14px;">Maximum file size 12 MB.(jpg, png,
-                                            gif, doc, docx, xls, xlsx,
-                                            pdf, ai, cdr)</label>
-                                    </div>
-                                </div>
-                                <!-- Submit Button -->
-                                <div class="col-md-2 text-center text-md-left">
-                                    <button type="submit" class="mb-5 mb-md-0">
-                                        send
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
             </section>
 
             <!-- Our Benifits -->

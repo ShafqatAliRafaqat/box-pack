@@ -53,7 +53,7 @@
                     </tr>
 
                     <div class="modal fade" id="moreDetails_{{$q->id}}" tabindex="-1" role="dialog" aria-labelledby="moreDetailsLable_{{$q->id}}" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-dialog " role="document">
                             <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="moreDetailsLable_{{$q->id}}">{{$q->name}} </h5>
@@ -61,38 +61,24 @@
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                <div class="card-body table-responsive">
-                                    <table class="table table-striped table-sm card-text" id="moredetailquote">
-                                      <thead class="thead-light text-center">
-                                        <tr>
-                                           <th>#</th>
-                                           <th>Width</th>
-                                           <th>Height</th>
-                                           <th>Length</th>
-                                           <th>Unit </th>
-                                           <th>Color</th>
-                                           <th>Quantity</th>
-                                           <th>Quantity1</th>
-                                           <th>Quantity2</th>
-                                       </tr>
-                                      </thead>
-                                      <tbody class="text-center">
-                                            <tr>
-                                            <th scope="row">{{$no}}</th>
-                                            <td>{{ $q->width }}</td>
-                                            <td>{{ $q->height }}</td>
-                                            <td>{{ $q->length }}</td>
-                                            <td>{{ $q->unit }}</td>
-                                            <td> {{$q->color}} </td>
-                                            <td>{{ $q->quantity }}</td>
-                                            <td>{{ $q->quantity1 }}</td>
-                                            <td>{{ $q->quantity2 }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>   
-                            </div>
+                                <div class="modal-body">
+                                    <div class="card-body table-responsive">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <ul>
+                                                    <li><b>Unit :     </b> <span class="ml-5"> {{ $q->unit }}    </span></li>
+                                                    <li><b>Color :    </b> <span class="ml-5"> {{ $q->color }}   </span></li>
+                                                    <li><b>Width :    </b> <span class="ml-5"> {{ $q->width }}   </span></li>
+                                                    <li><b>Height :   </b> <span class="ml-5"> {{ $q->height }}  </span></li>
+                                                    <li><b>Length :   </b> <span class="ml-5"> {{ $q->length }}  </span></li>
+                                                    <li><b>Quantity : </b> <span class="ml-5"> {{ $q->quantity }}</span></li>
+                                                    <li><b>Quantity1 :</b> <span class="ml-5"> {{ $q->quantity1 }}</span></li>
+                                                    <li><b>Quantity2 :</b> <span class="ml-5"> {{ $q->quantity2 }}</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

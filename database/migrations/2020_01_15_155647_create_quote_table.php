@@ -20,10 +20,11 @@ class CreateQuoteTable extends Migration
             $table->string('phone')->nullable();
             $table->string('company_name')->nullable();
             $table->string('box_type')->nullable();
+            $table->string('file_type')->nullable();
             $table->integer('width')->nullable();
             $table->integer('height')->nullable();
             $table->integer('length')->nullable();
-            $table->integer('unit')->nullable();
+            $table->string('unit')->nullable();
             $table->string('color')->nullable();
             $table->string('quantity')->nullable();
             $table->string('quantity1')->nullable();

@@ -45,3 +45,4 @@ Route::get('/blog_detail', 'BlogController@blogDetail')->name('blog_detail');
 Route::get('/product_detail', 'ProductController@productDetail')->name('product_detail');
 Route::get('/product', 'ProductController@product')->name('product');
 Route::get('/quote', 'UserController@quote')->name('quote');
+Route::post('/store_quote', 'UserController@storeQuote')->name('store_quote');
