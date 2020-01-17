@@ -1,0 +1,90 @@
+sudo apt update
+sudo apt upgrade
+sudo apt-get install nginx
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt install php7.3-fpm php7.3-common php7.3-mysql php7.3-gmp php7.3-curl php7.3-intl php7.3-mbstring php7.3-xmlrpc php7.3-gd php7.3-bcmath php7.3-xml php7.3-cli php7.3-zip
+sudo apt install zip unzip php-zip
+
+sudo nano /etc/php/7.3/fpm/php.ini
+sudo nano /etc/php/7.3/cli/php.ini
+
+sudo apt-get install 
+
+//sudo apt install mysql-server php-mysql
+//sudo mysql
+//sudo apt install phpmyadmin
+
+sudo apt install composer
+
+// Deploying our code to our server
+git clone https://github.com/malikzeeshaan/CareALL_APIs.git ~/CareALL_APIs
+
+chown -R www-data:www-data CareALL_APIs/
+ chmod -R 775 CareALL_APIs/
+ chmod -R 777 CareALL_APIs/
+
+sudo nano /etc/nginx/sites-available/default
+// change the following lines of codes
+root /var/www/html  => root /home/ubuntu/CareALL_APIs/public;
+#add index.php
+server_name support.hospitallcare.com www.support.hospitallcare.com
+ // uncommit the location ~\.php${
+         #add new line
+         fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+ }
+ // uncommit location ~?/\.ht {
+         deny 
+         
+ }
+ location / {
+       try_files $uri $uri/ /index.php?$query_string;
+   }
+
+sudo service nginx restart
+
+
+
+// Setting up MySQL
+mysql_secure_installation
+mysql -u root -p
+mysql> CREATE DATABASE `hospitall`;
+mysql> CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'password';
+mysql> GRANT ALL ON myapp.* TO 'myuser'@'localhost';
+mysql> exit
+
+// Installing Composer
+sudo composer install
+
+// Restarting services
+sudo service nginx restart
+sudo service php-fpm restart
+sudo service mysqld restart
+
+
+sudo service apache2 stop
+
+
+IP for CareALL_APIs 3.13.76.70
+IP for ClaimsALL_APIs 3.120.159.171
+
+workBench for ClaimsALL
+hostname : hosiptall-1-cluster.cluster-cwytreefagmf.eu-central-1.rds.amazonaws.com
+username : root
+password : qwerty12345
+
+WorkBench for CareALL
+hostname : hospitallcare.cy7heobftrrv.us-east-2.rds.amazonaws.com
+username : admin
+password : admin1234
+
+https://master.d3s74r50o15qkd.amplifyapp.com
+d2gjxourczr7vt.cloudfront.net
+
+
+Starting the Laravel Scheduler
+crontab -e
+0 * * * * php /home/ubuntu/CareALL_APIs/artisan schedule:run >> /dev/null 2>&1
+
+create new folder mkdir folderName
+remove folder commond sudo rm -R folderName

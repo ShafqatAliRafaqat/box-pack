@@ -52,9 +52,28 @@ class CategoryController extends Controller
     {
         //
     }
-    public function categories()
+    public function categories($slug = null)
     {
-        return view('website.category');
+        if($slug == 'box-by-industory'){
+            $type = 'Type1';
+        }
+        if($slug == 'box-by-style'){
+            $type = 'Type2';
+        }
+        if($slug == 'box-by-other'){
+            $type = 'Type3';
+        }
+        if($slug != null){
+            $categories = Category::where('type',$type)->where('is_active',1)->get();
+        }else{
+            $categories = Category::where('is_active',1)->get();
+        }
+        return view('website.category',compact('categories'));
+    }
+    public function categoryProducts( $slug, $id)
+    {
+        $products = Product::where('category_id',$id)->where('is_active',1)->get();
+        return view('website.product', compact('products'));
     }
 
     public function edit(Category $category)

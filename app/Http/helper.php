@@ -27,4 +27,20 @@ function BlogImages($blog_id){
     $image = BlogImages::where('blog_id',$blog_id)->select('picture')->get();
     return $image;
 }
+function ShowBoxByIndustryInNav(){
+    $data = Category::where('in_menu',1)->where('is_active',1)->where('type','Type1')->get();
+    return $data;
+}
+function ShowBoxByStyleInNav(){
+    $data = Category::where('in_menu',1)->where('is_active',1)->where('type','Type2')->get();
+    return $data;
+}
+function ShowBoxByOtherInNav(){
+    $data = Category::where('in_menu',1)->where('is_active',1)->where('type','Type3')->get();
+    return $data;
+}
+function MainCategories(){
+    $data = Category::where('is_active',1)->take(6)->get();
+    return $data;
+}
 ?>

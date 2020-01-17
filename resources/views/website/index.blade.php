@@ -19,7 +19,7 @@
                             Custom packaging can turn your brand into the total package with full
                             customization, instant quoting, and fast turnarounds.
                         </p>
-                        <a href="#" class="btn">
+                        <a href="/quote" class="btn">
                             Get Free Quote
                         </a>
                     </div>
@@ -117,18 +117,24 @@
                                 </h4>
                             </a>
                         </div>
+                        <?php $mainCategories = MainCategories(); ?>
+                        @if(count($mainCategories)>0)
+                            @foreach($mainCategories as $data)
+                            <div class="col-6 col-md-4">
+                                <?php $slug = str_replace(' ', '-', $data->title);?>
+                                <a href="{{ route('category_detail',[$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up"
+                                    data-aos-duration="1200">
+                                    <div class="img-wrap">
+                                        <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
+                                    </div>
+                                    <h4>
+                                        {{$data->title}}
+                                    </h4>
+                                </a>
+                            </div>
+                            @endforeach
+                        @endif
                         <!-- Single Product Item -->
-                        <div class="col-6 col-md-4">
-                            <a href="customCosmeticBox.html" class="prod-item" data-aos="zoom-in-up"
-                                data-aos-duration="1200">
-                                <div class="img-wrap">
-                                    <img src="{{ asset('website/assets/images/homepage/cosmetic-img5.png')}}" alt="product image">
-                                </div>
-                                <h4>
-                                    eco friendly
-                                </h4>
-                            </a>
-                        </div>
                         <!-- Single Product Item -->
                         <div class="col-6 col-md-4">
                             <a href="#" class="prod-item" data-aos="zoom-in-up" data-aos-duration="1400">
@@ -175,7 +181,7 @@
                         </div>
                         <!-- View More Button -->
                         <div class="col-12 text-center">
-                            <a href="#" class="btn viewMore">View All Categories</a>
+                            <a href="/categories" class="btn viewMore">View All Categories</a>
                         </div>
                     </div>
                 </div>
@@ -220,18 +226,23 @@
             <div class="products">
                 <div class="container">
                     <div class="row">
-                        <!-- Single Product Item -->
-                        <div class="col-6 col-md-3">
-                            <a href="#" class="prod-item" data-aos="zoom-in-up" data-aos-duration="1500">
-                                <div class="img-wrap">
-                                    <img src="{{ asset('website/assets/images/homepage/cosmetic-img1.png')}}" alt="product image">
+                    <?php $mainCategories = MainCategories(); ?>
+                        @if(count($mainCategories)>0)
+                            @foreach($mainCategories as $data)
+                                <div class="col-6 col-md-3">
+                                    <a href="{{ route('category_detail',[$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up" data-aos-duration="1500">
+                                        <div class="img-wrap">
+                                            <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
+                                        </div>
+                                        <h4>
+                                        {{$data->title}}
+                                        </h4>
+                                    </a>
                                 </div>
-                                <h4>
-                                    custom display <br>
-                                    packaging
-                                </h4>
-                            </a>
-                        </div>
+                            @endforeach
+                        @endif
+                        <!-- Single Product Item -->
+                        
                         <!-- Single Product Item -->
                         <div class="col-6 col-md-3">
                             <a href="customCosmeticBox.html" class="prod-item" data-aos="zoom-in-up"
@@ -366,7 +377,7 @@
                         </div>
                         <!-- View More Button -->
                         <div class="col-12 text-center">
-                            <a href="#" class="btn viewMore">View more</a>
+                            <a href="/categories" class="btn viewMore">View more</a>
                         </div>
                     </div>
                 </div>
@@ -473,7 +484,7 @@
                     </div>
                     <!-- Free Quote Button -->
                     <div class="col-12 text-center">
-                        <a href="#" class="btn viewMore">Get a free quote</a>
+                        <a href="/quote" class="btn viewMore">Get a free quote</a>
                     </div>
                 </div>
             </div>

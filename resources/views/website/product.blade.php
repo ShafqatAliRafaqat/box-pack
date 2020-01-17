@@ -310,7 +310,7 @@
                                 </a>
                             </div>
                             <div class="col-12 text-center">
-                                <a href="getFreeQuote.html" class="btn getQuote">get Free Quote</a>
+                                <a href="/quote" class="btn getQuote">get Free Quote</a>
                             </div>
                         </div>
                     </div>

@@ -38,7 +38,13 @@
                     <td>{{ $q->company_name }}</td>
                     <td> {{$q->box_type}} </td>
                     <td>{{ $q->comment }}</td>
-                    <td>{{ $q->file }}</td>
+                    <td>
+                        @if($q->file_type =='image')
+                        <a href="{{ asset('uploads/quote/'. $q->file) }}" target="_blank"><img src="{{ asset('uploads/quote/'. $q->file) }}" width="50" height="50" /></a>
+                        @else
+                        <a href="{{ asset('uploads/quote/'. $q->file) }}" target="_blank"> {{$q->file}}</a>
+                        @endif
+                    </td>
                     <td>
                         <a type="button" class="btn bt-sm" style="color:#007bff;" data-toggle="modal" data-target="#moreDetails_{{$q->id}}">
                             More Details
@@ -47,7 +53,7 @@
                     <td>
                     <a class="delete" data-id="{{ $q->id }}" href="#"><i class="fa fa-trash"></i></a>
                     <form id="deleteForm{{$q->id}}" method="post" action="{{ route('delete_quote', $q->id) }}">
-                        @csrf @method('delete')
+                        @csrf @method('post')
                     </form>
                     </td>
                     </tr>

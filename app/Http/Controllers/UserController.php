@@ -81,27 +81,19 @@ class UserController extends Controller
     {
         $validate = $request->validate([
             'name'            => 'required|string|max:255',
-            'email'           => 'required|string|email|max:255|unique:users',
+            'email'           => 'required|string|email|max:255',
             'phone'           => 'required|string',
             'company_name'    => 'required|string',
-            'width'           => 'required|string',
-            'height'          => 'required|string',
-            'length'          => 'required|string',
-            'unit'            => 'sometimes|string',
-            'color'           => 'sometimes|string',
+            'width'           => 'required',
+            'height'          => 'required',
+            'length'          => 'required',
+            'unit'            => 'sometimes',
+            'color'           => 'sometimes',
             'quantity'        => 'required|string',
-            'quantity1'       => 'sometimes|string',
-            'quantity2'       => 'sometimes|string',
             'comment'         => 'required|string',
             'box_type'        => 'required',
-            'file'            =>  'mimes:jpeg,jpg,png,gif,pdf,docx,doc,xlsx,xls,ai,cdr,txt',
+            'file'            =>  'required|mimes:jpeg,jpg,png,gif,pdf,docx,doc,xlsx,xls,txt|max:2048',
         ]);
-        if ($request->file('file')) {
-            $filename = time().'-'.request()->file->getClientOriginalName();
-            request()->file->move(public_path('uploads/quote/'), $filename);
-        }else{
-            $filename = null;
-        }
         $file_type  =   request()->file->guessExtension();
         $type   =   null;
         switch ($file_type) {
@@ -123,15 +115,16 @@ class UserController extends Controller
             case 'xls':
                 $type = "xls";
                 break; 
-            case 'ai':
-                $type = "ai";
-                break; 
-            case 'cdr':
-                $type = "cdr";
-                break; 
             case ('jpeg' || 'jpg' || 'png'|| 'gif'):
                 $type = "image";
                 break;
+        }
+        
+        if ($request->file('file')) {
+            $filename = time().'-'.request()->file->getClientOriginalName();
+            request()->file->move(public_path('uploads/quote/'), $filename);
+        }else{
+            $filename = null;
         }
         $quotes = DB::table('quote')->insert([
             'name'            => $request->name,
@@ -143,7 +136,7 @@ class UserController extends Controller
             'length'          => $request->length,
             'unit'            => $request->unit,
             'box_type'        => $request->box_type,
-            'file_type'       => $request->type,
+            'file_type'       => $type,
             'color'           => $request->color,
             'quantity'        => $request->quantity,
             'quantity1'       => $request->quantity1,

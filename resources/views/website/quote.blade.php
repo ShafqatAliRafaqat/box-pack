@@ -57,7 +57,7 @@
                                             <h5>
                                                 Select Box Type:
                                             </h5>
-                                            <select id="my-select" name="" class="form-control" name="box_type">
+                                            <select id="my-select" class="form-control" name="box_type">
                                                 <option value="">Select Catagory Type</option>
                                                 <option value="Box by Industry">Box by Industry</option>
                                                 <option value="Box by Style">Box by Style</option>

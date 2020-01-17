@@ -47,6 +47,13 @@
                 <h5>
                     box by industry
                 </h5>
+                @php $boxByIndustry = ShowBoxByIndustryInNav(); @endphp
+                @if(count($boxByIndustry)>0)
+                    @foreach($boxByIndustry as $data)
+                        <?php $slug = str_replace(' ', '-', $data->title);?>
+                        <a href="{{ route('category_detail',[$slug, $data->id]) }}" target="_blank">{{$data->title}}</a>
+                    @endforeach
+                @endif
                 <a href="cbdboxes.html" target="_blank">CBD Packaging Boxes</a>
                 <a href="customCosmeticBox.html" target="_blank">Custom Cosmetic Box</a>
                 <a href="customCosmeticBox.html" target="_blank">Custom display packaging</a>

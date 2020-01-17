@@ -46,20 +46,28 @@
                     <div id="net-nav" class="collapse navbar-collapse">
                         <ul class="navbar-nav ml-auto text-center text-md-left">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/">Home {{ (request()->is('/')) ? '<span class="sr-only">(current)</span>' : '' }}</a>
                             </li>
+                            @php $boxByIndustry = ShowBoxByIndustryInNav(); @endphp
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ route('category') }}" 
-                                    onclick="window.location.href='/category'"target="_blank"
+                                <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-industory') }}" 
+                                    onclick="window.location.href='/categories/box-by-industory'"target="_blank"
                                     id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
+                                    {{ (request()->is('/categories/box-by-industory')) ? '<span class="sr-only">(current)</span>' : '' }}
                                     box by industry
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/navbar-images/cbd-packaging-boxes-60x60.png')}}" alt="">
-                                        CBD Packaging Boxes
-                                    </a>
+                                    @if(count($boxByIndustry)>0)
+                                        @foreach($boxByIndustry as $data)
+                                        <?php $slug = str_replace(' ', '-', $data->title);?>
+                                        <a class="dropdown-item" href="{{ route('category_detail',[$slug, $data->id]) }}">
+                                            <img src="{{ asset('uploads/categories/'. $data->picture) }}" width="60" height="60" alt="">
+                                            {{$data->title}}
+                                        </a>
+                                        @endforeach
+                                    @endif
+                                    
                                     <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd1-1.png')}}" alt="">
                                         custom cosmetic box
@@ -91,13 +99,23 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ route('category') }}" 
-                                    onclick="window.location.href='/category'"target="_blank"
+                                <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-style') }}" 
+                                    onclick="window.location.href='/categories/box-by-style'"target="_blank"
                                     id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     box by style
                                 </a>
+                                <?php $boxByStyle = ShowBoxByStyleInNav(); ?>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                    @if(count($boxByStyle)>0)
+                                        @foreach($boxByStyle as $data)
+                                        <?php $slug = str_replace(' ', '-', $data->title);?>
+                                        <a class="dropdown-item" href="{{ route('category_detail',[$slug, $data->id]) }}">
+                                            <img src="{{ asset('uploads/categories/'. $data->picture) }}" width="60" height="60" alt="">
+                                            {{$data->title}}
+                                        </a>
+                                        @endforeach
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/Common/dd2-1.png')}}" alt="">
                                         bottom closure
@@ -129,16 +147,22 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ route('category') }}" 
-                                    onclick="window.location.href='/category'"target="_blank" id="navbarDropdown4"
+                                <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-other') }}" 
+                                    onclick="window.location.href='/categories/box-by-other'"target="_blank" id="navbarDropdown4"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Others
                                 </a>
+                                <?php $boxByOther = ShowBoxByOtherInNav(); ?>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/navbar-images/Die-Cut-Folders-50x50.png')}}" alt="">
-                                        presentation folder
-                                    </a>
+                                    @if(count($boxByOther)>0)
+                                        @foreach($boxByOther as $data)
+                                        <?php $slug = str_replace(' ', '-', $data->title);?>
+                                        <a class="dropdown-item" href="{{ route('category_detail',[$slug, $data->id]) }}">
+                                            <img src="{{ asset('uploads/categories/'. $data->picture) }}" width="60" height="60" alt="">
+                                            {{$data->title}}
+                                        </a>
+                                        @endforeach
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('product') }}">
                                         <img src="{{ asset('website/assets/images/navbar-images/stickers-and-lables-50x50.png')}}" alt="">
                                         custom stickers & lables

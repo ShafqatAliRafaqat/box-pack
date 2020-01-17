@@ -17,7 +17,7 @@
                             Custom packaging can turn your brand into the total package with full
                             customization, instant quoting, and fast turnarounds.
                         </p>
-                        <a href="#" class="btn">
+                        <a href="/quote" class="btn">
                             Get Free Quote
                         </a>
                     </div>
@@ -173,7 +173,7 @@
                         </div>
                         <!-- View More Button -->
                         <div class="col-12 text-center">
-                            <a href="#" class="btn viewMore">View All Categories</a>
+                            <a href="/categories" class="btn viewMore">View All Categories</a>
                         </div>
                     </div>
                 </div>
@@ -364,7 +364,7 @@
                         </div>
                         <!-- View More Button -->
                         <div class="col-12 text-center">
-                            <a href="#" class="btn viewMore">View more</a>
+                            <a href="/categories" class="btn viewMore">View more</a>
                         </div>
                     </div>
                 </div>
@@ -471,7 +471,7 @@
                     </div>
                     <!-- Free Quote Button -->
                     <div class="col-12 text-center">
-                        <a href="#" class="btn viewMore">Get a free quote</a>
+                        <a href="/quote" class="btn viewMore">Get a free quote</a>
                     </div>
                 </div>
             </div>

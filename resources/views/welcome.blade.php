@@ -183,7 +183,7 @@
                                 <a class="nav-link" href="blog.html">blog</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav-btn" href="getFreeQuote.html">
+                                <a class="nav-link nav-btn" href="/quote">
                                     <span>get free quote</span>
                                 </a>
                             </li>
@@ -374,7 +374,7 @@
                                 </div>
                                 <!-- View More Button -->
                                 <div class="col-12 text-center">
-                                    <a href="#" class="btn viewMore">View All Categories</a>
+                                    <a href="/categories" class="btn viewMore">View All Categories</a>
                                 </div>
                             </div>
                         </div>
@@ -565,7 +565,7 @@
                                 </div>
                                 <!-- View More Button -->
                                 <div class="col-12 text-center">
-                                    <a href="#" class="btn viewMore">View more</a>
+                                    <a href="/categories" class="btn viewMore">View more</a>
                                 </div>
                             </div>
                         </div>
@@ -672,7 +672,7 @@
                             </div>
                             <!-- Free Quote Button -->
                             <div class="col-12 text-center">
-                                <a href="#" class="btn viewMore">Get a free quote</a>
+                                <a href="/quote" class="btn viewMore">Get a free quote</a>
                             </div>
                         </div>
                     </div>
