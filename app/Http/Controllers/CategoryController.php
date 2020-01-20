@@ -54,26 +54,20 @@ class CategoryController extends Controller
     }
     public function categories($slug = null)
     {
-        if($slug == 'box-by-industory'){
-            $type = 'Type1';
-        }
-        if($slug == 'box-by-style'){
-            $type = 'Type2';
-        }
-        if($slug == 'box-by-other'){
-            $type = 'Type3';
-        }
+        $type = ($slug == 'box-by-industory')? 'Type1' :(($slug == 'box-by-style')? 'Type2' : (($slug == 'box-by-other')? 'Type3' : null) );
         if($slug != null){
             $categories = Category::where('type',$type)->where('is_active',1)->get();
         }else{
             $categories = Category::where('is_active',1)->get();
         }
-        return view('website.category',compact('categories'));
+        return view('website.category',compact('categories','type'));
     }
-    public function categoryProducts( $slug, $id)
+    public function categoryProducts( $category_type, $slug, $id)
     {
+        $categorytype = $category_type;
+        $category = Category::where('is_active',1)->where('id',$id)->first();
         $products = Product::where('category_id',$id)->where('is_active',1)->get();
-        return view('website.product', compact('products'));
+        return view('website.product', compact('products','category','categorytype'));
     }
 
     public function edit(Category $category)

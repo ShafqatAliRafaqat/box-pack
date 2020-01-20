@@ -28,16 +28,22 @@
                                 @endif
                             </div>
                             </div>
-
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Picture <span class="asterisk"> *</span></label>
-                            <div class="col-md-4">
-                                  <input type="file" name="picture[]" multiple id="files" class=" {{ $errors->has('picture') ? 'is-invalid' : '' }}" value="{{ old('picture') }}" required >
-                                @if($errors->has('picture'))
-                                <div class="invalid-feedback ml-3">{{ $errors->first('picture') }}</div>
-                                @endif
-                            </div>
-                            </div>
+                              <label class="col-md-2 form-control-label">Main Picture <span class="asterisk"> *</span></label>
+                              <div class="col-md-4">
+                                    <input type="file" name="picture" id="files" class=" {{ $errors->has('picture') ? 'is-invalid' : '' }}" value="{{ old('picture') }}" required >
+                                  @if($errors->has('picture'))
+                                  <div class="invalid-feedback ml-3">{{ $errors->first('picture') }}</div>
+                                  @endif
+                              </div>
+                              <label class="col-md-2 form-control-label">Other Pictures <span class="asterisk"> *</span></label>
+                              <div class="col-md-4">
+                                    <input type="file" name="other_picture[]" id="files" multiple class=" {{ $errors->has('other_picture') ? 'is-invalid' : '' }}" value="{{ old('other_picture') }}" required >
+                                  @if($errors->has('other_picture'))
+                                  <div class="invalid-feedback ml-3">{{ $errors->first('other_picture') }}</div>
+                                  @endif
+                              </div>
+                              </div>
                             <div class="form-group row">
                             <label class="col-md-2 form-control-label">Active </label>
                             <div class="col-md-4">

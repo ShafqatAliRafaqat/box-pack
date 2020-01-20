@@ -1,9 +1,13 @@
 @extends('website.layouts.layout')
-@section('title', 'Pack Printers :: Custom Packaging Service')
+@section('title', 'Pack Printers :: Product detail')
+@section('styles')
+<link rel="stylesheet" href="{{asset('website/assets/css/vendor/imagepreviewer.min.css')}}">
+<link rel="stylesheet" href="{{asset('website/assets/css/styles.min.css')}}">
+@endsection
 @section('main_content')
             <section class="boxesByIndustry">
                 <header class="commonHeader">
-                    <h1 class="text-capitalize"> Custom Address Labels </h1>
+                    <h1 class="text-capitalize">{{$product->title}} </h1>
                     <p>
                         all custom accessories you need for your product
                     </p>
@@ -14,7 +18,7 @@
                         <!-- Beat My Quote Row -->
                         <div class="row justify-content-end">
                             <div class="col-lg-3 p-lg-0">
-                                <a href="beatMyQuote.html" class="beatMyQuote">
+                                <a href="/quote" class="beatMyQuote">
                                     <h5>
                                         Beat my Quote
                                     </h5>
@@ -26,53 +30,27 @@
                             <div class="col-lg-4">
                                 <div class="imagePreviewer">
                                     <ul id="lightSlider">
-                                        <li data-thumb="assets/images/customCreamBoxes/Cream-Packaging.jpg">
-                                            <img src="website/assets/images/customCreamBoxes/Cream-Packaging.jpg" />
+                                        <?php $product_images = productAllImages($product->id)?>
+                                        @if(count($product_images)>0)
+                                            @foreach($product_images as $data)
+                                            <li data-thumb="{{ asset('uploads/products/'. $data->picture) }}">
+                                                <img src="{{ asset('uploads/products/'. $data->picture) }}" />
+                                            </li>    
+                                            @endforeach
+                                        @endif
+                                        
+                                        <li data-thumb="{{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}">
+                                            <img src=" {{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}" />
                                         </li>
-                                        <li data-thumb="assets/images/customCreamBoxes/Cream-Boxes.jpg">
-                                            <img src="website/assets/images/customCreamBoxes/Cream-Boxes.jpg" />
-                                        </li>
-                                        <li data-thumb="assets/images/customCreamBoxes/5.-png.png">
-                                            <img src="website/assets/images/customCreamBoxes/5.-png.png" />
+                                        <li data-thumb="{{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}">
+                                            <img src=" {{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}" />
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-4 text-justify">
                                 <p class="product-description mt-3 mt-lg-0 pr-2" data-simplebar>
-                                    We have an excellent quality of
-                                    personalized Custom Boxes with digital and
-                                    Off-Set printing services. We have an
-                                    excellent quality of personalized Custom
-                                    Boxes with digital and Off-Set printing
-                                    services. We have an excellent quality of
-                                    personalized Custom Boxes with digital and
-                                    Off-Set printing services. We have an
-                                    excellent quality of personalized Custom
-                                    Boxes with digital and Off-Set printing
-                                    services. We have an excellent quality of
-                                    personalized Custom Boxes with digital and
-                                    Off-Set printing services. We have an
-                                    excellent quality of personalized Custom
-                                    Boxes with digital and Off-Set printing
-                                    services. We have an excellent quality of
-                                    personalized Custom Boxes with digital and
-                                    Off-Set printing services. We have an
-                                    excellent quality of personalized Custom
-                                    Boxes with digital and Off-Set printing
-                                    services.
-                                    <br>
-                                    We have an excellent quality of
-                                    personalized Custom Boxes with digital and
-                                    Off-Set printing services. We have an
-                                    excellent quality of personalized Custom
-                                    Boxes with digital and Off-Set printing
-                                    services. We have an excellent quality of
-                                    personalized Custom Boxes with digital and
-                                    Off-Set printing services. We have an
-                                    excellent quality of personalized Custom
-                                    Boxes with digital and Off-Set printing
-                                    services.
+                                    {{ strip_tags($product->description)}}
                                 </p>
                             </div>
                             <div class="col-lg-3 p-lg-0" id="quoteForm">
@@ -231,7 +209,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="website/assets/images/icons/cancel.png">
+                                <img src="{{ asset('website/assets/images/icons/cancel.png' ) }}">
                                 <h5>
                                     No Die & Plate Charges
                                 </h5>
@@ -240,7 +218,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="website/assets/images/icons/box.png">
+                                <img src="{{ asset('website/assets/images/icons/box.png' ) }}">
                                 <h5>
                                     starting from 100 boxes
                                 </h5>
@@ -249,7 +227,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="website/assets/images/icons/calendar.png">
+                                <img src="{{ asset('website/assets/images/icons/calendar.png' ) }}">
                                 <h5>
                                     fast turnarounds 8-10 business days
                                 </h5>
@@ -258,7 +236,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="website/assets/images/icons/ribbon.png">
+                                <img src="{{ asset('website/assets/images/icons/ribbon.png' ) }}">
                                 <h5>
                                     high quality offset printing
                                 </h5>
@@ -267,7 +245,7 @@
                         <!-- Best of Service Item -->
                         <div class="col-lg-2">
                             <div class="bos-item-wrap">
-                                <img src="website/assets/images/icons/wallet.png">
+                                <img src="{{ asset('website/assets/images/icons/wallet.png' ) }}">
                                 <h5>
                                     competitive pricing
                                 </h5>
@@ -280,7 +258,7 @@
             <!-- Related Category Section -->
             <section class="relatedCategory">
                 <header class="commonHeader">
-                    <h1 class="text-capitalize" style="font-size: 45px; margin-top: 30px;">related categories</h1>
+                    <h1 class="text-capitalize" style="font-size: 45px; margin-top: 30px;">related Products</h1>
                     <p>
                         all custom boxes you need for your product
                     </p>
@@ -290,23 +268,27 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <!-- Single Product Item -->
-                            <div class="col-6 col-md-2">
-                                <a href="#" class="prod-item">
-                                    <div class="img-wrap">
-                                        <img src="website/assets/images/other-images/custom-stickers/Anniversary-Seals-179x179.png"
-                                            alt="product image">
-                                    </div>
-                                    <h4>
-                                        custom Anniversary <br>
-                                        seals
-                                    </h4>
-                                </a>
-                            </div>
+                            @if(count($related_products))
+                                @foreach($related_products as $data)
+                                <?php $slug = str_replace(' ', '-', $data->title);?>
+                                <?php $product_images = product_image($data->id); ?>
+                                <div class="col-6 col-md-2">
+                                    <a href="{{ route('product_detail',[$categorytype,$categorytitle,$slug, $data->id]) }}" class="prod-item">
+                                        <div class="img-wrap">
+                                            <img src="{{ asset('uploads/products/'. $product_images->picture) }}"
+                                                alt="product image">
+                                        </div>
+                                        <h4>{{ $data->title }}</h4>
+                                    </a>
+                                </div>
+                                @endforeach
+                            @endif
+
                             <!-- Single Product Item -->
                             <div class="col-6 col-md-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="website/assets/images/other-images/custom-stickers/auto-and-car-decals-179x179.png"
+                                        <img src="{{ asset('website/assets/images/other-images/custom-stickers/auto-and-car-decals-179x179.png' ) }}"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -319,7 +301,7 @@
                             <div class="col-6 col-md-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="website/assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png"
+                                        <img src="{{ asset('website/assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png' ) }}"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -332,7 +314,7 @@
                             <div class="col-6 col-sm-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="website/assets/images/other-images/custom-stickers/auto-and-car-stickers-179x179.png"
+                                        <img src="{{ asset('website/assets/images/other-images/custom-stickers/auto-and-car-stickers-179x179.png' ) }}"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -360,7 +342,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/secure-payment-1.png">
+                                            <img src="{{ asset('website/assets/images/icons/secure-payment-1.png' ) }}">
                                             <h5>secure payment</h5>
                                             <p>visa, masterCard, PayPal etc</p>
                                         </div>
@@ -368,7 +350,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/shiping-1.png" style="width: 80px;">
+                                            <img src="{{ asset('website/assets/images/icons/shiping-1.png' ) }}" style="width: 80px;">
                                             <h5>world wide shipping</h5>
                                             <p>6-8 business days</p>
                                         </div>
@@ -376,7 +358,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/design-support-1.png" style="width: 61px;">
+                                            <img src="{{ asset('website/assets/images/icons/design-support-1.png' ) }}" style="width: 61px;">
                                             <h5>free design support</h5>
                                             <p>with 2D and 3D mockup</p>
                                         </div>
@@ -384,7 +366,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/customize-1.png" style="width: 58px;">
+                                            <img src="{{ asset('website/assets/images/icons/customize-1.png' ) }}" style="width: 58px;">
                                             <h5>custom size & design</h5>
                                             <p>premium custom boxes</p>
                                         </div>
@@ -547,33 +529,33 @@
             <div class="prods-slider">
                 <div class="slider-wrap" data-aos="fade-left" data-aos-duration="1700">
                     <div class="left-slider-btn">
-                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
+                        <img src="{{ asset('website/assets/images/icons/arrow.png' ) }}" alt="arrow">
                     </div>
                     <div class="slide-area">
                         <div class="owlOne owl-carousel owl-theme">
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/CBD-Box-With-Bottle.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/CBD-Box-With-Bottle.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg"
+                                <img class="" src="{{ asset('website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg' ) }}"
                                     alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Corrugated-Kraft-Boxes.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Corrugated-Kraft-Boxes.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Mix_Tuck_End_Boxes.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Mix_Tuck_End_Boxes.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Sleeve-Chocolate-Box.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Sleeve-Chocolate-Box.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Tuck-Box.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Tuck-Box.jpg' ) }}" alt="Slider Image">
                             </a>
                         </div>
                     </div>
                     <div class="right-slider-btn">
-                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
+                        <img src="{{ asset('website/assets/images/icons/arrow.png' ) }}" alt="arrow">
                     </div>
                 </div>
             </div>
@@ -581,12 +563,12 @@
 @endsection
 @section('scripts')
         <!-- JavaScript Files -->
-        <script src="website/assets/js/vendor/1-jquery-3.4.0.min.js"></script>
-        <script src="website/assets/js/vendor/2-bootstrap.min.js"></script>
-        <script src="website/assets/js/vendor/3-popper.min.js"></script>
-        <script src="website/assets/js/vendor/4-simplebar.min.js"></script>
-        <script src="website/assets/js/vendor/imagepreviewer.min.js"></script>
-        <script src="website/assets/js/scripts.min.js"></script>
+        <script src="{{ asset('website/assets/js/vendor/1-jquery-3.4.0.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/vendor/2-bootstrap.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/vendor/3-popper.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/vendor/4-simplebar.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/vendor/imagepreviewer.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/scripts.min.js' ) }}"></script>
         <script>
             //  Image Slider With Thumbnail Initialization
             $('#lightSlider').lightSlider({

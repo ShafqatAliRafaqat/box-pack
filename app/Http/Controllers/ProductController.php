@@ -27,9 +27,14 @@ class ProductController extends Controller
     {
         return view('website.product');
     }
-    public function productDetail()
+    public function productDetail($category_type,$category_title,$product_title,$id)
     {
-        return view('website.product_detail');
+        $categorytype = $category_type;
+        $categorytitle=$category_title;
+        $product     = Product::where('id',$id)->first();
+        $category_id = $product->category_id;
+        $related_products = Product::where('category_id',$category_id)->where('id','!=',$id)->get();
+        return view('website.product_detail',compact('product','related_products','categorytype','categorytitle'));
     }
     public function store(Request $request)
     {

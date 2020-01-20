@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 @extends('website.layouts.layout')
-@section('title', 'Pack Printers :: Custom Packaging Service')
+@section('title', 'Pack Printers :: Private Policy')
 @section('main_content')
             <section class="boxesByIndustry">
                 <header class="commonHeader mb-5">

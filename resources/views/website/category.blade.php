@@ -1,20 +1,20 @@
 @extends('website.layouts.layout')
-@section('title', 'Pack Printers :: Custom Packaging Service')
+@section('title', 'Pack Printers :: Categories')
 @section('main_content')
             <section class="boxesByIndustry">
                 <header class="commonHeader">
-                    <h1> Box by industry</h1>
+                    <?php $slug_type = ($type == 'Type1')? 'Box by industry' :(($type == 'Type2')? 'Box by Style' : (($type == 'Type3')? 'Box by Other' : 'Box by All Types') ); ?>
+                    <h1>{{$slug_type }}</h1>
                     <p>
                         all custom boxes you need for your product
                     </p>
                 </header>
-
                 <div class="boxes-display">
                     <div class="container">
                         <!-- Beat My Quote Row -->
                         <div class="row justify-content-end">
                             <div class="col-lg-3 px p-lg-0">
-                                <a href="beatMyQuote.html" class="beatMyQuote">
+                                <a href="/quote" class="beatMyQuote">
                                     <h5>
                                         Beat my Quote
                                     </h5>
@@ -25,22 +25,27 @@
                             <div class="col-lg-8">
                                 <div class="row">
                                     <!-- Single Product Item -->
-                                    <div class="col-6 col-md-4">
-                                        <a href="#" class="prod-item">
-                                            <div class="img-wrap">
-                                                <img src="website/assets/images/homepage/cosmetic-img1.png" alt="product image">
+                                    @if(count($categories)>0)
+                                        @foreach($categories as $data)
+                                            <?php $category_type = str_replace(' ', '-', $slug_type);?>
+                                            <?php $slug = str_replace(' ', '-', $data->title);?>
+                                            <div class="col-6 col-md-4">
+                                                <a href="{{ route('category_detail',[$category_type,$slug, $data->id]) }}" class="prod-item">
+                                                    <div class="img-wrap">
+                                                        <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
+                                                    </div>
+                                                    <h4>
+                                                        {{$data->title}}
+                                                    </h4>
+                                                </a>
                                             </div>
-                                            <h4>
-                                                custom display <br>
-                                                packaging
-                                            </h4>
-                                        </a>
-                                    </div>
+                                        @endforeach
+                                    @endif
                                     <!-- Single Product Item -->
                                     <div class="col-6 col-md-4">
                                         <a href="customCosmeticBox.html" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/homepage/cosmetic-img2.png" alt="product image">
+                                                <img src="{{ asset('website/assets/images/homepage/cosmetic-img2.png' ) }}" alt="product image">
                                             </div>
                                             <h4>
                                                 custom cosmetic <br>
@@ -52,7 +57,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="#" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/homepage/cosmetic-img3.png" alt="product image">
+                                                <img src="{{ asset('website/assets/images/homepage/cosmetic-img3.png' ) }}" alt="product image">
                                             </div>
                                             <h4>
                                                 custom gift <br>
@@ -64,7 +69,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="#" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/homepage/cosmetic-img5.png" alt="product image">
+                                                <img src="{{ asset('website/assets/images/homepage/cosmetic-img5.png' ) }} " alt="product image">
                                             </div>
                                             <h4>
                                                 eco-friendly <br>
@@ -76,7 +81,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="#" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/homepage/cosmetic-img1.png" alt="product image">
+                                                <img src="{{ asset('website/assets/images/homepage/cosmetic-img1.png' ) }} " alt="product image">
                                             </div>
                                             <h4>
                                                 custom rigid <br>
@@ -88,7 +93,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="#" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/homepage/cosmetic-img2.png" alt="product image">
+                                                <img src="{{ asset('website/assets/images/homepage/cosmetic-img2.png' ) }}" alt="product image">
                                             </div>
                                             <h4>
                                                 custom food &<br>
@@ -257,7 +262,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/secure-payment-1.png">
+                                            <img src="{{ asset('website/assets/images/icons/secure-payment-1.png' ) }}">
                                             <h5>secure payment</h5>
                                             <p>visa, masterCard, PayPal etc</p>
                                         </div>
@@ -265,7 +270,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/shiping-1.png" style="width: 80px;">
+                                            <img src="{{ asset('website/assets/images/icons/shiping-1.png' ) }}" style="width: 80px;">
                                             <h5>world wide shipping</h5>
                                             <p>6-8 business days</p>
                                         </div>
@@ -273,7 +278,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/design-support-1.png" style="width: 61px;">
+                                            <img src="{{ asset('website/assets/images/icons/design-support-1.png' ) }}" style="width: 61px;">
                                             <h5>free design support</h5>
                                             <p>with 2D and 3D mockup</p>
                                         </div>
@@ -281,7 +286,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/customize-1.png" style="width: 58px;">
+                                            <img src="{{ asset('website/assets/images/icons/customize-1.png' ) }}" style="width: 58px;">
                                             <h5>custom size & design</h5>
                                             <p>premium custom boxes</p>
                                         </div>
@@ -310,13 +315,13 @@
                         <div class="col-lg-7">
                             <div class="row">
                                 <div class="col-6">
-                                    <img class="img-fluid" src="website/assets/images/homepage/print-img-1.png"
+                                    <img class="img-fluid" src="{{ asset('website/assets/images/homepage/print-img-1.png' ) }}"
                                         alt="print image">
-                                    <img class="img-fluid mt-2" src="website/assets/images/homepage/print-img-2.png"
+                                    <img class="img-fluid mt-2" src="{{ asset('website/assets/images/homepage/print-img-2.png' ) }} "
                                         alt="print image">
                                 </div>
                                 <div class="col-6">
-                                    <img class="img-fluid" src="website/assets/images/homepage/print-img-3.png"
+                                    <img class="img-fluid" src="{{ asset('website/assets/images/homepage/print-img-3.png' ) }} "
                                         alt="print image">
                                 </div>
                             </div>
@@ -364,33 +369,33 @@
             <div class="prods-slider">
                 <div class="slider-wrap" data-aos="fade-left" data-aos-duration="1700">
                     <div class="left-slider-btn">
-                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
+                        <img src="{{ asset('website/assets/images/icons/arrow.png' ) }}" alt="arrow">
                     </div>
                     <div class="slide-area">
                         <div class="owlOne owl-carousel owl-theme">
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/CBD-Box-With-Bottle.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/CBD-Box-With-Bottle.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg"
+                                <img class="" src="{{ asset('website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg' ) }}"
                                     alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Corrugated-Kraft-Boxes.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Corrugated-Kraft-Boxes.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Mix_Tuck_End_Boxes.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Mix_Tuck_End_Boxes.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Sleeve-Chocolate-Box.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Sleeve-Chocolate-Box.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Tuck-Box.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Tuck-Box.jpg' ) }}" alt="Slider Image">
                             </a>
                         </div>
                     </div>
                     <div class="right-slider-btn">
-                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
+                        <img src="{{ asset('website/assets/images/icons/arrow.png' ) }}" alt="arrow">
                     </div>
                 </div>
             </div>

@@ -55,7 +55,7 @@
                             </div>
                             <label class="col-md-2 form-control-label">Other Picture</label>
                             <div class="col-md-4">
-                                <input type="file" name="other_picture[]" placeholder="Picture"
+                                <input type="file" name="other_picture[]" multiple placeholder="Picture"
                                 class="form-control {{ $errors->has('other_picture') ? 'is-invalid' : '' }}" value="">
 
                                 @if($errors->has('other_picture'))

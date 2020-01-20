@@ -1,5 +1,5 @@
 @extends('website.layouts.layout')
-@section('title', 'Pack Printers :: Custom Packaging Service')
+@section('title', 'Pack Printers :: Blog')
 @section('main_content')
             <!-- Main Content Section -->
             <section class="blog">
@@ -13,29 +13,27 @@
                 <div class="container">
                     <div class="row pt-4">
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
-                            <a href="blogDetailPage.html" class="blog-item">
-                                <div class="card border-0 p-0">
-                                    <img class="card-img-top" src="website/assets/images/blog/creative-packaging-350x313.jpg"
-                                        alt="blog 1">
-                                    <div class="card-body p-0">
-                                        <h5 class="card-title">
-                                            Here’s How You Can Use Creativity To Design A Unique Product Package
-                                        </h5>
-                                        <p class="card-text">
-                                            Creativity is one of the most important life skills one can have.
-                                            Especially, when we are talking about the packaging industry, creativity is
-                                            deemed essential. Why? As much as the customer focuses on the quality of the
-                                            product,
-                                            Creativity is one of the most important life skills one can have.
-                                            Especially, when we are talking about the packaging industry, creativity is
-                                            deemed essential. Why? As much as the customer focuses on the quality of the
-                                            product,
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        @if(count($blogs)>0)
+                            @foreach ($blogs as $data)
+                                <div class="col-lg-4 bi">
+                                    <?php $slug = str_replace(' ', '-', $data->title);?>
+                                    <a href="{{ route('blog_detail',[$slug, $data->id]) }}" class="blog-item">
+                                        <div class="card border-0 p-0">
+                                            <?php $blog_image = BlogMainImage($data->id);?>
+                                            <img class="card-img-top" src="{{ asset('uploads/blogs/'. $blog_image->picture) }}" alt="blog 1">
+                                            <div class="card-body p-0">
+                                                <h5 class="card-title">
+                                                    {{$data->title}}
+                                                </h5>
+                                                <p class="card-text">
+                                                    {{ strip_tags($data->description)}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>  
+                            @endforeach
+                        @endif
                         <!-- Blog Item -->
                         <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">

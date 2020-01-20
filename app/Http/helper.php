@@ -19,12 +19,20 @@ function product_image($product_id){
     $image = ProductImages::where('product_id',$product_id)->where('main_picture',1)->select('picture')->first();
     return $image;
 }
+function productAllImages($product_id){
+    $image = ProductImages::where('product_id',$product_id)->orderBy('main_picture','DESC')->select('picture')->get();
+    return $image;
+}
 function ProductOtherImages($product_id){
     $image = ProductImages::where('product_id',$product_id)->where('main_picture',0)->select('picture')->get();
     return $image;
 }
 function BlogImages($blog_id){
     $image = BlogImages::where('blog_id',$blog_id)->select('picture')->get();
+    return $image;
+}
+function BlogMainImage($blog_id){
+    $image = BlogImages::where('blog_id',$blog_id)->where('main_picture',1)->select('picture')->first();
     return $image;
 }
 function ShowBoxByIndustryInNav(){
@@ -41,6 +49,10 @@ function ShowBoxByOtherInNav(){
 }
 function MainCategories(){
     $data = Category::where('is_active',1)->take(6)->get();
+    return $data;
+}
+function RelatedCategory($type,$id){
+    $data = Category::where('type',$type)->where('id','!=',$id)->take(4)->get();
     return $data;
 }
 ?>

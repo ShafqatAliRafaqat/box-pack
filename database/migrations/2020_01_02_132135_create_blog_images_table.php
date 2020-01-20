@@ -17,6 +17,7 @@ class CreateBlogImagesTable extends Migration
             $table->increments('id');
             $table->integer('blog_id')->unsigned();
             $table->string('picture');
+            $table->integer('main_picture')->nullable()->default(0);
             $table->timestamps();
         });
         Schema::table('blog_images', function($table){

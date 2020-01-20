@@ -51,7 +51,7 @@
                 @if(count($boxByIndustry)>0)
                     @foreach($boxByIndustry as $data)
                         <?php $slug = str_replace(' ', '-', $data->title);?>
-                        <a href="{{ route('category_detail',[$slug, $data->id]) }}" target="_blank">{{$data->title}}</a>
+                        <a href="{{ route('category_detail',['box-by-industry',$slug, $data->id]) }}" target="_blank">{{$data->title}}</a>
                     @endforeach
                 @endif
                 <a href="cbdboxes.html" target="_blank">CBD Packaging Boxes</a>

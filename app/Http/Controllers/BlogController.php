@@ -34,17 +34,30 @@ class BlogController extends Controller
             'description'   => $request->description,
             'is_active'     => $request->is_active,
         ]);
-        if($request->hasfile('picture')){
-            $i = 0;
-            foreach($request->file('picture') as $file){
-                $name = time().$i.'-'.$file->getClientOriginalName();
-                $file->move(public_path('uploads/blogs/'), $name);
-    
+
+        if($blog){
+            if ($request->file('picture')) {
+                $mainfilename = time().'-'.request()->picture->getClientOriginalName();
+                request()->picture->move(public_path('uploads/blogs/'), $mainfilename);
+                
                 $insert = DB::table('blog_images')->insert([
-                    'blog_id'    => $blog->id,
-                    'picture'       => $name,
+                    'blog_id'       => $blog->id,
+                    'picture'       => $mainfilename,
+                    'main_picture'  => 1,
                 ]);
-                $i++;  
+            }
+            if($request->hasfile('other_picture')){
+                $i = 0;
+                foreach($request->file('other_picture') as $file){
+                    $name = time().$i.'-'.$file->getClientOriginalName();
+                    $file->move(public_path('uploads/blogs/'), $name);
+        
+                    $insert = DB::table('blog_images')->insert([
+                        'blog_id'       => $blog->id,
+                        'picture'       => $name,
+                    ]);
+                    $i++;  
+                }
             }
         }
         Session::flash('success','Blog Created Successfully');
@@ -57,11 +70,13 @@ class BlogController extends Controller
     }
     public function blog()
     {
-        return view('website.blog');
+        $blogs = Blog::orderby('updated_at','DESC')->get();
+        return view('website.blog',compact('blogs'));
     }
-    public function blogDetail()
+    public function blogDetail($slug,$id)
     {
-        return view('website.blog_detail');
+        $blog = Blog::where('id',$id)->first();
+        return view('website.blog_detail',compact('blog'));
     }
     public function edit(Blog $blog)
     {
@@ -84,6 +99,42 @@ class BlogController extends Controller
             }
             $i = 0;
             foreach($request->file('picture') as $file){
+                $name = time().$i.'-'.$file->getClientOriginalName();
+                $file->move(public_path('uploads/blogs/'), $name);
+    
+                $insert = DB::table('blog_images')->insert([
+                    'blog_id'    => $blog->id,
+                    'picture'       => $name,
+                ]);
+                $i++;  
+            }
+        }
+        if ($request->file('picture')) {
+            $delete_image = BlogImages::where('blog_id',$blog->id)->where('main_picture',1)->first();
+            $oldImageLoc = public_path('uploads/blogs/' . $delete_image->picture);
+            File::delete($oldImageLoc);
+            $delete_image->delete();
+
+            $filename = time().'-'.request()->picture->getClientOriginalName();
+            request()->picture->move(public_path('uploads/blogs/'), $filename);
+            
+            $insert = DB::table('blog_images')->insert([
+                'blog_id'    => $blog->id,
+                'picture'       => $filename,
+                'main_picture'  => 1,
+            ]);
+        }
+        if($request->hasfile('other_picture')){
+            
+            $delete_images = BlogImages::where('blog_id',$blog->id)->where('main_picture',0)->get();
+            foreach($delete_images as $d_image){
+                $oldImageLoc = public_path('uploads/blogs/' . $d_image->picture);
+                File::delete($oldImageLoc);
+                $d_image->delete();
+            }
+
+            $i = 0;
+            foreach($request->file('other_picture') as $file){
                 $name = time().$i.'-'.$file->getClientOriginalName();
                 $file->move(public_path('uploads/blogs/'), $name);
     

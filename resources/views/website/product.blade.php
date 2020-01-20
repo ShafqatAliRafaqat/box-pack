@@ -1,9 +1,9 @@
 @extends('website.layouts.layout')
-@section('title', 'Pack Printers :: Custom Packaging Service')
+@section('title', 'Pack Printers :: Product')
 @section('main_content')
 <section class="boxesByIndustry">
                 <header class="commonHeader">
-                    <h1 class="text-capitalize"> Custom Stickers & Labels</h1>
+                    <h1 class="text-capitalize"> {{ $category->title }}</h1>
                     <p>
                         all custom accessories you need for your product
                     </p>
@@ -14,7 +14,7 @@
                         <!-- Beat My Quote Row -->
                         <div class="row justify-content-end">
                             <div class="col-lg-3 px p-md-0">
-                                <a href="beatMyQuote.html" class="beatMyQuote">
+                                <a href="/quote" class="beatMyQuote">
                                     <h5>
                                         Beat my Quote
                                     </h5>
@@ -26,10 +26,27 @@
                             <div class="col-lg-8">
                                 <div class="row">
                                     <!-- Single Product Item -->
+                                    @if(count($products)>0)
+                                        @foreach($products as $data)
+                                            <?php $category_title = str_replace(' ', '-', $category->title);?>
+                                            <?php $slug = str_replace(' ', '-', $data->title);?>
+                                            <?php $product_images = product_image($data->id); ?>
+                                            <div class="col-6 col-md-4">
+                                                <a href="{{ route('product_detail',[$categorytype,$category_title,$slug, $data->id]) }}" class="prod-item">
+                                                    <div class="img-wrap">
+                                                        <img src="{{ asset('uploads/products/'. $product_images->picture) }}" alt="product image">
+                                                    </div>
+                                                    <h4>
+                                                        {{$data->title}}
+                                                    </h4>
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                     <div class="col-6 col-md-4">
                                         <a href="customAddressLabels.html" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/other-images/custom-stickers/Custom-Address-Labels-179x179.png"
+                                                <img src="{{ asset('website/assets/images/other-images/custom-stickers/Custom-Address-Labels-179x179.png' ) }}"
                                                     alt="product image">
                                             </div>
                                             <h4>
@@ -41,7 +58,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="customAddressLabels.html" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/other-images/custom-stickers/Anniversary-Seals-179x179.png"
+                                                <img src="{{ asset('website/assets/images/other-images/custom-stickers/Anniversary-Seals-179x179.png' ) }}"
                                                     alt="product image">
                                             </div>
                                             <h4>
@@ -53,7 +70,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="customAddressLabels.html" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/other-images/custom-stickers/auto-and-car-decals-179x179.png"
+                                                <img src="{{ asset('website/assets/images/other-images/custom-stickers/auto-and-car-decals-179x179.png' ) }}"
                                                     alt="product image">
                                             </div>
                                             <h4>
@@ -65,7 +82,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="customAddressLabels.html" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/other-images/custom-stickers/auto-and-car-stickers-179x179.png"
+                                                <img src="{{ asset('website/assets/images/other-images/custom-stickers/auto-and-car-stickers-179x179.png' ) }}"
                                                     alt="product image">
                                             </div>
                                             <h4>
@@ -77,7 +94,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="customAddressLabels.html" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png"
+                                                <img src="{{ asset('website/assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png' ) }}"
                                                     alt="product image">
                                             </div>
                                             <h4>
@@ -89,7 +106,7 @@
                                     <div class="col-6 col-md-4">
                                         <a href="customAddressLabels.html" class="prod-item">
                                             <div class="img-wrap">
-                                                <img src="website/assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png"
+                                                <img src="{{ asset('website/assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png' ) }}"
                                                     alt="product image">
                                             </div>
                                             <h4>
@@ -262,10 +279,27 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <!-- Single Product Item -->
+                            <?php $related_categories = RelatedCategory($category->type,$category->id);?>
+                            @if(count($related_categories)>0)
+                                @foreach($related_categories as $data)
+                                <?php $slug = str_replace(' ', '-', $data->title);?> 
+                                <div class="col-6 col-md-2">
+                                        <a href="{{ route('category_detail',[$categorytype,$slug, $data->id]) }}" class="prod-item">
+                                            <div class="img-wrap">
+                                                <img src="{{ asset('uploads/categories/'. $data->picture) }}"
+                                                    alt="product image">
+                                            </div>
+                                            <h4>
+                                                {{$data->title}}
+                                            </h4>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @endif
                             <div class="col-6 col-md-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="website/assets/images/other-images/Cling-Decals-179x179.png"
+                                        <img src="{{ asset('website/assets/images/other-images/Cling-Decals-179x179.png' ) }}"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -277,7 +311,7 @@
                             <div class="col-6 col-md-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="website/assets/images/other-images/Carbonless-Books-179x179.png"
+                                        <img src="{{ asset('website/assets/images/other-images/Carbonless-Books-179x179.png' ) }}"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -289,7 +323,7 @@
                             <div class="col-6 col-md-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="website/assets/images/other-images/2-x-6-Bookmarks-179x179.png"
+                                        <img src="{{ asset('website/assets/images/other-images/2-x-6-Bookmarks-179x179.png' ) }}"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -301,7 +335,7 @@
                             <div class="col-6 col-sm-2">
                                 <a href="#" class="prod-item">
                                     <div class="img-wrap">
-                                        <img src="website/assets/images/other-images/Medical-Brochures-179x179.png"
+                                        <img src="{{ asset('website/assets/images/other-images/Medical-Brochures-179x179.png' ) }}"
                                             alt="product image">
                                     </div>
                                     <h4>
@@ -328,7 +362,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/secure-payment-1.png">
+                                            <img src="{{ asset('website/assets/images/icons/secure-payment-1.png' ) }}">
                                             <h5>secure payment</h5>
                                             <p>visa, masterCard, PayPal etc</p>
                                         </div>
@@ -336,7 +370,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/shiping-1.png" style="width: 80px;">
+                                            <img src="{{ asset('website/assets/images/icons/shiping-1.png' ) }}" style="width: 80px;">
                                             <h5>world wide shipping</h5>
                                             <p>6-8 business days</p>
                                         </div>
@@ -344,7 +378,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/design-support-1.png" style="width: 61px;">
+                                            <img src="{{ asset('website/assets/images/icons/design-support-1.png' ) }}" style="width: 61px;">
                                             <h5>free design support</h5>
                                             <p>with 2D and 3D mockup</p>
                                         </div>
@@ -352,7 +386,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/customize-1.png" style="width: 58px;">
+                                            <img src="{{ asset('website/assets/images/icons/customize-1.png' ) }}" style="width: 58px;">
                                             <h5>custom size & design</h5>
                                             <p>premium custom boxes</p>
                                         </div>
@@ -381,13 +415,13 @@
                         <div class="col-lg-7">
                             <div class="row">
                                 <div class="col-6">
-                                    <img class="img-fluid" src="website/assets/images/homepage/print-img-1.png"
+                                    <img class="img-fluid" src="{{ asset('website/assets/images/homepage/print-img-1.png' ) }}"
                                         alt="print image">
-                                    <img class="img-fluid mt-2" src="website/assets/images/homepage/print-img-2.png"
+                                    <img class="img-fluid mt-2" src="{{ asset('website/assets/images/homepage/print-img-2.png' ) }}"
                                         alt="print image">
                                 </div>
                                 <div class="col-6">
-                                    <img class="img-fluid" src="website/assets/images/homepage/print-img-3.png"
+                                    <img class="img-fluid" src="{{ asset('website/assets/images/homepage/print-img-3.png' ) }}"
                                         alt="print image">
                                 </div>
                             </div>
@@ -435,44 +469,44 @@
             <div class="prods-slider">
                 <div class="slider-wrap" data-aos="fade-left" data-aos-duration="1700">
                     <div class="left-slider-btn">
-                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
+                        <img src="{{ asset('website/assets/images/icons/arrow.png' ) }}" alt="arrow">
                     </div>
                     <div class="slide-area">
                         <div class="owlOne owl-carousel owl-theme">
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/CBD-Box-With-Bottle.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/CBD-Box-With-Bottle.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg"
+                                <img class="" src="{{ asset('website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg' ) }}"
                                     alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Corrugated-Kraft-Boxes.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Corrugated-Kraft-Boxes.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Mix_Tuck_End_Boxes.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Mix_Tuck_End_Boxes.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Sleeve-Chocolate-Box.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Sleeve-Chocolate-Box.jpg' ) }}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Tuck-Box.jpg" alt="Slider Image">
+                                <img class="" src="{{ asset('website/assets/images/Common/Tuck-Box.jpg' ) }}" alt="Slider Image">
                             </a>
                         </div>
                     </div>
                     <div class="right-slider-btn">
-                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
+                        <img src="{{ asset('website/assets/images/icons/arrow.png' ) }}" alt="arrow">
                     </div>
                 </div>
             </div>
 
 @endsection
 @section('scripts')
-        <script src="website/assets/js/vendor/1-jquery-3.4.0.min.js"></script>
-        <script src="website/assets/js/vendor/2-bootstrap.min.js"></script>
-        <script src="website/assets/js/vendor/3-popper.min.js"></script>
-        <script src="website/assets/js/vendor/4-simplebar.min.js"></script>
-        <script src="website/assets/js/scripts.min.js"></script>
+        <script src="{{ asset('website/assets/js/vendor/1-jquery-3.4.0.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/vendor/2-bootstrap.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/vendor/3-popper.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/vendor/4-simplebar.min.js' ) }}"></script>
+        <script src="{{ asset('website/assets/js/scripts.min.js' ) }} "></script>
 @endsection
 
 

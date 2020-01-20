@@ -1,5 +1,5 @@
 @extends('website.layouts.layout')
-@section('title', 'Pack Printers :: Custom Packaging Service')
+@section('title', 'Pack Printers :: Terms of use')
 @section('main_content')
             <!-- Private Policy -->
             <section class="boxesByIndustry">

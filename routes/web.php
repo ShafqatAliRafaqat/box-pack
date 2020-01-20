@@ -40,10 +40,10 @@ Route::get('/private_policy', 'DashboardController@privatePolicy')->name('privat
 Route::get('/terms_of_use', 'DashboardController@termsOfUse')->name('terms_of_use');
 
 Route::get('/categories/{type?}', 'CategoryController@categories')->name('category');
-Route::get('/category/{title}/{id}', 'CategoryController@categoryProducts')->name('category_detail');
+Route::get('/category/{type?}/{title}/{id}', 'CategoryController@categoryProducts')->name('category_detail');
 Route::get('/blog', 'BlogController@blog')->name('blog');
-Route::get('/blog_detail', 'BlogController@blogDetail')->name('blog_detail');
-Route::get('/product_detail', 'ProductController@productDetail')->name('product_detail');
+Route::get('/blog/{title}/{id}', 'BlogController@blogDetail')->name('blog_detail');
+Route::get('category/{category_type}/{category_title}/{product_title}/{id}', 'ProductController@productDetail')->name('product_detail');
 Route::get('/product', 'ProductController@product')->name('product');
 Route::get('/quote', 'UserController@quote')->name('quote');
 Route::post('/store_quote', 'UserController@storeQuote')->name('store_quote');

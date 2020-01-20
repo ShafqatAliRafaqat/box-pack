@@ -1,5 +1,5 @@
 @extends('website.layouts.layout')
-@section('title', 'Pack Printers :: Custom Packaging Service')
+@section('title', 'Pack Printers :: Blog')
 @section('main_content')
             <!-- Main Content Section -->
             <section class="blogDetail">
@@ -9,26 +9,18 @@
                             <!-- Blog Detail HEADER area with Main Banner -->
                             <header>
                                 <h1>
-                                    Here’s How You Can Use Creativity To Design A Unique Product Package
+                                    {{$blog->title}}
                                 </h1>
                                 <figure class="figure w-100">
+                                    <?php $blog_image = BlogMainImage($blog->id);?>
                                     <img class="figure-img img-fluid w-100"
-                                        src="website/assets/images/blog-detail/creative-packaging-740x475.jpg" alt="">
+                                        src="{{ asset('uploads/blogs/'. $blog_image->picture) }}" alt="">
                                 </figure>
                             </header>
                             <!-- Blog Detail -->
                             <div class="blog-text">
                                 <p>
-                                    Creativity is one of the most important life skills one can have. Especially, when
-                                    we
-                                    are talking about the packaging industry, creativity is deemed essential. Why? As
-                                    much
-                                    as the customer focuses on the quality of the product, proper packaging is of equal
-                                    importance. Moreove Whiler, packaging creates the first impression of the product on
-                                    the
-                                    customer, hence it is important to ensure a good one. we are talking about the
-                                    impression, there are some vitals of proper packaging design; type, color, function,
-                                    design and, sustainability. Let’s delve into the details.
+                                    {{ strip_tags($blog->description)}}
                                 </p>
                                 <h3><strong>Why is creativity important?</strong></h3>
                                 <p>
@@ -67,7 +59,7 @@
                                     their custom packaging with the vibrant and representative patterns.
                                 </p>
                                 <figure class="figure w-100">
-                                    <img class="figure-img img-fluid w-100" src="website/assets/images/blog-detail/1.jpg"
+                                    <img class="figure-img img-fluid w-100" src="{{asset('website/assets/images/blog-detail/1.jpg')}}"
                                         alt="">
                                 </figure>
                                 <ul>
@@ -83,7 +75,7 @@
                                     traits.
                                 </p>
                                 <figure class="figure w-100">
-                                    <img class="figure-img img-fluid w-100" src="website/assets/images/blog-detail/2.jpg"
+                                    <img class="figure-img img-fluid w-100" src="{{asset('website/assets/images/blog-detail/2.jpg')}}"
                                         alt="">
                                 </figure>
                                 <h3>
@@ -106,7 +98,7 @@
                                     demonstrates the advantage of the watch without the need for words.
                                 </p>
                                 <figure class="figure w-100">
-                                    <img class="figure-img img-fluid w-100" src="website/assets/images/blog-detail/3.jpg"
+                                    <img class="figure-img img-fluid w-100" src="{{asset('website/assets/images/blog-detail/3.jpg')}}"
                                         alt="">
                                 </figure>
                                 <p>
@@ -121,7 +113,7 @@
                                     shoes from getting damaged during shipment or delivery.
                                 </p>
                                 <figure class="figure w-100">
-                                    <img class="figure-img img-fluid w-100" src="website/assets/images/blog-detail/4.jpg"
+                                    <img class="figure-img img-fluid w-100" src="{{asset('website/assets/images/blog-detail/4.jpg')}}"
                                         alt="">
                                 </figure>
                                 <h3><strong>Can minimalistic designs be creative?</strong></h3>
@@ -153,7 +145,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/secure-payment-1.png">
+                                            <img src="{{asset('website/assets/images/icons/secure-payment-1.png')}}">
                                             <h5>secure payment</h5>
                                             <p>visa, masterCard, PayPal etc</p>
                                         </div>
@@ -161,7 +153,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/shiping-1.png" style="width: 80px;">
+                                            <img src="{{asset('website/assets/images/icons/shiping-1.png')}}" style="width: 80px;">
                                             <h5>world wide shipping</h5>
                                             <p>6-8 business days</p>
                                         </div>
@@ -169,7 +161,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/design-support-1.png" style="width: 61px;">
+                                            <img src="{{asset('website/assets/images/icons/design-support-1.png')}}" style="width: 61px;">
                                             <h5>free design support</h5>
                                             <p>with 2D and 3D mockup</p>
                                         </div>
@@ -177,7 +169,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-md-3">
                                         <div class="benifit-item">
-                                            <img src="website/assets/images/icons/customize-1.png" style="width: 58px;">
+                                            <img src="{{asset('website/assets/images/icons/customize-1.png')}}" style="width: 58px;">
                                             <h5>custom size & design</h5>
                                             <p>premium custom boxes</p>
                                         </div>
@@ -206,13 +198,13 @@
                         <div class="col-lg-7">
                             <div class="row">
                                 <div class="col-6">
-                                    <img class="img-fluid" src="website/assets/images/homepage/print-img-1.png"
+                                    <img class="img-fluid" src="{{asset('website/assets/images/homepage/print-img-1.png')}}"
                                         alt="print image">
-                                    <img class="img-fluid mt-2" src="website/assets/images/homepage/print-img-2.png"
+                                    <img class="img-fluid mt-2" src="{{asset('website/assets/images/homepage/print-img-2.png')}}"
                                         alt="print image">
                                 </div>
                                 <div class="col-6">
-                                    <img class="img-fluid" src="website/assets/images/homepage/print-img-3.png"
+                                    <img class="img-fluid" src="{{asset('website/assets/images/homepage/print-img-3.png')}}"
                                         alt="print image">
                                 </div>
                             </div>
@@ -254,33 +246,33 @@
             <div class="prods-slider">
                 <div class="slider-wrap" data-aos="fade-left" data-aos-duration="1700">
                     <div class="left-slider-btn">
-                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
+                        <img src="{{asset('website/assets/images/icons/arrow.png')}}" alt="arrow">
                     </div>
                     <div class="slide-area">
                         <div class="owlOne owl-carousel owl-theme">
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/CBD-Box-With-Bottle.jpg" alt="Slider Image">
+                                <img class="" src="{{asset('website/assets/images/Common/CBD-Box-With-Bottle.jpg')}}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg"
+                                <img class="" src="{{asset('website/assets/images/Common/Chinese-product-Tuck-End-Box.jpg')}}"
                                     alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Corrugated-Kraft-Boxes.jpg" alt="Slider Image">
+                                <img class="" src="{{asset('website/assets/images/Common/Corrugated-Kraft-Boxes.jpg')}}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Mix_Tuck_End_Boxes.jpg" alt="Slider Image">
+                                <img class="" src="{{asset('website/assets/images/Common/Mix_Tuck_End_Boxes.jpg')}}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Sleeve-Chocolate-Box.jpg" alt="Slider Image">
+                                <img class="" src="{{asset('website/assets/images/Common/Sleeve-Chocolate-Box.jpg')}}" alt="Slider Image">
                             </a>
                             <a href="https://www.instagram.com" target="_blank" class="item">
-                                <img class="" src="website/assets/images/Common/Tuck-Box.jpg" alt="Slider Image">
+                                <img class="" src="{{asset('website/assets/images/Common/Tuck-Box.jpg')}}" alt="Slider Image">
                             </a>
                         </div>
                     </div>
                     <div class="right-slider-btn">
-                        <img src="website/assets/images/icons/arrow.png" alt="arrow">
+                        <img src="{{asset('website/assets/images/icons/arrow.png')}}" alt="arrow">
                     </div>
                 </div>
             </div>

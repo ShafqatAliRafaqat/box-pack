@@ -122,7 +122,7 @@
                             @foreach($mainCategories as $data)
                             <div class="col-6 col-md-4">
                                 <?php $slug = str_replace(' ', '-', $data->title);?>
-                                <a href="{{ route('category_detail',[$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up"
+                                <a href="{{ route('category_detail',['box-by-industory',$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up"
                                     data-aos-duration="1200">
                                     <div class="img-wrap">
                                         <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
@@ -230,7 +230,7 @@
                         @if(count($mainCategories)>0)
                             @foreach($mainCategories as $data)
                                 <div class="col-6 col-md-3">
-                                    <a href="{{ route('category_detail',[$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up" data-aos-duration="1500">
+                                    <a href="{{ route('category_detail',['box-by-industory',$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up" data-aos-duration="1500">
                                         <div class="img-wrap">
                                             <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
                                         </div>
