@@ -15,6 +15,7 @@
 
                 <div class="boxes-display">
                     <div class="container">
+                    @include('adminpanel.notification')
                         <!-- Beat My Quote Row -->
                         <div class="row justify-content-end">
                             <div class="col-lg-3 p-lg-0">
@@ -39,12 +40,12 @@
                                             @endforeach
                                         @endif
                                         
-                                        <li data-thumb="{{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}">
+                                        <!-- <li data-thumb="{{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}">
                                             <img src=" {{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}" />
                                         </li>
                                         <li data-thumb="{{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}">
                                             <img src=" {{asset('website/assets/images/customCreamBoxes/Cream-Packaging.jpg')}}" />
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -55,142 +56,22 @@
                             </div>
                             <div class="col-lg-3 p-lg-0" id="quoteForm">
                                 <div class="quote-form-wrap">
-                                    <form>
-                                        <input type="text" placeholder="Name" required>
-                                        <input type="email" placeholder="Email" required>
-                                        <input type="tel" placeholder="Phone" required>
+                                    <form method="post" id="customer-form" action="{{ route('contact_us_form') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="text" name="name" placeholder="Name" required>
+                                        <input type="email" name="email" placeholder="Email" required>
+                                        <input type="tel" name="phone" placeholder="Phone" required>
                                         <div class="form-group">
-                                            <select id="my-select" class="custom-select" name="" required>
-                                                <option>Select your box type</option>
-                                                <option value="">Custom Cone Sleeve</option>
-                                                <option value="">Essential Oil Packaging Boxes</option>
-                                                <option value="">CBD Boxes</option>
-                                                <option value="">Vape Cartridge Boxes</option>
-                                                <option value="">Hemp Oil Boxes</option>
-                                                <option value="">E-Liquid Boxes</option>
-                                                <option value="">Bath Bomb Boxes</option>
-                                                <option value="">Mailer Boxes</option>
-                                                <option value="">Paper Brief Case</option>
-                                                <option value="">Five Panel Hanger</option>
-                                                <option value="">Double Wall with Display Lid</option>
-                                                <option value="">1-2-3 Bottom Display Lid</option>
-                                                <option value="">Double Wall Tuck Top</option>
-                                                <option value="">Four Corner with Display Lid</option>
-                                                <option value="">Gable Bag Auto Bottom</option>
-                                                <option value="">Gable Bag Bottom Hanger</option>
-                                                <option value="">Self Lock Cake Box</option>
-                                                <option value="">Dispenser</option>
-                                                <option value="">Four Corner Tray</option>
-                                                <option value="">Reverse Tuck End</option>
-                                                <option value="">Seal End</option>
-                                                <option value="">Straight Tuck End</option>
-                                                <option value="">Tuck End Auto Bottom</option>
-                                                <option value="">Two Panel CD Jacket</option>
-                                                <option value="">Six Panel CD Jacket</option>
-                                                <option value="">Four Panel CD Jacket</option>
-                                                <option value="">Gable Bag</option>
-                                                <option value="">Glass Carrier</option>
-                                                <option value="">Ice Cream Cone Holder</option>
-                                                <option value="">Regular Six Corner</option>
-                                                <option value="">Side Lock Six Corner</option>
-                                                <option value="">Foot Lock Tray</option>
-                                                <option value="">Double Wall Tray</option>
-                                                <option value="">Double Locked Wall Lid</option>
-                                                <option value="">Bowl Sleeve</option>
-                                                <option value="">Eyelash Boxes</option>
-                                                <option value="">Double Wall Tuck Front</option>
-                                                <option value="">Four Corner Cake Box</option>
-                                                <option value="">Gable Box Auto Bottom</option>
-                                                <option value="">Hexagon</option>
-                                                <option value="">Hexagon 2 PC</option>
-                                                <option value="">Two Piece</option>
-                                                <option value="">Tray and Sleeve Box</option>
-                                                <option value="">Bookend</option>
-                                                <option value="">Seal End Auto Bottom</option>
-                                                <option value="">Full Flap Auto Bottom</option>
-                                                <option value="">Auto Bottom with Display Lid</option>
-                                                <option value="">1-2-3 Bottom</option>
-                                                <option value="">Silver Foil Boxes</option>
-                                                <option value="">Gold Foil Boxes</option>
-                                                <option value="">Ornament Boxes</option>
-                                                <option value="">Handle Boxes</option>
-                                                <option value="">Gift Card Boxes</option>
-                                                <option value="">Gable Boxes</option>
-                                                <option value="">Favor Boxes</option>
-                                                <option value="">Wine Boxes</option>
-                                                <option value="">Tea Boxes</option>
-                                                <option value="">Popcorn Boxes</option>
-                                                <option value="">Pie Boxes</option>
-                                                <option value="">Noodle Boxes</option>
-                                                <option value="">Macaron Boxes</option>
-                                                <option value="">Cupcake Boxes</option>
-                                                <option value="">Coffee Boxes</option>
-                                                <option value="">Chinese Takeout Boxes</option>
-                                                <option value="">Cereal Boxes</option>
-                                                <option value="">Cake Boxes</option>
-                                                <option value="">Truffle Boxes</option>
-                                                <option value="">Snack Boxes</option>
-                                                <option value="">Pizza Boxes</option>
-                                                <option value="">Pastry Boxes</option>
-                                                <option value="">Muffin Boxes</option>
-                                                <option value="">Donut Boxes</option>
-                                                <option value="">Cookie Boxes</option>
-                                                <option value="">Chocolate Boxes</option>
-                                                <option value="">Chinese Food Boxes</option>
-                                                <option value="">Candy Boxes</option>
-                                                <option value="">Bakery Boxes</option>
-                                                <option value="">Kraft Boxes</option>
-                                                <option value="">Bux Board Boxes</option>
-                                                <option value="">Display Boxes</option>
-                                                <option value="">Cosmetic Display Boxes</option>
-                                                <option value="">Perfume Boxes</option>
-                                                <option value="">Nail Polish Boxes</option>
-                                                <option value="">Mascara Boxes</option>
-                                                <option value="">Makeup Boxes</option>
-                                                <option value="">Lotion Boxes</option>
-                                                <option value="">Lipstick Boxes</option>
-                                                <option value="">Lip Gloss Boxes</option>
-                                                <option value="">Lip Balm Boxes</option>
-                                                <option value="">Hairspray Boxes</option>
-                                                <option value="">Hair Extension Boxes</option>
-                                                <option value="">Foundation Boxes</option>
-                                                <option value="">Eyeshadow Boxes</option>
-                                                <option value="">Eyeliner Boxes</option>
-                                                <option value="">Cream Boxes</option>
-                                                <option value="">Window Boxes</option>
-                                                <option value="">Wedding Card Boxes</option>
-                                                <option value="">Tie Boxes</option>
-                                                <option value="">Soap Boxes</option>
-                                                <option value="">Shirt Boxes</option>
-                                                <option value="">Product Boxes</option>
-                                                <option value="">Postage Boxes</option>
-                                                <option value="">Pillow Boxes</option>
-                                                <option value="">Medicine Boxes</option>
-                                                <option value="">Die Cut Boxes</option>
-                                                <option value="">Corrugated Boxes</option>
-                                                <option value="">CD/DVD Storage Boxes</option>
-                                                <option value="">Candle Boxes</option>
-                                                <option value="">Book Boxes</option>
-                                                <option value="">White Boxes</option>
-                                                <option value="">Toy Boxes</option>
-                                                <option value="">Suitcase Boxes</option>
-                                                <option value="">Software Boxes</option>
-                                                <option value="">Sleeve Boxes</option>
-                                                <option value="">Pyramid Boxes</option>
-                                                <option value="">Presentation Boxes</option>
-                                                <option value="">Playing Card Boxes</option>
-                                                <option value="">Paper Boxes</option>
-                                                <option value="">Invitation Boxes</option>
-                                                <option value="">Folding Boxes</option>
-                                                <option value="">Cigar Boxes</option>
-                                                <option value="">Cube Boxes</option>
-                                                <option value="">Cigarette Boxes</option>
-                                                <option value="">Cardboard Boxes</option>
-                                                <option value="">Business Card Boxes</option>
-                                                <option value="">Archive Boxes</option>
+                                            <select id="my-select" class="custom-select" name="box_type" required>
+                                                <option value="">Select Product</option>
+                                                @if(count($related_products))
+                                                    @foreach($related_products as $data)
+                                                        <option value="{{$data->id}}">{{$data->title}}</option>                                                    
+                                                    @endforeach
+                                                @endif
                                             </select>
                                         </div>
-                                        <textarea name="text" rows="7"
+                                        <textarea name="comment" rows="7"
                                             placeholder="Let us know what you need! Box Dimensions, Number of boxes you need, design - we will more than happy to help you"
                                             required></textarea>
                                         <button type="submit">submit</button>
@@ -283,46 +164,6 @@
                                 </div>
                                 @endforeach
                             @endif
-
-                            <!-- Single Product Item -->
-                            <div class="col-6 col-md-2">
-                                <a href="#" class="prod-item">
-                                    <div class="img-wrap">
-                                        <img src="{{ asset('website/assets/images/other-images/custom-stickers/auto-and-car-decals-179x179.png' ) }}"
-                                            alt="product image">
-                                    </div>
-                                    <h4>
-                                        custom auto car <br>
-                                        decals
-                                    </h4>
-                                </a>
-                            </div>
-                            <!-- Single Product Item -->
-                            <div class="col-6 col-md-2">
-                                <a href="#" class="prod-item">
-                                    <div class="img-wrap">
-                                        <img src="{{ asset('website/assets/images/other-images/custom-stickers/Business-Label-Printing-179x179.png' ) }}"
-                                            alt="product image">
-                                    </div>
-                                    <h4>
-                                        custom business <br>
-                                        labels
-                                    </h4>
-                                </a>
-                            </div>
-                            <!-- Single Product Item -->
-                            <div class="col-6 col-sm-2">
-                                <a href="#" class="prod-item">
-                                    <div class="img-wrap">
-                                        <img src="{{ asset('website/assets/images/other-images/custom-stickers/auto-and-car-stickers-179x179.png' ) }}"
-                                            alt="product image">
-                                    </div>
-                                    <h4>
-                                        auro car <br>
-                                        stickers
-                                    </h4>
-                                </a>
-                            </div>
                             <div class="col-12 text-center">
                                 <a href="/quote" class="btn getQuote">get Free Quote</a>
                             </div>

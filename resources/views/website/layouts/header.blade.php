@@ -32,11 +32,13 @@
             <!-- Search Bar -->
             <div class="search-bar">
                 <img src="{{ asset('website/assets/images/icons/magnifying-glass.png')}}" alt="search">
-                {{-- <select name="search" class="selectpicker1"  data-live-search="true" title="Search..." id="selectpicer"> --}}
+                @php $categories = AllCategories(); @endphp
+                <!-- <select name="search" class="selectpicker1"  data-live-search="true" title="Search..." id="selectpicer">  -->
                     <select name="search" class=""  data-live-search="true" title="Search..." id="selectpicer">
-                    <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">Search</option>
-                    <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">Search 1</option>
-                    <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">Search 2</option>
+                        <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">Search</option>    
+                            @foreach($categories as $c)
+                        <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">{{$c->title}}</option>    
+                    @endforeach
                 </select> 
                 <span class="close-searchBar">x</span>
             </div>
@@ -52,11 +54,11 @@
                     </button>
                     <div id="net-nav" class="collapse navbar-collapse">
                         <ul class="navbar-nav ml-auto text-center text-md-left">
-                            <li class="nav-item {{ Request::is('/')?  'active' : '' }} ">
+                            <li class="nav-item {{ url('/')?  'active' : '' }} ">
                                 <a class="nav-link" href="/">Home</a>
                             </li>
                             @php $boxByIndustry = ShowBoxByIndustryInNav(); @endphp
-                            <li class="nav-item dropdown ">
+                            <li class="nav-item dropdown {{ url('/categories/box-by-industory')?  'active' : '' }}">
                                 <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-industory') }}" 
                                     onclick="window.location.href='/categories/box-by-industory'"target="_blank"
                                     id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -73,35 +75,7 @@
                                         </a>
                                         @endforeach
                                     @endif
-                                    
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd1-1.png')}}" alt="">
-                                        custom cosmetic box
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd1-2.png')}}" alt="">
-                                        custom display package
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd1-3.png')}}" alt="">
-                                        custom eco friendly boxes
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd1-5.png')}}" alt="">
-                                        custom gift boxes
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd1-7.png')}}" alt="">
-                                        custom retail boxes
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd1-8.png')}}" alt="">
-                                        custom retail packaging
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/navbar-images/Chinese-Food-Boxes-50x50.png')}}" alt="">
-                                        food & beverages boxes
-                                    </a>
+                                 
                                 </div>
                             </li>
                             <li class="nav-item dropdown {{ url('/categories/box-by-style')?  'active' : '' }}">
@@ -122,34 +96,7 @@
                                         </a>
                                         @endforeach
                                     @endif
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd2-1.png')}}" alt="">
-                                        bottom closure
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd2-2.png')}}" alt="">
-                                        CD Covers
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd2-3.png')}}" alt="">
-                                        figure & pattern
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd2-4.png')}}" alt="">
-                                        fold & assemble
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd2-5.png')}}" alt="">
-                                        rectangular
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd2-6.png')}}" alt="">
-                                        showcase exhibit
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/Common/dd2-7.png')}}" alt="">
-                                        top closure
-                                    </a>
+                                    
                                 </div>
                             </li>
                             <li class="nav-item dropdown {{ url('/categories/box-by-other')?  'active' : '' }}">
@@ -169,25 +116,6 @@
                                         </a>
                                         @endforeach
                                     @endif
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/navbar-images/stickers-and-lables-50x50.png')}}" alt="">
-                                        custom stickers & lables
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/navbar-images/Cling-Decals-50x50.png')}}" alt="">
-                                        decals
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/navbar-images/Magazine-Printing-50x50.png')}}" alt="">
-                                        magazines
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        <img src="{{ asset('website/assets/images/navbar-images/bottle-neckers-50x50.png')}}" alt="">
-                                        bottle necker
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('product') }}">
-                                        other
-                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item {{ url('/blog')?  'active' : '' }}">

@@ -36,6 +36,7 @@ Route::group(['middleware'=>['auth'],'prefix' => 'admin'], function(){
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about_us', 'DashboardController@aboutUs')->name('about_us');
 Route::get('/contact_us', 'DashboardController@contactUs')->name('contact_us');
+Route::POST('/contact_us_form', 'UserController@StoreContactUs')->name('contact_us_form');
 Route::get('/private_policy', 'DashboardController@privatePolicy')->name('private_policy');
 Route::get('/terms_of_use', 'DashboardController@termsOfUse')->name('terms_of_use');
 

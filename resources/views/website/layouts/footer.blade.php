@@ -54,13 +54,6 @@
                         <a href="{{ route('category_detail',['box-by-industry',$slug, $data->id]) }}" target="_blank">{{$data->title}}</a>
                     @endforeach
                 @endif
-                <a href="cbdboxes.html" target="_blank">CBD Packaging Boxes</a>
-                <a href="customCosmeticBox.html" target="_blank">Custom Cosmetic Box</a>
-                <a href="customCosmeticBox.html" target="_blank">Custom display packaging</a>
-                <a href="customCosmeticBox.html" target="_blank">food and beverages boxes</a>
-                <a href="customCosmeticBox.html" target="_blank">Custom retail packaging</a>
-                <a href="customCosmeticBox.html" target="_blank">Custom eco friendly boxes</a>
-                <a href="customCosmeticBox.html" target="_blank">Custom retail Box</a>
             </div>
         </div>
         <div class="col-lg-2">

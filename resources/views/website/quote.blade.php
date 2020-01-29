@@ -113,14 +113,15 @@
                                                 Color Option
                                             </h5>
                                             <select id="" class="form-control" name="color" >
-                                                <option value="White">White</option>
-                                                <option value="Tan">Tan</option>
-                                                <option value="Yellow">Yellow</option>
-                                                <option value="Orange">Orange</option>
-                                                <option value="Red">Red</option>
-                                                <option value="Pink">Pink</option>
-                                                <option value="Purple">Purple</option>
-                                                <option value="Blue">Blue</option>
+                                                <option value="None">None</option>
+                                                <option value="1 Color">1 Color</option>
+                                                <option value="2 Color">2 Color</option>
+                                                <option value="3 Color">3 Color</option>
+                                                <option value="4 Color">4 Color</option>
+                                                <option value="4/1 Color">4/1 Color</option>
+                                                <option value="4/2 Color">4/2 Color</option>
+                                                <option value="4/3 Color">4/3 Color</option>
+                                                <option value="4/4 Color">4/4 Color</option>
                                             </select>
                                         </div>
                                     </div>

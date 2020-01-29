@@ -15,6 +15,10 @@ function category_name($category_id){
     $category_name = Category::where('id',$category_id)->select('title')->first();
     return $category_name;
 }
+function AllCategories(){
+    $categories = Category::orderByDesc('updated_at')->select('title','id')->get();
+    return $categories;
+}
 function product_image($product_id){
     $image = ProductImages::where('product_id',$product_id)->where('main_picture',1)->select('picture')->first();
     return $image;

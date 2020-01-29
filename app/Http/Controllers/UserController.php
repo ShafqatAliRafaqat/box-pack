@@ -77,6 +77,23 @@ class UserController extends Controller
         $quotes = DB::table('quote')->orderBy('updated_at','DESC')->get();
         return view('adminpanel.quote.index', compact('quotes'));
     }
+    public function StoreContactUs(Request $request){
+        $validate = $request->validate([
+            'name'            => 'required|string|max:255',
+            'email'           => 'required|string|email|max:255',
+            'phone'           => 'required|string',
+            'comment'         => 'required',
+        ]);
+        $contact_us = DB::table('contact_us')->insert([
+            'name'            => $request->name,
+            'email'           => $request->email,
+            'phone'           => $request->phone,
+            'box_type'        => $request->box_type,
+            'comment'         => $request->comment,
+        ]);
+        Session::flash('success','Your query has been sended successfully! We will contact you shortly');
+        return redirect()->back();
+    }
     public function storeQuote(Request $request)
     {
         $validate = $request->validate([

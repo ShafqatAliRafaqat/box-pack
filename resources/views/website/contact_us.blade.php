@@ -11,6 +11,7 @@
 
                 <div class="contactUs pt-0 pt-lg-4">
                     <div class="container">
+                    @include('adminpanel.notification')
                         <!-- Contact Us -->
                         <div class="row">
                             <div class="col-lg-6">
@@ -91,34 +92,35 @@
                                     allowfullscreen="false"></iframe>
                             </div>
                             <div class="col-lg-6">
-                                <form action="#">
+                                <form method="post" id="customer-form" action="{{ route('contact_us_form') }}" enctype="multipart/form-data">
+                                @csrf
                                     <!-- Contact Form Item -->
                                     <div class="input-wrap mt-3 mt-lg-0">
                                         <h5>
                                             Name*
                                         </h5>
-                                        <input type="text" class="form-control" placeholder="Name *" required>
+                                        <input type="text" class="form-control" name="name" placeholder="Name *" required>
                                     </div>
                                     <!-- Contact Form Item -->
                                     <div class="input-wrap">
                                         <h5>
                                             Mail*
                                         </h5>
-                                        <input type="email" class="form-control" placeholder="Email *" required>
+                                        <input type="email" class="form-control" name="email" placeholder="Email *" required>
                                     </div>
                                     <!-- Contact Form Item -->
                                     <div class="input-wrap">
                                         <h5>
                                             Phone*
                                         </h5>
-                                        <input type="tel" class="form-control" placeholder="Phone Number *" required>
+                                        <input type="tel" class="form-control" name="phone" placeholder="Phone Number *" required>
                                     </div>
                                     <!-- Contact Form Item -->
                                     <div class="input-wrap">
                                         <h5>
                                             Additional Comments:
                                         </h5>
-                                        <textarea id="my-textarea" class="form-control" name="" rows="3"
+                                        <textarea id="my-textarea" name="comment" class="form-control" rows="3"
                                             placeholder="Your message goes here"></textarea>
                                     </div>
                                     <!-- Submit Button -->
