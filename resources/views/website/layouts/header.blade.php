@@ -32,9 +32,12 @@
             <!-- Search Bar -->
             <div class="search-bar">
                 <img src="{{ asset('website/assets/images/icons/magnifying-glass.png')}}" alt="search">
-                <select name="search" class="selectpicker1" data-live-search="true" title="Search..." id="selectpicer">
+                {{-- <select name="search" class="selectpicker1"  data-live-search="true" title="Search..." id="selectpicer"> --}}
+                    <select name="search" class=""  data-live-search="true" title="Search..." id="selectpicer">
                     <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">Search</option>
-                </select>
+                    <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">Search 1</option>
+                    <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">Search 2</option>
+                </select> 
                 <span class="close-searchBar">x</span>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light" data-toggle="sticky-onscroll">
