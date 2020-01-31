@@ -52,6 +52,7 @@
                             <div class="col-lg-4 text-justify">
                                 <p class="product-description mt-3 mt-lg-0 pr-2" data-simplebar>
                                     {{ strip_tags($product->description)}}
+                                    
                                 </p>
                             </div>
                             <div class="col-lg-3 p-lg-0" id="quoteForm">

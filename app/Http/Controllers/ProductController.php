@@ -57,7 +57,7 @@ class ProductController extends Controller
         if($product){
             if ($request->file('picture')) {
                 $mainfilename = time().'-'.request()->picture->getClientOriginalName();
-                request()->picture->move(public_path('uploads/products/'), $mainfilename);
+                request()->picture->move('uploads/products/', $mainfilename);
                 
                 $insert = DB::table('product_images')->insert([
                     'product_id'    => $product->id,
@@ -71,7 +71,7 @@ class ProductController extends Controller
                 $i = 0;
                 foreach($request->file('other_picture') as $file){
                     $name = time().$i.'-'.$file->getClientOriginalName();
-                    $file->move(public_path('uploads/products/'), $name);
+                    $file->move('uploads/products/', $name);
         
                     $insert = DB::table('product_images')->insert([
                         'product_id'    => $product->id,
@@ -106,12 +106,12 @@ class ProductController extends Controller
         ]);
         if ($request->file('picture')) {
             $delete_image = ProductImages::where('product_id',$product->id)->where('main_picture',1)->first();
-            $oldImageLoc = public_path('uploads/products/' . $delete_image->picture);
+            $oldImageLoc = 'uploads/products/' . $delete_image->picture;
             File::delete($oldImageLoc);
             $delete_image->delete();
 
             $filename = time().'-'.request()->picture->getClientOriginalName();
-            request()->picture->move(public_path('uploads/products/'), $filename);
+            request()->picture->move('uploads/products/', $filename);
             
             $insert = DB::table('product_images')->insert([
                 'product_id'    => $product->id,
@@ -123,7 +123,7 @@ class ProductController extends Controller
             
             $delete_images = ProductImages::where('product_id',$product->id)->where('main_picture',0)->get();
             foreach($delete_images as $d_image){
-                $oldImageLoc = public_path('uploads/products/' . $d_image->picture);
+                $oldImageLoc = 'uploads/products/' . $d_image->picture;
                 File::delete($oldImageLoc);
                 $d_image->delete();
             }
@@ -131,7 +131,7 @@ class ProductController extends Controller
             $i = 0;
             foreach($request->file('other_picture') as $file){
                 $name = time().$i.'-'.$file->getClientOriginalName();
-                $file->move(public_path('uploads/products/'), $name);
+                $file->move('uploads/products/', $name);
     
                 $insert = DB::table('product_images')->insert([
                     'product_id'    => $product->id,
@@ -155,7 +155,7 @@ class ProductController extends Controller
     {
         $product_images = ProductImages::where('product_id',$product->id)->get();
         foreach($product_images as $image){
-            $oldImageLoc = public_path('uploads/products/' . $image->picture);
+            $oldImageLoc = 'uploads/products/' . $image->picture;
             File::delete($oldImageLoc);
             $image->delete();
         }

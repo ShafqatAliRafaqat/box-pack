@@ -57,7 +57,7 @@
                             <label class="col-md-2 form-control-label">Description</label>
                             <div class="col-md-10">
                                 <textarea placeholder="Enter Details" class="form-control" id="description" name="description"  cols="30" rows="10">{{ old('article') }}</textarea>
-                                <input name="image" type="file" id="upload" class="hidden" onchange="">
+                                <input name="image[]" type="file" multiple id="upload" class="hidden" onchange="">
                                 @if($errors->has('article'))
                                 <div class="invalid-feedback ml-3">{{ $errors->first('article') }}</div>
                                 @endif
@@ -89,32 +89,38 @@
         tinymce.init({
           selector: "#description",
           theme: "modern",
-          height: 700,
           paste_data_images: true,
+          height: 1000,
+          relative_urls : false,
+          remove_script_host : false,
+          convert_urls : true,
           plugins: [
             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars code fullscreen",
             "insertdatetime media nonbreaking save table contextmenu directionality",
-            "emoticons template paste textcolor colorpicker textpattern"
+            "emoticons template paste textcolor colorpicker textpattern",
           ],
           toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
           toolbar2: "print preview media | forecolor backcolor emoticons",
           image_advtab: true,
-          file_picker_callback: function(callback, value, meta) {
-            if (meta.filetype == 'image') {
+          // file_picker_callback: function(callback, value, meta) {
+          //   if (meta.filetype == 'image') {
                 
-              $('#upload').trigger('click');
-              $('#upload').on('change', function() {
-                var file = this.files[0];
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                  callback(e.target.result, {
-                    alt: ''
-                  });
-                };
-                reader.readAsDataURL(file);
-              });
-            }
+          //     $('#upload').trigger('click');
+          //     $('#upload').on('change', function() {
+          //       var file = this.files[0];
+          //       var reader = new FileReader();
+          //       reader.onload = function(e) {
+          //         callback(e.target.result, {
+          //           alt: ''
+          //         });
+          //       };
+          //       reader.readAsDataURL(file);
+          //     });
+          //   }
+          // },
+          images_upload_handler: function (blobInfo, success, failure) {
+            success("data:" + blobInfo.blob().type + ";base64," + blobInfo.base64());
           },
           templates: [{
             title: 'Test template 1',

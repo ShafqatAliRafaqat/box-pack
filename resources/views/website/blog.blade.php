@@ -35,7 +35,7 @@
                             @endforeach
                         @endif
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/blog1-350x313.png" alt="blog 1">
@@ -53,9 +53,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/eco-friendly-boxes2-350x313.jpg"
@@ -74,9 +74,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/creative-packaging-350x313.jpg"
@@ -98,9 +98,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/blog1-350x313.png" alt="blog 1">
@@ -118,9 +118,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/eco-friendly-boxes2-350x313.jpg"
@@ -139,9 +139,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/creative-packaging-350x313.jpg"
@@ -163,9 +163,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/blog1-350x313.png" alt="blog 1">
@@ -183,9 +183,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/eco-friendly-boxes2-350x313.jpg"
@@ -204,9 +204,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/creative-packaging-350x313.jpg"
@@ -228,9 +228,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/blog1-350x313.png" alt="blog 1">
@@ -248,9 +248,9 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Blog Item -->
-                        <div class="col-lg-4 bi">
+                        <!-- <div class="col-lg-4 bi">
                             <a href="blogDetailPage.html" class="blog-item">
                                 <div class="card border-0 p-0">
                                     <img class="card-img-top" src="website/assets/images/blog/eco-friendly-boxes2-350x313.jpg"
@@ -269,7 +269,7 @@
                                     </div>
                                 </div>
                             </a>
-                        </div>
+                        </div> -->
                         <!-- Load More Button -->
                         <div class="col-lg-12 text-center mt-2 mb-5 mb-lg-0">
                             <button class="loadMoreBlog">Load More...</button>

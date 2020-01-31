@@ -139,7 +139,7 @@ class UserController extends Controller
         
         if ($request->file('file')) {
             $filename = time().'-'.request()->file->getClientOriginalName();
-            request()->file->move(public_path('uploads/quote/'), $filename);
+            request()->file->move('uploads/quote/', $filename);
         }else{
             $filename = null;
         }
@@ -167,7 +167,7 @@ class UserController extends Controller
     public function deleteQuote($id)
     {
         $quotes = DB::table('quote')->where('id',$id)->first();
-        $oldImageLoc = public_path('uploads/quote/' . $quotes->file);
+        $oldImageLoc = 'uploads/quote/' . $quotes->file;
         File::delete($oldImageLoc);
         $quotes = DB::table('quote')->where('id',$id)->delete();
         

@@ -24,6 +24,7 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
         $validate = $request->validate([
             'title'          => 'required',
             'description'    => 'required',
@@ -38,7 +39,7 @@ class BlogController extends Controller
         if($blog){
             if ($request->file('picture')) {
                 $mainfilename = time().'-'.request()->picture->getClientOriginalName();
-                request()->picture->move(public_path('uploads/blogs/'), $mainfilename);
+                request()->picture->move('uploads/blogs/', $mainfilename);
                 
                 $insert = DB::table('blog_images')->insert([
                     'blog_id'       => $blog->id,
@@ -50,7 +51,7 @@ class BlogController extends Controller
                 $i = 0;
                 foreach($request->file('other_picture') as $file){
                     $name = time().$i.'-'.$file->getClientOriginalName();
-                    $file->move(public_path('uploads/blogs/'), $name);
+                    $file->move('uploads/blogs/', $name);
         
                     $insert = DB::table('blog_images')->insert([
                         'blog_id'       => $blog->id,
@@ -93,14 +94,14 @@ class BlogController extends Controller
             
             $delete_images = BlogImages::where('blog_id',$blog->id)->get();
             foreach($delete_images as $d_image){
-                $oldImageLoc = public_path('uploads/blogs/' . $d_image->picture);
+                $oldImageLoc = 'uploads/blogs/' . $d_image->picture;
                 File::delete($oldImageLoc);
                 $d_image->delete();
             }
             $i = 0;
             foreach($request->file('picture') as $file){
                 $name = time().$i.'-'.$file->getClientOriginalName();
-                $file->move(public_path('uploads/blogs/'), $name);
+                $file->move('uploads/blogs/', $name);
     
                 $insert = DB::table('blog_images')->insert([
                     'blog_id'    => $blog->id,
@@ -111,12 +112,12 @@ class BlogController extends Controller
         }
         if ($request->file('picture')) {
             $delete_image = BlogImages::where('blog_id',$blog->id)->where('main_picture',1)->first();
-            $oldImageLoc = public_path('uploads/blogs/' . $delete_image->picture);
+            $oldImageLoc = 'uploads/blogs/' . $delete_image->picture;
             File::delete($oldImageLoc);
             $delete_image->delete();
 
             $filename = time().'-'.request()->picture->getClientOriginalName();
-            request()->picture->move(public_path('uploads/blogs/'), $filename);
+            request()->picture->move('uploads/blogs/', $filename);
             
             $insert = DB::table('blog_images')->insert([
                 'blog_id'    => $blog->id,
@@ -128,7 +129,7 @@ class BlogController extends Controller
             
             $delete_images = BlogImages::where('blog_id',$blog->id)->where('main_picture',0)->get();
             foreach($delete_images as $d_image){
-                $oldImageLoc = public_path('uploads/blogs/' . $d_image->picture);
+                $oldImageLoc = 'uploads/blogs/' . $d_image->picture;
                 File::delete($oldImageLoc);
                 $d_image->delete();
             }
@@ -136,7 +137,7 @@ class BlogController extends Controller
             $i = 0;
             foreach($request->file('other_picture') as $file){
                 $name = time().$i.'-'.$file->getClientOriginalName();
-                $file->move(public_path('uploads/blogs/'), $name);
+                $file->move('uploads/blogs/', $name);
     
                 $insert = DB::table('blog_images')->insert([
                     'blog_id'    => $blog->id,
@@ -158,7 +159,7 @@ class BlogController extends Controller
     {
         $blog_images = BlogImages::where('blog_id',$blog->id)->get();
         foreach($blog_images as $image){
-            $oldImageLoc = public_path('uploads/blogs/' . $image->picture);
+            $oldImageLoc = 'uploads/blogs/' . $image->picture;
             File::delete($oldImageLoc);
             $image->delete();
         }

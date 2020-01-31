@@ -32,7 +32,7 @@ class CategoryController extends Controller
         ]);
         if ($request->file('picture')) {
             $filename = time().'-'.request()->picture->getClientOriginalName();
-            request()->picture->move(public_path('uploads/categories/'), $filename);
+            request()->picture->move('uploads/categories/', $filename);
         }else{
             $filename = null;
         }
@@ -83,10 +83,10 @@ class CategoryController extends Controller
             'type'           => 'required',
         ]);
         if ($request->file('picture')) {
-            $oldImageLoc = public_path('uploads/categories/' . $category->picture);
+            $oldImageLoc = 'uploads/categories/' . $category->picture;
             File::delete($oldImageLoc);
             $filename = time().'-'.request()->picture->getClientOriginalName();
-            request()->picture->move(public_path('uploads/categories/'), $filename);
+            request()->picture->move('uploads/categories/', $filename);
         }else{
             $filename = $category->picture;
         }
@@ -108,14 +108,14 @@ class CategoryController extends Controller
         foreach($products as $product){
             $product_images = ProductImages::where('product_id',$product->id)->get();
             foreach($product_images as $image){
-                $oldImageLoc = public_path('uploads/products/' . $image->picture);
+                $oldImageLoc = 'uploads/products/' . $image->picture;
                 File::delete($oldImageLoc);
                 $image->delete();
             }
             $product->delete();
         }
         if($category->picture){
-            $oldImageLoc = public_path('uploads/categories/' . $category->picture);
+            $oldImageLoc = 'uploads/categories/' . $category->picture;
             File::delete($oldImageLoc);
         }
         $category->delete();

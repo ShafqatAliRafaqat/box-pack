@@ -17,6 +17,7 @@ class CreateBlogsTable extends Migration
             $table->increments('id');
             $table->text('title');
             $table->longText('description')->nullable();
+            $table->integer('main_picture')->nullable()->default(0);
             $table->boolean('is_active')->nullable()->default(0);
             $table->timestamps();
         });
