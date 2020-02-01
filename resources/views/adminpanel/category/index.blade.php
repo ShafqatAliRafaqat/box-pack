@@ -19,6 +19,7 @@
                      <th>Type</th>
 		             <th>Picture</th>
                      <th>Active</th>
+                     <th>Position</th>
                      <th>Show in Menu</th>
                      <th>Edit</th>
                      <th>Delete</th>
@@ -44,6 +45,7 @@
 						<img src="{{ asset('uploads/categories/'. $c->picture) }}" width="50" height="50" />
 					</td>
                     <td>{{ $c->is_active == 1 ? 'Active' : 'Not Active' }}</td>
+                    <td>{{ $c->position == 1 ? 'Top' : ( $c->position ==0 ? 'Bottom' :'None' ) }}</td>
                     <td>{{ $c->in_menu == 1 ? 'Show in Menu' : 'Dont Show in menu '}}</td>
                     <td><a href="{{ route('category.edit', $c->id) }}"><i class="fa fa-edit"></i></a></td>
                     <td>

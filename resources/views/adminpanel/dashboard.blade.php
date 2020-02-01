@@ -13,9 +13,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-envelope-open"></i>
               </div>
-              <div class="mr-5"><h5>26 New Messages!</h5></div>
+              <div class="mr-5"><h5>{{$total_quotes}} Quote</h5></div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="messages.html">
+            <a class="card-footer text-white clearfix small z-1" href="/admin/quote">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -27,11 +27,11 @@
           <div class="card dashboard text-white bg-warning o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-star"></i>
+                <i class="fa fa-list-alt"></i>
               </div>
-				<div class="mr-5"><h5>11 New Reviews!</h5></div>
+  				  <div class="mr-5"><h5>{{$total_categories}} Categories</h5></div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="reviews.html">
+            <a class="card-footer text-white clearfix small z-1" href="/admin/category">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -43,11 +43,12 @@
           <div class="card dashboard text-white bg-success o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-calendar-check-o"></i>
+                <i class="fa fa-tag" aria-hidden="true"></i>
+                {{-- <i class="fa fa-fw fa-calendar-check-o"></i> --}}
               </div>
-              <div class="mr-5"><h5>10 New Bookings!</h5></div>
+              <div class="mr-5"><h5>{{$total_products}} Products</h5></div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="bookings.html">
+            <a class="card-footer text-white clearfix small z-1" href="/admin/products">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -59,11 +60,11 @@
           <div class="card dashboard text-white bg-danger o-hidden h-100">
             <div class="card-body">
               <div class="card-body-icon">
-                <i class="fa fa-fw fa-heart"></i>
+                <i class="fa fa-newspaper-o"></i>
               </div>
-              <div class="mr-5"><h5>10 New Bookmarks!</h5></div>
+              <div class="mr-5"><h5>{{$total_blogs}} Blogs</h5></div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="bookmarks.html">
+            <a class="card-footer text-white clearfix small z-1" href="/admin/blogs">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>

@@ -55,8 +55,24 @@ function MainCategories(){
     $data = Category::where('is_active',1)->take(6)->get();
     return $data;
 }
+function BottomCategories(){
+    $data = Category::where('is_active',1)->where('position',0)->take(9)->get();
+    return $data;
+}
+function TopCategories(){
+    $data = Category::where('is_active',1)->where('position',1)->take(6)->get();
+    return $data;
+}
 function RelatedCategory($type,$id){
     $data = Category::where('type',$type)->where('id','!=',$id)->take(4)->get();
+    return $data;
+}
+function Quote(){
+    $data = DB::table('quote')->orderBy('created_at','Desc')->take(6)->get();
+    return $data;
+}
+function ProductFaq(){
+    $data = DB::table('contact_us')->orderBy('created_at','Desc')->take(6)->get();
     return $data;
 }
 ?>

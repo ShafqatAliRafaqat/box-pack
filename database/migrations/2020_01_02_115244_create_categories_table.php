@@ -21,6 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->text('type');
             $table->boolean('is_active')->nullable()->default(0);
             $table->boolean('in_menu')->nullable()->default(0);
+            $table->boolean('position')->nullable()->default(0);
             $table->timestamps();
         });
     }

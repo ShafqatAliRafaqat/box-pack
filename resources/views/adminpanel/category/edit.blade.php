@@ -70,6 +70,27 @@
                             </div>
                             </div>
                             <div class="form-group row">
+                              <label class="col-md-2 form-control-label">Position At Home Page</label>
+                              <div class="col-md-2">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                  <input id="bottom" type="radio" value="0" name="position" class="custom-control-input" {{($category->position == 0)? 'checked':''}}>
+                                  <label for="bottom" class="custom-control-label">Bottom</label>
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                  <input id="top" type="radio" value="1" name="position" class="custom-control-input" {{($category->position == 1)? 'checked':''}}>
+                                  <label for="top" class="custom-control-label">Top</label>
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                  <input id="none" type="radio" value="2" name="position" class="custom-control-input" {{($category->position == 2)? 'checked':''}}>
+                                  <label for="none" class="custom-control-label">None</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group row">
                             <label class="col-md-2 form-control-label">description</label>
                             <div class="col-md-10">
                                 <textarea placeholder="Enter Details" class="form-control" id="description" name="description"  cols="30" rows="10">{{ $category->description }}</textarea>

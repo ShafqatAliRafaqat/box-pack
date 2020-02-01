@@ -51,21 +51,42 @@
                             </div>
                             </div>
                             <div class="form-group row">
-                            <label class="col-md-2 form-control-label">Active </label>
-                            <div class="col-md-4">
-                                <div class="custom-control custom-checkbox">
-                                <input id="is_active" value="1" type="checkbox" name="is_active" class="custom-control-input">
-                                <label for="is_active" class="custom-control-label">Check to Active the Treatment</label>
+                              <label class="col-md-2 form-control-label">Active </label>
+                              <div class="col-md-4">
+                                  <div class="custom-control custom-checkbox">
+                                  <input id="is_active" value="1" type="checkbox" name="is_active" class="custom-control-input">
+                                  <label for="is_active" class="custom-control-label">Check to Active the Treatment</label>
+                                  </div>
+                              </div>
+                              <label class="col-md-2 form-control-label">Show in Menu</label>
+                              <div class="col-md-4">
+                                  <div class="custom-control custom-checkbox">
+                                  <input id="in_menu" value="1" type="checkbox" name="in_menu" class="custom-control-input">
+                                  <label for="in_menu" class="custom-control-label">Show in Main Menu</label>
+                                  </div>
+                              </div>
+                              </div>
+                              <div class="form-group row">
+                                <label class="col-md-2 form-control-label">Position At Home Page</label>
+                                <div class="col-md-2">
+                                  <div class="custom-control custom-radio custom-control-inline">
+                                    <input id="bottom" type="radio" value="0" name="position" class="custom-control-input" {{ old('position') == 0 ? 'checked':'' }}>
+                                    <label for="bottom" class="custom-control-label">Bottom</label>
+                                  </div>
                                 </div>
-                            </div>
-                            <label class="col-md-2 form-control-label">Show in Menu</label>
-                            <div class="col-md-4">
-                                <div class="custom-control custom-checkbox">
-                                <input id="in_menu" value="1" type="checkbox" name="in_menu" class="custom-control-input">
-                                <label for="in_menu" class="custom-control-label">Show in Main Menu</label>
+                                <div class="col-md-2">
+                                  <div class="custom-control custom-radio custom-control-inline">
+                                    <input id="top" type="radio" value="1" name="position" class="custom-control-input" {{ old('position') == 1 ? 'checked':'' }}>
+                                    <label for="top" class="custom-control-label">Top</label>
+                                  </div>
                                 </div>
-                            </div>
-                            </div>
+                                <div class="col-md-2">
+                                  <div class="custom-control custom-radio custom-control-inline">
+                                    <input id="none" type="radio" value="2" name="position" class="custom-control-input" {{ old('position') == 2 ? 'checked':'' }}>
+                                    <label for="none" class="custom-control-label">None</label>
+                                  </div>
+                                </div>
+                              </div>
                             <div class="form-group row">
                             <label class="col-md-2 form-control-label">description</label>
                             <div class="col-md-10">

@@ -8,9 +8,8 @@
   <meta name="description" content="">
   <meta name="author" content="Ansonika">
   <title>Admin dashboard</title>
-	
   <!-- Favicons-->
-  <link rel="shortcut icon" href="img/favicon.ico" type="assets/image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('website/favicon.ico') }}" type="image/x-icon">
   <link rel="apple-touch-icon" type="image/x-icon" href="assets/img/apple-touch-icon-57x57-precomposed.png">
   <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72-precomposed.png">
   <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="assets/img/apple-touch-icon-114x114-precomposed.png">
@@ -107,28 +106,21 @@
               <i class="fa fa-fw fa-circle"></i>
             </span>
           </a>
+          <?php $quotes = Quote();?>
           <div class="dropdown-menu" aria-labelledby="messagesDropdown">
             <h6 class="dropdown-header">New Messages:</h6>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>David Miller</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Jane Smith</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>John Doe</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
+            @if(count($quotes)>0)
+              @foreach($quotes as $data)
+              <a class="dropdown-item" href="/admin/quote">
+                <strong>{{ $data->name}}</strong>
+                <span class="small float-right text-muted">{{$data->created_at}}</span>
+                <div class="dropdown-message small">{{$data->comment}}</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              @endforeach
+            @endif
+            <a class="dropdown-item small" href="/admin/quote">View all Quotes</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -141,37 +133,21 @@
               <i class="fa fa-fw fa-circle"></i>
             </span>
           </a>
+          <?php $product_faq = ProductFaq();?>
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Alerts:</h6>
+            <h6 class="dropdown-header">New Product Faqs</h6>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-danger">
-                <strong>
-                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all alerts</a>
+            @if(count($product_faq)>0)
+              @foreach($product_faq as $data)
+              <a class="dropdown-item" href="/admin/product_faq">
+                <strong>{{$data->name}}</strong>
+                <span class="small float-right text-muted">{{$data->created_at}}</span>
+                <div class="dropdown-message small">{{$data->comment}}</div>
+              </a>
+              <div class="dropdown-divider"></div>
+              @endforeach
+            @endif
+            <a class="dropdown-item small" href="/admin/product_faq">View all Product Faq</a>
           </div>
         </li>
         <li class="nav-item">

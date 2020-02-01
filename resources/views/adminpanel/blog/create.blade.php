@@ -38,7 +38,7 @@
                               </div>
                               <label class="col-md-2 form-control-label">Other Pictures <span class="asterisk"> *</span></label>
                               <div class="col-md-4">
-                                    <input type="file" name="other_picture[]" id="files" multiple class=" {{ $errors->has('other_picture') ? 'is-invalid' : '' }}" value="{{ old('other_picture') }}" required >
+                                    <input type="file" name="other_picture[]" id="files" multiple class=" {{ $errors->has('other_picture') ? 'is-invalid' : '' }}" value="{{ old('other_picture') }}">
                                   @if($errors->has('other_picture'))
                                   <div class="invalid-feedback ml-3">{{ $errors->first('other_picture') }}</div>
                                   @endif

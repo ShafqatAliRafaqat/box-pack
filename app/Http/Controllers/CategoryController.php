@@ -42,6 +42,7 @@ class CategoryController extends Controller
             'description'   => $request->description,
             'type'          => $request->type,
             'is_active'     => $request->is_active,
+            'position'      => $request->position,
             'in_menu'       => $request->in_menu,
         ]);
         Session::flash('success','Category Created Successfully');
@@ -96,6 +97,7 @@ class CategoryController extends Controller
             'description'   => $request->description,
             'type'          => $request->type,
             'is_active'     => $request->is_active,
+            'position'      => $request->position,
             'in_menu'       => $request->in_menu,
         ]);
         Session::flash('success','Category Updated Successfully');
