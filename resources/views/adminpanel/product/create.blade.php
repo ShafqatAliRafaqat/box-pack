@@ -61,7 +61,7 @@
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
                                 <input id="is_active" value="1" type="checkbox" name="is_active" class="custom-control-input">
-                                <label for="is_active" class="custom-control-label">Check to Active the Treatment</label>
+                                <label for="is_active" class="custom-control-label">Check to Active  </label>
                                 </div>
                             </div>
                             <label class="col-md-2 form-control-label">Show in Menu</label>
@@ -82,7 +82,16 @@
                                 @endif
                             </div>
                             </div>
-
+                            <div class="form-group row">
+                              <label class="col-md-2 form-control-label">Long Description <span class="asterisk"> *</span></label>
+                              <div class="col-md-10">
+                                  <textarea placeholder="Enter Details" class="form-control" id="long_description" name="long_description"  cols="30" rows="10">{{ old('long_description') }}</textarea>
+                                  <input name="long_image" type="file" id="long_upload" class="hidden" onchange="">
+                                  @if($errors->has('long_description'))
+                                  <div class="invalid-feedback ml-3">{{ $errors->first('long_description') }}</div>
+                                  @endif
+                              </div>
+                              </div>
                             <div class="form-group row">
                             <div class="col-md-9 ml-auto">
                                 <button type="submit" class="btn btn-primary">Save Product</button>
@@ -109,16 +118,17 @@
         tinymce.init({
           selector: "#description",
           theme: "modern",
-          height: 700,
+          height: 500,
           paste_data_images: true,
-          plugins: [
-            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen",
-            "insertdatetime media nonbreaking save table contextmenu directionality",
-            "emoticons template paste textcolor colorpicker textpattern"
-          ],
-          toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-          toolbar2: "print preview media | forecolor backcolor emoticons",
+        font_formats: 'Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
+        plugins: [
+          "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+          "searchreplace wordcount visualblocks visualchars code fullscreen",
+          "insertdatetime media nonbreaking save table contextmenu directionality",
+          "emoticons template paste textcolor colorpicker textpattern"
+        ],
+        toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        toolbar2: "print preview media | forecolor backcolor emoticons fontselect fontsizeselect",
           image_advtab: true,
           file_picker_callback: function(callback, value, meta) {
             if (meta.filetype == 'image') {
@@ -145,5 +155,48 @@
           }]
         });
       });
+</script>
+<script>
+  $(document).ready(function() {
+      tinymce.init({
+        selector: "#long_description",
+        theme: "modern",
+        height: 700,
+        paste_data_images: true,
+        font_formats: 'Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
+        plugins: [
+          "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+          "searchreplace wordcount visualblocks visualchars code fullscreen",
+          "insertdatetime media nonbreaking save table contextmenu directionality",
+          "emoticons template paste textcolor colorpicker textpattern"
+        ],
+        toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        toolbar2: "print preview media | forecolor backcolor emoticons fontselect fontsizeselect",
+        image_advtab: true,
+        file_picker_callback: function(callback, value, meta) {
+          if (meta.filetype == 'image') {
+              
+            $('#long_upload').trigger('click');
+            $('#long_upload').on('change', function() {
+              var file = this.files[0];
+              var reader = new FileReader();
+              reader.onload = function(e) {
+                callback(e.target.result, {
+                  alt: ''
+                });
+              };
+              reader.readAsDataURL(file);
+            });
+          }
+        },
+        templates: [{
+          title: 'Test template 1',
+          content: 'Test 1'
+        }, {
+          title: 'Test template 2',
+          content: 'Test 2'
+        }]
+      });
+    });
 </script>
 @endsection

@@ -2,6 +2,7 @@
 
 use App\BlogImages;
 use App\Category;
+use App\Product;
 use App\ProductImages;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -55,8 +56,8 @@ function MainCategories(){
     $data = Category::where('is_active',1)->take(6)->get();
     return $data;
 }
-function BottomCategories(){
-    $data = Category::where('is_active',1)->where('position',0)->take(9)->get();
+function MainPageProducts(){
+    $data = Product::where('is_active',1)->where('in_menu',1)->take(9)->get();
     return $data;
 }
 function TopCategories(){

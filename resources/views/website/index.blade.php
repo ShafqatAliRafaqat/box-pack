@@ -110,7 +110,7 @@
                             @foreach($mainCategories as $data)
                             <div class="col-6 col-md-4">
                                 <?php $slug = str_replace(' ', '-', $data->title);?>
-                                <a href="{{ route('category_detail',['box-by-industory',$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up"
+                                <a href="{{ route('category_detail',['box-by-industry',$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up"
                                     data-aos-duration="1200">
                                     <div class="img-wrap">
                                         <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
@@ -169,14 +169,17 @@
             <div class="products">
                 <div class="container">
                     <div class="row">
-                    <?php $mainCategories = BottomCategories(); ?>
-                        @if(count($mainCategories)>0)
-                            @foreach($mainCategories as $data)
+                    <?php $mainProducts = MainPageProducts(); ?>
+                        @if(count($mainProducts)>0)
+                            @foreach($mainProducts as $data)
+                            <?php $product_image = product_image($data->id);?>
+                            <?php $category_name = category_name($data->category_id);?>
+                            <?php $category_title = str_replace(' ', '-', $category_name->title);?>
                                 <div class="col-6 col-md-3">
                                     <?php $slug = str_replace(' ', '-', $data->title);?>
-                                    <a href="{{ route('category_detail',['box-by-industory',$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up" data-aos-duration="1500">
+                                    <a href="{{ route('product_detail',['box-by-industry',$category_title,$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up" data-aos-duration="1500">
                                         <div class="img-wrap">
-                                            <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
+                                            <img src="{{ asset('uploads/products/'. $product_image->picture) }}" alt="{{$data->title}}">
                                         </div>
                                         <h4>
                                         {{$data->title}}

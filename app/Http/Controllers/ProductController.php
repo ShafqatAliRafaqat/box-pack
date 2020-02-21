@@ -32,9 +32,13 @@ class ProductController extends Controller
         $categorytype = $category_type;
         $categorytitle=$category_title;
         $product     = Product::where('id',$id)->first();
-        $category_id = $product->category_id;
-        $related_products = Product::where('category_id',$category_id)->where('id','!=',$id)->get();
-        return view('website.product_detail',compact('product','related_products','categorytype','categorytitle'));
+        if($product){
+            $category_id = $product->category_id;
+            $related_products = Product::where('category_id',$category_id)->where('id','!=',$id)->take(12)->get();
+            return view('website.product_detail',compact('product','related_products','categorytype','categorytitle'));
+        }else{
+            return abort(404);
+        }
     }
     public function store(Request $request)
     {
@@ -49,6 +53,7 @@ class ProductController extends Controller
         $product = Product::create([
             'title'         => $request->title,
             'description'   => $request->description,
+            'long_description' => $request->long_description,
             'category_id'   => $request->category_id,
             'is_active'     => $request->is_active,
             'in_menu'       => $request->in_menu,
@@ -146,6 +151,8 @@ class ProductController extends Controller
             'category_id'   => $request->category_id,
             'is_active'     => $request->is_active,
             'in_menu'       => $request->in_menu,
+            'long_description' => $request->long_description,
+
         ]);
         Session::flash('success','Product Updated Successfully');
         return redirect()->route('products.index');

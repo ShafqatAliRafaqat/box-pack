@@ -47,8 +47,39 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
         <script>
-        $('.selectpicker1').selectpicker();
+            $('.selectpicker1').selectpicker();
         </script>
+        <script>  
+            //     $(document).on('keyup','#search-option', function(){
+            //         var id = $(this).val();
+            //         console.log(id);
+            //     $.ajaxSetup({
+            //         headers: {
+            //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            //         }
+            //         });
+            //         $.ajax({
+            //         type:'post',
+            //         url:"{{ route('live-search') }}",
+            //         data: { id : id},
+            //         success: function(response){
+            //             $('#options').html(response);
+            //         }
+            //         });
+            //     }); 
+            // $(function() {
+            //     $('input[name=chooseOption]').on('input',function() {
+            //         var selectedOption = $('option[value="'+$(this).val()+'"]');
+            //         var slug = selectedOption.attr('id');
+            //         if(slug.length){
+            //             window.location.assign('https://www.packprinters.com/category/box-by-industry/'+slug)
+            //         }else{
+            //             // $('#search-option').html('There is no data');
+            //         }
+            //     });
+            // });
+        </script> 
+        <script src="//code.tidio.co/fsa2kkx0htchlhkqoyfg9dstokns6v8k.js" async></script>
     @yield('scripts')
     </body>
 

@@ -35,7 +35,7 @@
                                             <div class="col-6 col-md-4">
                                                 <a href="{{ route('product_detail',[$categorytype,$category_title,$slug, $data->id]) }}" class="prod-item">
                                                     <div class="img-wrap">
-                                                        <img src="{{ asset('uploads/products/'. $product_images->picture) }}" alt="product image">
+                                                        <img src="{{ asset('uploads/products/'. $product_images->picture) }}" alt="{{$data->title}}">
                                                     </div>
                                                     <h4>
                                                         {{$data->title}}
@@ -44,6 +44,11 @@
                                             </div>
                                         @endforeach
                                     @endif
+                                </div>
+                                 <div class="row">
+                                    <div class="col-12">
+                                        <?php echo $products->render(); ?>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Side Quote Form -->
@@ -77,6 +82,7 @@
             </section>
 
             <!-- Related Category Section -->
+        @if($category->id !="3")
             <section class="relatedCategory">
                 <header class="commonHeader">
                     <h1 class="text-capitalize" style="font-size: 45px; margin-top: 30px;">related categories</h1>
@@ -114,7 +120,7 @@
                 </div>
 
             </section>
-
+        @endif
             <!-- Our Benifits -->
             <div class="benifits-banner">
                 <div class="container">
@@ -265,7 +271,7 @@
 
 @endsection
 @section('scripts')
-        <script src="{{ asset('website/assets/js/vendor/1-jquery-3.4.0.min.js' ) }}"></script>
+        <!--<script src="{{ asset('website/assets/js/vendor/1-jquery-3.4.0.min.js' ) }}"></script>-->
         <script src="{{ asset('website/assets/js/vendor/2-bootstrap.min.js' ) }}"></script>
         <script src="{{ asset('website/assets/js/vendor/3-popper.min.js' ) }}"></script>
         <script src="{{ asset('website/assets/js/vendor/4-simplebar.min.js' ) }}"></script>

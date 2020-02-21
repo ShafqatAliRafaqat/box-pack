@@ -58,7 +58,7 @@
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
                                 <input id="is_active" value="1" type="checkbox" name="is_active" class="custom-control-input" {{($category->is_active == 1)? 'checked':''}}>
-                                <label for="is_active" class="custom-control-label">Check to Active the Treatment</label>
+                                <label for="is_active" class="custom-control-label">Check to Active  </label>
                                 </div>
                             </div>
                             <label class="col-md-2 form-control-label">Show in Menu</label>
@@ -127,14 +127,15 @@
           theme: "modern",
           height: 700,
           paste_data_images: true,
-          plugins: [
-            "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-            "searchreplace wordcount visualblocks visualchars code fullscreen",
-            "insertdatetime media nonbreaking save table contextmenu directionality",
-            "emoticons template paste textcolor colorpicker textpattern"
-          ],
-          toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-          toolbar2: "print preview media | forecolor backcolor emoticons",
+        font_formats: 'Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats',
+        plugins: [
+          "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+          "searchreplace wordcount visualblocks visualchars code fullscreen",
+          "insertdatetime media nonbreaking save table contextmenu directionality",
+          "emoticons template paste textcolor colorpicker textpattern"
+        ],
+        toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        toolbar2: "print preview media | forecolor backcolor emoticons fontselect fontsizeselect",
           image_advtab: true,
           file_picker_callback: function(callback, value, meta) {
             if (meta.filetype == 'image') {

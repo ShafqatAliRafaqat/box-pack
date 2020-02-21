@@ -20,7 +20,9 @@
                                     <a href="{{ route('blog_detail',[$slug, $data->id]) }}" class="blog-item">
                                         <div class="card border-0 p-0">
                                             <?php $blog_image = BlogMainImage($data->id);?>
+                                            <?php if(isset($blog_image)){ ?>
                                             <img class="card-img-top" src="{{ asset('uploads/blogs/'. $blog_image->picture) }}" alt="blog 1">
+                                            <?php }?>
                                             <div class="card-body p-0">
                                                 <h5 class="card-title">
                                                     {{$data->title}}

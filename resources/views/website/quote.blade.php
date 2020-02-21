@@ -334,7 +334,7 @@
 @endsection
 @section('scripts')
         <!-- JavaScript Files -->
-        <script src="website/assets/js/vendor/1-jquery-3.4.0.min.js"></script>
+        <!--<script src="website/assets/js/vendor/1-jquery-3.4.0.min.js"></script>-->
         <script src="website/assets/js/vendor/2-bootstrap.min.js"></script>
         <script src="website/assets/js/vendor/3-popper.min.js"></script>
         <script src="website/assets/js/vendor/4-simplebar.min.js"></script>

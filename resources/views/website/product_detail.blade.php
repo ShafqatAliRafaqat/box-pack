@@ -51,8 +51,11 @@
                             </div>
                             <div class="col-lg-4 text-justify">
                                 <p class="product-description mt-3 mt-lg-0 pr-2" data-simplebar>
-                                    {{ strip_tags($product->description)}}
-                                    
+                                    <?php //echo strip_tags($product->description , '<strong>'); ?> 
+                                    <?php $des =  str_replace('<p>', '<span>', $product->description);
+                                            $des1 = str_replace('</p>', '</span>', $des);
+                                            echo $des1;
+                                    ?>
                                 </p>
                             </div>
                             <div class="col-lg-3 p-lg-0" id="quoteForm">
@@ -231,93 +234,8 @@
                                 <button class="tablinks"
                                     onclick="openTab(event, 'specification')">Specification</button>
                             </div>
-                            <div id="description" class="tabcontent" style="display: block;">
-                                <!-- Details Articel Item -->
-                                <article>
-                                    <h3>
-                                        Wholesale Printed Custom Cream Boxes Packaging
-                                    </h3>
-                                    <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown
-                                        printer took a galley of type and scrambled it to make a type specimen
-                                    </p>
-                                </article>
-                                <!-- Details Articel Item -->
-                                <article>
-                                    <h3>
-                                        Industry size for cream boxes
-                                    </h3>
-                                    <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown
-                                        printer took a galley of type and scrambled it to make a type specime
-
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown
-                                        printer took a galley of type and scrambled it to make a type specimen
-
-                                    </p>
-                                </article>
-                                <!-- Details Articel Item -->
-                                <article>
-                                    <h3>
-                                        Unlimited customization for custom cream boxes
-                                    </h3>
-                                    <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown
-                                        printer took a galley of type and scrambled it to make a type specime
-
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown
-                                        printer took a galley of type and scrambled it to make a type specimen
-
-                                    </p>
-                                </article>
-                                <!-- Details Articel Item -->
-                                <article>
-                                    <h3>
-                                        Complete client satisfaction
-                                    </h3>
-                                    <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown
-                                        printer took a galley of type and scrambled it to make a type specime
-                                    </p>
-                                </article>
-                                <!-- Details Articel Item -->
-                                <article>
-                                    <h3>
-                                        Custom Eco-friendly products
-                                    </h3>
-                                    <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown
-                                        printer took a galley of type and scrambled it to make a type specime
-
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum
-                                        has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown
-                                        printer took a galley of type and scrambled it to make a type specimen
-
-                                    </p>
-                                </article>
+                            <div id="description" class="tabcontent description-style" style="display: block;">
+                                <?php echo $product->long_description ;?>
                             </div>
                             <div id="specification" class="tabcontent">
                                 <table>
@@ -405,7 +323,7 @@
 @endsection
 @section('scripts')
         <!-- JavaScript Files -->
-        <script src="{{ asset('website/assets/js/vendor/1-jquery-3.4.0.min.js' ) }}"></script>
+        <!--<script src="{{ asset('website/assets/js/vendor/1-jquery-3.4.0.min.js' ) }}"></script>-->
         <script src="{{ asset('website/assets/js/vendor/2-bootstrap.min.js' ) }}"></script>
         <script src="{{ asset('website/assets/js/vendor/3-popper.min.js' ) }}"></script>
         <script src="{{ asset('website/assets/js/vendor/4-simplebar.min.js' ) }}"></script>

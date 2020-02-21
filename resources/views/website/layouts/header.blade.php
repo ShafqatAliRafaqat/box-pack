@@ -31,15 +31,13 @@
             </div>
             <!-- Search Bar -->
             <div class="search-bar">
-                <img src="{{ asset('website/assets/images/icons/magnifying-glass.png')}}" alt="search">
+            <img src="{{ asset( 'website/assets/images/icons/magnifying-glass.png')}}" alt="search">
                 @php $categories = AllCategories(); @endphp
-                <!-- <select name="search" class="selectpicker1"  data-live-search="true" title="Search..." id="selectpicer">  -->
-                    <select name="search" class=""  data-live-search="true" title="Search..." id="selectpicer">
-                        <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">Search</option>    
-                            @foreach($categories as $c)
-                        <option value="" style="background-color:gray; border-color:gray; border-radius: 10px;padding: 5px 10px;margin: 0 20px; color: #fff">{{$c->title}}</option>    
-                    @endforeach
-                </select> 
+                <form method="post" action="{{ route('live-search') }}" enctype="multipart/form-data">
+                    @csrf @method('post')
+                        <input type="text" name="search" placeholder="Search..." required>
+                    <input type="submit" hidden>
+                </form>
                 <span class="close-searchBar">x</span>
             </div>
             <nav class="navbar navbar-expand-lg navbar-light" data-toggle="sticky-onscroll">
@@ -58,9 +56,9 @@
                                 <a class="nav-link" href="/">Home</a>
                             </li>
                             @php $boxByIndustry = ShowBoxByIndustryInNav(); @endphp
-                            <li class="nav-item dropdown {{ url('/categories/box-by-industory')?  'active' : '' }}">
-                                <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-industory') }}" 
-                                    onclick="window.location.href='/categories/box-by-industory'"target="_blank"
+                            <li class="nav-item dropdown {{ url('/categories/box-by-industry')?  'active' : '' }}">
+                                <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-industry') }}" 
+                                    onclick="window.location.href='/categories/box-by-industry'"target="_blank"
                                     id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     box by industry
@@ -69,7 +67,7 @@
                                     @if(count($boxByIndustry)>0)
                                         @foreach($boxByIndustry as $data)
                                         <?php $slug = str_replace(' ', '-', $data->title);?>
-                                        <a class="dropdown-item" href="{{ route('category_detail',['box-by-industory',$slug, $data->id]) }}">
+                                        <a class="dropdown-item" href="{{ route('category_detail',['box-by-industry',$slug, $data->id]) }}">
                                             <img src="{{ asset('uploads/categories/'. $data->picture) }}" width="60" height="60" alt="">
                                             {{$data->title}}
                                         </a>
@@ -78,7 +76,7 @@
                                  
                                 </div>
                             </li>
-                            <li class="nav-item dropdown {{ url('/categories/box-by-style')?  'active' : '' }}">
+                            <!-- <li class="nav-item dropdown {{ url('/categories/box-by-style')?  'active' : '' }}">
                                 <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-style') }}" 
                                     onclick="window.location.href='/categories/box-by-style'"target="_blank"
                                     id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -98,8 +96,8 @@
                                     @endif
                                     
                                 </div>
-                            </li>
-                            <li class="nav-item dropdown {{ url('/categories/box-by-other')?  'active' : '' }}">
+                            </li> -->
+                            <!-- <li class="nav-item dropdown {{ url('/categories/box-by-other')?  'active' : '' }}">
                                 <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-other') }}" 
                                     onclick="window.location.href='/categories/box-by-other'"target="_blank" id="navbarDropdown4"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -117,6 +115,9 @@
                                         @endforeach
                                     @endif
                                 </div>
+                            </li> -->
+                            <li class="nav-item {{ url('/categories/box-by-style')?  'active' : '' }}">
+                                <a class="nav-link" href="{{ route('category_detail',['box-by-style','all-products','3']) }}">Templates</a>
                             </li>
                             <li class="nav-item {{ url('/blog')?  'active' : '' }}">
                                 <a class="nav-link" href="{{ route('blog') }}">blog</a>
@@ -136,4 +137,5 @@
                 </div>
             </nav>
 @section('scripts')
+
 @endsection

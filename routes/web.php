@@ -48,3 +48,4 @@ Route::get('category/{category_type}/{category_title}/{product_title}/{id}', 'Pr
 Route::get('/product', 'ProductController@product')->name('product');
 Route::get('/quote', 'UserController@quote')->name('quote');
 Route::post('/store_quote', 'UserController@storeQuote')->name('store_quote');
+Route::post('/search', 'CategoryController@LiveSearch')->name('live-search');

@@ -3,7 +3,7 @@
 @section('main_content')
             <section class="boxesByIndustry">
                 <header class="commonHeader">
-                    <?php $slug_type = ($type == 'Type1')? 'Box by industry' :(($type == 'Type2')? 'Box by Style' : (($type == 'Type3')? 'Box by Other' : 'Box by All Types') ); ?>
+                    <?php $slug_type = ($type == 'Type1')? 'Box by industry' :(($type == 'Type2')? 'Box by Style' : (($type == 'Type3')? 'Box by Other' :( ($title != '')? $title:'Box by All Types') ) ); ?>
                     <h1>{{$slug_type }}</h1>
                     <p>
                         all custom boxes you need for your product
