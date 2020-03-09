@@ -57,11 +57,15 @@ function MainCategories(){
     return $data;
 }
 function MainPageProducts(){
-    $data = Product::where('is_active',1)->where('in_menu',1)->take(9)->get();
+    $data = Product::where('is_active',1)->where('in_menu',1)->orderBy('updated_at', 'desc')->take(9)->get();
+    return $data;
+}
+function MainPageProducts1(){
+    $data = Product::where('is_active',1)->where('in_menu',1)->orderBy('updated_at', 'ASC')->take(9)->get();
     return $data;
 }
 function TopCategories(){
-    $data = Category::where('is_active',1)->where('position',1)->take(6)->get();
+    $data = Category::where('is_active',1)->where('position',1)->take(8)->get();
     return $data;
 }
 function RelatedCategory($type,$id){

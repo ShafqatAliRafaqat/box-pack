@@ -6,13 +6,19 @@
 @endsection
 @section('main_content')
             <section class="boxesByIndustry">
-                <header class="commonHeader">
-                    <h1 class="text-capitalize">{{$product->title}} </h1>
-                    <p>
-                        all custom accessories you need for your product
-                    </p>
-                </header>
-
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                           <header class="commonHeader text-left">
+                                <h1 class="text-capitalize">{{$product->title}} </h1>
+                                <p class="d-inline-block pl-1">
+                                    all custom accessories you need for your product
+                                </p>
+                            </header> 
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="boxes-display">
                     <div class="container">
                     @include('adminpanel.notification')
@@ -158,10 +164,10 @@
                                 <?php $slug = str_replace(' ', '-', $data->title);?>
                                 <?php $product_images = product_image($data->id); ?>
                                 <div class="col-6 col-md-2">
-                                    <a href="{{ route('product_detail',[$categorytype,$categorytitle,$slug, $data->id]) }}" class="prod-item">
+                                    <a href="{{ route('product_detail',$slug) }}" class="prod-item">
                                         <div class="img-wrap">
                                             <img src="{{ asset('uploads/products/'. $product_images->picture) }}"
-                                                alt="product image">
+                                                alt="{{ $data->title }}">
                                         </div>
                                         <h4>{{ $data->title }}</h4>
                                     </a>
@@ -233,6 +239,7 @@
                                     onclick="openTab(event, 'description')">Description</button>
                                 <button class="tablinks"
                                     onclick="openTab(event, 'specification')">Specification</button>
+                                <button class="tablinks" onclick="openTab(event, 'faqs')">FAQs</button>
                             </div>
                             <div id="description" class="tabcontent description-style" style="display: block;">
                                 <?php echo $product->long_description ;?>
@@ -280,6 +287,47 @@
                                     </tr>
                                 </table>
                             </div>
+                            <div id="faqs" class="tabcontent">
+                                <!-- Question Answer Here -->
+                                <article>
+                                    <h3>
+                                        Question Here?
+                                    </h3>
+                                    <p>
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum
+                                        has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown
+                                        printer took a galley of type and scrambled it to make a type specimen
+                                    </p>
+                                </article>
+                                 <!-- Question Answer Here -->
+                                <article>
+                                    <h3>
+                                        Question Here?
+                                    </h3>
+                                    <p>
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum
+                                        has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown
+                                        printer took a galley of type and scrambled it to make a type specimen
+                                    </p>
+                                </article>
+                                 <!-- Question Answer Here -->
+                                <article>
+                                    <h3>
+                                        Question Here?
+                                    </h3>
+                                    <p>
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum
+                                        has been the industry's standard dummy text ever since the 1500s, when an
+                                        unknown
+                                        printer took a galley of type and scrambled it to make a type specimen
+                                    </p>
+                                </article>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -324,11 +372,11 @@
 @section('scripts')
         <!-- JavaScript Files -->
         <!--<script src="{{ asset('website/assets/js/vendor/1-jquery-3.4.0.min.js' ) }}"></script>-->
-        <script src="{{ asset('website/assets/js/vendor/2-bootstrap.min.js' ) }}"></script>
-        <script src="{{ asset('website/assets/js/vendor/3-popper.min.js' ) }}"></script>
-        <script src="{{ asset('website/assets/js/vendor/4-simplebar.min.js' ) }}"></script>
+        <!--<script src="{{ asset('website/assets/js/vendor/2-bootstrap.min.js' ) }}"></script>-->
+        <!--<script src="{{ asset('website/assets/js/vendor/3-popper.min.js' ) }}"></script>-->
+        <!--<script src="{{ asset('website/assets/js/vendor/4-simplebar.min.js' ) }}"></script>-->
         <script src="{{ asset('website/assets/js/vendor/imagepreviewer.min.js' ) }}"></script>
-        <script src="{{ asset('website/assets/js/scripts.min.js' ) }}"></script>
+        <!--<script src="{{ asset('website/assets/js/scripts.min.js' ) }}"></script>-->
         <script>
             //  Image Slider With Thumbnail Initialization
             $('#lightSlider').lightSlider({
@@ -346,7 +394,7 @@
                 .css('display', 'block')
                 .parent()
                 .zoom({
-                    magnify: 0.5
+                    magnify: 0.6
                 });
             // To use zoom with img elements, they will need to be wrapped with another element.
 

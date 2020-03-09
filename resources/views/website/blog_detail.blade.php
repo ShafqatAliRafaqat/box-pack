@@ -14,7 +14,7 @@
                                 <figure class="figure w-100">
                                     <?php $blog_image = BlogMainImage($blog->id);?>
                                     <img class="figure-img img-fluid w-100"
-                                        src="{{ asset('uploads/blogs/'. $blog_image->picture) }}" alt="">
+                                        src="{{ asset('uploads/blogs/'. $blog_image->picture) }}" alt="{{$blog->title}}">
                                 </figure>
                             </header>
                             <!-- Blog Detail -->
@@ -119,14 +119,7 @@
                                         why we are best
                                     </h3>
                                     <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. It has survived not only five centuries, but also the leap into electronic
-                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                        with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                        recently with desktop publishing software like Aldus PageMaker including
-                                        versions of Lorem Ipsum.
+                                        Packprinters.com brings perfection in your customized boxes. We can do transformation in any size, color, text/font, layout, structure, dimension, cuts that fits for your products. Moreover, the structure of custom boxes can be modified totally according to your demand. Packprinters.com gives customers a privilege to choose custom window cut out, gold/silver foiling, embossing/embellishing, raised ink and PVC sheet. The print (CMYK, PMS, No Printing) along with the covering (Gloss, Matte, Spot UV) can be made in an assortment of ways. Besides, the paper [10pt to 28pt (60lb to 400lb)] can be made with an assortment of top-notch quality oriented materials. Eco-friendly Kraft is by all accounts our most well-known choice of today’s customers. Hence, all kinds of customization options are available under a single platform packprinters.com.
                                     </p>
                                 </article>
                             </div>

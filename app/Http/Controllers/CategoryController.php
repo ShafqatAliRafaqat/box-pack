@@ -51,34 +51,72 @@ class CategoryController extends Controller
 
     public function LiveSearch(Request $request)
     {
-        $search = $request->search; 
-        $categories = Category::where('title','LIKE','%'.$search.'%')->get();
+        $search = $request->search;
+        //var_dump($search);
+        //$categories = DB::table('products')->where('title','like','%' . $search . '%')->get();
+        $categories = DB::table('products')
+            ->join('product_images', 'products.id', '=', 'product_images.product_id')
+            ->where('products.title','like','%' . $search . '%')
+            ->where('product_images.main_picture',1)
+            ->select('products.*', 'product_images.picture as picture')
+            ->limit(16)
+            ->get();
+        //dd($users);    
+        // dd($categories);
         $title = "Search Results for: ".$search = $request->search;
-        $type = "";
-        return view('website.category',compact('categories','type','title'));
+        $search=true;
+        return view('website.category',compact('categories','title','search'));
     }
     public function categories($slug = null)
     {
-        $type = ($slug == 'box-by-industry')? 'Type1' :(($slug == 'box-by-style')? 'Type2' : (($slug == 'box-by-other')? 'Type3' : null) );
-        if($slug != null){
-            $categories = Category::where('type',$type)->where('is_active',1)->get();
-        }else{
-            $categories = Category::where('is_active',1)->get();
-        }
-        $title = "";
-        return view('website.category',compact('categories','type','title'));
+        $title = "Box By Industry";
+        $categories = Category::where('is_active',1)->where('type','Type1')->get();
+        return view('website.category',compact('categories','title'));
     }
-    public function categoryProducts( $category_type, $slug, $id)
+    public function categoriesboxbystyle()
     {
-        $categorytype = $category_type;
-        $category = Category::where('is_active',1)->where('id',$id)->first();
+        $category = Category::where('id',23)->where('is_active',1)->first();
         if($category){
-            $products = Product::where('category_id',$id)->where('is_active',1)->paginate(12);
-            return view('website.product', compact('products','category','categorytype'));
+            $title = "Box By Style";
+            $products = Product::where('category_id',23)->where('is_active',1)->paginate(12);
+            return view('website.product', compact('products','category','title'));
         }else{
             return abort(404);
         }
+    }
+    public function categoriesRetailBoxes()
+    {
+        $category = Category::where('id',19)->where('is_active',1)->first();
+        if($category){
+            $title = "Box By Style";
+            $products = Product::where('category_id',19)->where('is_active',1)->paginate(12);
+            return view('website.product', compact('products','category','title'));
+        }else{
+            return abort(404);
         }
+    }
+    public function categoryProducts( $slug)
+    {
+        $title = str_replace('-', ' ', $slug);
+        $category = Category::where('is_active',1)->where('title',$title)->first();
+        if($category){
+            $products = Product::where('category_id',$category->id)->where('is_active',1)->paginate(12);
+            return view('website.product', compact('products','category'));
+        }else{
+            return abort(404);
+        }
+    }
+    public function categoryProductsRedirect($slug)
+    {
+         $category = Category::where('is_active',1)->where('id',session()->get('id'))->first();
+        if($category){
+            $products = Product::where('category_id',session()->get('id'))->where('is_active',1)->paginate(12);
+            return view('website.product', compact('products','category'));
+        }else{
+            return abort(404);
+        }
+        
+    }
 
     public function edit(Category $category)
     {

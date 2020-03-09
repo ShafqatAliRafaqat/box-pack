@@ -2,13 +2,18 @@
 @section('title', 'Pack Printers :: Categories')
 @section('main_content')
             <section class="boxesByIndustry">
-                <header class="commonHeader">
-                    <?php $slug_type = ($type == 'Type1')? 'Box by industry' :(($type == 'Type2')? 'Box by Style' : (($type == 'Type3')? 'Box by Other' :( ($title != '')? $title:'Box by All Types') ) ); ?>
-                    <h1>{{$slug_type }}</h1>
+                 <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <header class="commonHeader">
+                    <h1>{{$title}}</h1>
                     <p>
                         all custom boxes you need for your product
                     </p>
-                </header>
+                            </header>
+                        </div>
+                    </div>
+                </div>
                 <div class="boxes-display">
                     <div class="container">
                     @include('adminpanel.notification')
@@ -28,12 +33,15 @@
                                     <!-- Single Product Item -->
                                     @if(count($categories)>0)
                                         @foreach($categories as $data)
-                                            <?php $category_type = str_replace(' ', '-', $slug_type);?>
                                             <?php $slug = str_replace(' ', '-', $data->title);?>
                                             <div class="col-6 col-md-4">
-                                                <a href="{{ route('category_detail',[$category_type,$slug, $data->id]) }}" class="prod-item">
+                                                <a href="{{ route('category_detail',$slug) }}" class="prod-item">
                                                     <div class="img-wrap">
-                                                        <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
+                                                        @if(isset($search))
+                                                        <img src="{{ asset('uploads/products/'. $data->picture) }}" alt="{{$data->title}}">
+                                                        @else
+                                                       <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="{{$data->title}}">
+                                                       @endif
                                                     </div>
                                                     <h4>
                                                         {{$data->title}}
@@ -89,6 +97,7 @@
                                     <!-- Benifit Item -->
                                     <div class="col-6 col-md-3 mb-5 mb-md-0">
                                         <div class="benifit-item">
+                                            
                                             <img src="{{ asset('website/assets/images/icons/shiping-1.png' ) }}" style="width: 80px;">
                                             <h5>world wide shipping</h5>
                                             <p>6-8 business days</p>
@@ -168,14 +177,7 @@
                                         why we are best
                                     </h3>
                                     <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. It has survived not only five centuries, but also the leap into electronic
-                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                        with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                        recently with desktop publishing software like Aldus PageMaker including
-                                        versions of Lorem Ipsum.
+                                        Packprinters.com brings perfection in your customized boxes. We can do transformation in any size, color, text/font, layout, structure, dimension, cuts that fits for your products. Moreover, the structure of custom boxes can be modified totally according to your demand. Packprinters.com gives customers a privilege to choose custom window cut out, gold/silver foiling, embossing/embellishing, raised ink and PVC sheet. The print (CMYK, PMS, No Printing) along with the covering (Gloss, Matte, Spot UV) can be made in an assortment of ways. Besides, the paper [10pt to 28pt (60lb to 400lb)] can be made with an assortment of top-notch quality oriented materials. Eco-friendly Kraft is by all accounts our most well-known choice of today’s customers. Hence, all kinds of customization options are available under a single platform packprinters.com.
                                     </p>
                                 </article>
                             </div>

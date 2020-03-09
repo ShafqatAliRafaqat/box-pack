@@ -73,9 +73,10 @@ class BlogController extends Controller
         $blogs = Blog::orderby('updated_at','DESC')->get();
         return view('website.blog',compact('blogs'));
     }
-    public function blogDetail($slug,$id)
+    public function blogDetail($slug)
     {
-        $blog = Blog::where('id',$id)->first();
+        $title = str_replace('-', ' ', $slug);
+        $blog = Blog::where('title',$title)->first();
         if(isset($blog)){
             return view('website.blog_detail',compact('blog'));
         }else{

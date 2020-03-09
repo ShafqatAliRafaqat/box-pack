@@ -5,8 +5,8 @@
             <div id="top" class="headtop">
                 <div class="container position-relative">
                     <div class="top-links mr-0 pr-0 mr-md-5 pr-md-4">
-                        <a href="tel:+182345678">Call Us: <i>+18-23-4567-8</i></a>
-                        <a href="mailto:info@packprinters.com">Email: <i>info@packprinters.com</i></a>
+                        <!--<a href="tel:+182345678">Call Us: <i>+18-23-4567-8</i></a>-->
+                        <a class="" href="mailto:info@packprinters.com">Email: <i>sales@packprinters.com</i></a>
                     </div>
                     <!-- Social Icons -->
                     <div class="social-icons-wrap">
@@ -34,13 +34,13 @@
             <img src="{{ asset( 'website/assets/images/icons/magnifying-glass.png')}}" alt="search">
                 @php $categories = AllCategories(); @endphp
                 <form method="post" action="{{ route('live-search') }}" enctype="multipart/form-data">
-                    @csrf @method('post')
+                    @csrf
                         <input type="text" name="search" placeholder="Search..." required>
                     <input type="submit" hidden>
                 </form>
                 <span class="close-searchBar">x</span>
             </div>
-            <nav class="navbar navbar-expand-lg navbar-light" data-toggle="sticky-onscroll">
+            <nav class="navbar navbar-expand-lg navbar-light p-0" data-toggle="sticky-onscroll">
                 <div class="container">
                     <a href="/" class="navbar-brand">
                         <!-- Logo Image Here -->
@@ -51,73 +51,141 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div id="net-nav" class="collapse navbar-collapse">
-                        <ul class="navbar-nav ml-auto text-center text-md-left">
+                        <ul class="navbar-nav ml-auto text-center text-lg-left">
                             <li class="nav-item {{ url('/')?  'active' : '' }} ">
                                 <a class="nav-link" href="/">Home</a>
                             </li>
-                            @php $boxByIndustry = ShowBoxByIndustryInNav(); @endphp
-                            <li class="nav-item dropdown {{ url('/categories/box-by-industry')?  'active' : '' }}">
-                                <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-industry') }}" 
-                                    onclick="window.location.href='/categories/box-by-industry'"target="_blank"
+                             <li class="nav-item dropdown {{ url('/box-by-industry')?  'active' : '' }}">
+                                <a class="nav-link dropdown-toggle" href="/box-by-industry" target="_blank"
                                     id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     box by industry
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                    @if(count($boxByIndustry)>0)
-                                        @foreach($boxByIndustry as $data)
-                                        <?php $slug = str_replace(' ', '-', $data->title);?>
-                                        <a class="dropdown-item" href="{{ route('category_detail',['box-by-industry',$slug, $data->id]) }}">
-                                            <img src="{{ asset('uploads/categories/'. $data->picture) }}" width="60" height="60" alt="">
-                                            {{$data->title}}
-                                        </a>
-                                        @endforeach
-                                    @endif
-                                 
+                                    <a class="dropdown-item" href="{{ route('category_detail','cosmetic-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/cosmetic-boxes.png')}}" class="lazyload"
+                                            alt="Cosmetic Boxes">
+                                            Cosmetic Boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','CBD-Packaging-Boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/cbd-packaging-boxes.png')}}"
+                                            class="lazyload" alt="CBD Packaging Boxes">
+                                            CBD Packaging Boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','custom-display-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/custom-display-boxes.png')}}"
+                                            class="lazyload" alt="custom display boxes">
+                                        custom display boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','ECO-Friendly-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/eco-friendly-boxes.png')}}"
+                                            class="lazyload" alt="ECO-Friendly boxes">
+                                        ECO-Friendly boxes
+                                    </a>
+                                    <a class="dropdown-item"href="{{ route('category_detail','Metalized-Boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/metalized-boxes.png')}}" class="lazyload"
+                                            alt="Metalized Boxes">
+                                            Metalized Boxes
+                                    </a>
+                                    <a class="dropdown-item"href="{{ route('category_detail','Food-and-Beverage-Boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/food-and-beverages.png')}}"
+                                            class="lazyload" alt="Food-Beverage-Boxes">
+                                            Food & Beverage Boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','Gift-Boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/gift-boxes.png')}}" class="lazyload"
+                                            alt="Gift Boxes">
+                                            Gift Boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','Retail-Boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/retail-boxes.png')}}" class="lazyload"
+                                            alt="Retail Boxes">
+                                            Retail Boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','Custom-Display-Packaging') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/custom-display-packaging.png')}}"
+                                            class="lazyload" alt="Custom Display Packaging">
+                                            Custom Display Packaging
+                                    </a>
                                 </div>
                             </li>
-                            <!-- <li class="nav-item dropdown {{ url('/categories/box-by-style')?  'active' : '' }}">
-                                <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-style') }}" 
-                                    onclick="window.location.href='/categories/box-by-style'"target="_blank"
-                                    id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            @php $boxByIndustry = ShowBoxByIndustryInNav(); @endphp
+                            <li id="megaMenu" class="nav-item dropdown {{ url('/box-by-industry')?  'active' : '' }}">
+                                <!--<a class="nav-link dropdown-toggle" href="{{ route('boxbyindustry') }}" -->
+                                <!--    onclick="window.location.href='/box-by-industry'"target="_blank"-->
+                                <!--    id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"-->
+                                <!--    aria-expanded="false">-->
+                                <!--    box by industry-->
+                                <!--</a>-->
+                                <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown2">-->
+                                <!--    @if(count($boxByIndustry)>0)-->
+                                <!--        @foreach($boxByIndustry as $data)-->
+                                <!--        <?php $slug = str_replace(' ', '-', $data->title);?>
+                                <!--        <a class="dropdown-item" href="{{ route('category_detail',$slug) }}">-->
+                                <!--            <img src="{{ asset('uploads/categories/'. $data->picture) }}" style="width: 33px" alt="">-->
+                                <!--            {{$data->title}}-->
+                                <!--        </a>-->
+                                <!--        @endforeach-->
+                                <!--    @endif-->
+                                 
+                                <!--</div>-->
+                                <a class="nav-link dropdown-toggle" href="{{ route('RetailBoxes') }}" 
+                                    target="_blank"
+                                    id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                    box by style
+                                    Retail Boxes
                                 </a>
-                                <?php $boxByStyle = ShowBoxByStyleInNav(); ?>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                    @if(count($boxByStyle)>0)
-                                        @foreach($boxByStyle as $data)
-                                        <?php $slug = str_replace(' ', '-', $data->title);?>
-                                        <a class="dropdown-item" href="{{ route('category_detail',['box-by-style',$slug, $data->id]) }}">
-                                            <img src="{{ asset('uploads/categories/'. $data->picture) }}" width="60" height="60" alt="">
-                                            {{$data->title}}
-                                        </a>
-                                        @endforeach
-                                    @endif
-                                    
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                      
+                                    <a class="dropdown-item" href="{{ route('category_detail','cosmetic-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/cosmetic-boxes.png') }}" class="lazyload"
+                                            alt="cosmetic boxes">
+                                        cosmetic boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','CBD-Packaging-Boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/cbd-packaging-boxes.png') }}"
+                                            class="lazyload" alt="CBD Packaging Boxes">
+                                        CBD Packaging Boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','custom-display-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/custom-display-boxes.png') }}"
+                                            class="lazyload" alt="custom display boxes">
+                                        custom display boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','ECO-Friendly-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/eco-friendly-boxes.png') }}"
+                                            class="lazyload" alt="ECO-Friendly boxes">
+                                        ECO-Friendly boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','metalized-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/metalized-boxes.png') }}" class="lazyload"
+                                            alt="metalized boxes">
+                                        metalized boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','food-beverages-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/food-and-beverages.png') }}"
+                                            class="lazyload" alt="food & beverages boxes">
+                                        food & beverages boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','gift-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/gift-boxes.png') }}" class="lazyload"
+                                            alt="gift boxes">
+                                        gift boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','retail-boxes') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/retail-boxes.png') }}" class="lazyload"
+                                            alt="retail boxes">
+                                        retail boxes
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('category_detail','custom-disaply-packaging') }}">
+                                        <img data-src="{{ asset('website/assets/images/navbar-images/custom-display-packaging.png') }}"
+                                            class="lazyload" alt="custom disaply packaging">
+                                        custom disaply packaging
+                                    </a>
                                 </div>
-                            </li> -->
-                            <!-- <li class="nav-item dropdown {{ url('/categories/box-by-other')?  'active' : '' }}">
-                                <a class="nav-link dropdown-toggle" href="{{ route('category','box-by-other') }}" 
-                                    onclick="window.location.href='/categories/box-by-other'"target="_blank" id="navbarDropdown4"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Others
-                                </a>
-                                <?php $boxByOther = ShowBoxByOtherInNav(); ?>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                                    @if(count($boxByOther)>0)
-                                        @foreach($boxByOther as $data)
-                                        <?php $slug = str_replace(' ', '-', $data->title);?>
-                                        <a class="dropdown-item" href="{{ route('category_detail',['box-by-other',$slug, $data->id]) }}">
-                                            <img src="{{ asset('uploads/categories/'. $data->picture) }}" width="60" height="60" alt="">
-                                            {{$data->title}}
-                                        </a>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </li> -->
-                            <li class="nav-item {{ url('/categories/box-by-style')?  'active' : '' }}">
-                                <a class="nav-link" href="{{ route('category_detail',['box-by-style','all-products','3']) }}">Templates</a>
+                            </li>
+                            <li class="nav-item {{ url('/box-by-style')?  'active' : '' }}">
+                                <a class="nav-link" href="{{ route('boxbystyle') }}">Templates</a>
                             </li>
                             <li class="nav-item {{ url('/blog')?  'active' : '' }}">
                                 <a class="nav-link" href="{{ route('blog') }}">blog</a>
@@ -137,5 +205,4 @@
                 </div>
             </nav>
 @section('scripts')
-
 @endsection

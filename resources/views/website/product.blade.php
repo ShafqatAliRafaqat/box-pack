@@ -2,13 +2,18 @@
 @section('title', 'Pack Printers :: Product')
 @section('main_content')
 <section class="boxesByIndustry">
-                <header class="commonHeader">
-                    <h1 class="text-capitalize"> {{ $category->title }}</h1>
-                    <p>
-                        all custom accessories you need for your product
-                    </p>
-                </header>
-
+     <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                           <header class="commonHeader">
+                                <h1 class="text-capitalize">{{ $category->title }} </h1>
+                                <p>
+                                    all custom accessories you need for your product
+                                </p>
+                            </header> 
+                        </div>
+                    </div>
+                </div>
                 <div class="boxes-display">
                     <div class="container">
                     @include('adminpanel.notification')
@@ -29,11 +34,10 @@
                                     <!-- Single Product Item -->
                                     @if(count($products)>0)
                                         @foreach($products as $data)
-                                            <?php $category_title = str_replace(' ', '-', $category->title);?>
                                             <?php $slug = str_replace(' ', '-', $data->title);?>
                                             <?php $product_images = product_image($data->id); ?>
                                             <div class="col-6 col-md-4">
-                                                <a href="{{ route('product_detail',[$categorytype,$category_title,$slug, $data->id]) }}" class="prod-item">
+                                                <a href="{{ route('product_detail',$slug) }}" class="prod-item">
                                                     <div class="img-wrap">
                                                         <img src="{{ asset('uploads/products/'. $product_images->picture) }}" alt="{{$data->title}}">
                                                     </div>
@@ -82,7 +86,7 @@
             </section>
 
             <!-- Related Category Section -->
-        @if($category->id !="3")
+            @if($category->id !="23")
             <section class="relatedCategory">
                 <header class="commonHeader">
                     <h1 class="text-capitalize" style="font-size: 45px; margin-top: 30px;">related categories</h1>
@@ -100,10 +104,10 @@
                                 @foreach($related_categories as $data)
                                 <?php $slug = str_replace(' ', '-', $data->title);?> 
                                 <div class="col-6 col-md-2">
-                                        <a href="{{ route('category_detail',[$categorytype,$slug, $data->id]) }}" class="prod-item">
+                                        <a href="{{ route('category_detail',$slug) }}" class="prod-item">
                                             <div class="img-wrap">
                                                 <img src="{{ asset('uploads/categories/'. $data->picture) }}"
-                                                    alt="product image">
+                                                    alt="{{$data->title}}">
                                             </div>
                                             <h4>
                                                 {{$data->title}}
@@ -120,7 +124,7 @@
                 </div>
 
             </section>
-        @endif
+            @endif
             <!-- Our Benifits -->
             <div class="benifits-banner">
                 <div class="container">
@@ -218,14 +222,7 @@
                                         all kind of customization
                                     </h3>
                                     <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. It has survived not only five centuries, but also the leap into electronic
-                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                        with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                        recently with desktop publishing software like Aldus PageMaker including
-                                        versions of Lorem Ipsum.
+                                       Packprinters.com brings perfection in your customized boxes. We can do transformation in any size, color, text/font, layout, structure, dimension, cuts that fits for your products. Moreover, the structure of custom boxes can be modified totally according to your demand. Packprinters.com gives customers a privilege to choose custom window cut out, gold/silver foiling, embossing/embellishing, raised ink and PVC sheet. The print (CMYK, PMS, No Printing) along with the covering (Gloss, Matte, Spot UV) can be made in an assortment of ways. Besides, the paper [10pt to 28pt (60lb to 400lb)] can be made with an assortment of top-notch quality oriented materials. Eco-friendly Kraft is by all accounts our most well-known choice of today’s customers. Hence, all kinds of customization options are available under a single platform packprinters.com.
                                     </p>
                                 </article>
                             </div>

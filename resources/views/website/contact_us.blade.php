@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
                                 <iframe class="mt-2"
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.8922426607005!2d74.30672881472348!3d31.47215028138556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391903d3a2c99a6d%3A0x9f06d359828b4123!2sTHE%20BURGER%20DALE!5e0!3m2!1sen!2s!4v1577024780080!5m2!1sen!2s"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.4343709846903!2d-74.1639307335782!3d40.62030168967103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24c5303de1fbb%3A0x2e3f6fcd54e29024!2s22%20Elson%20Ct%2C%20Staten%20Island%2C%20NY%2010314!5e0!3m2!1sen!2sus!4v1582974613734!5m2!1sen!2sus"
                                     width="100%" height="150" frameborder="0" style="border:0;"
                                     allowfullscreen="false"></iframe>
                             </div>
@@ -227,14 +227,7 @@
                                         why we are best
                                     </h3>
                                     <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. It has survived not only five centuries, but also the leap into electronic
-                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                        with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                        recently with desktop publishing software like Aldus PageMaker including
-                                        versions of Lorem Ipsum.
+                                        Packprinters.com brings perfection in your customized boxes. We can do transformation in any size, color, text/font, layout, structure, dimension, cuts that fits for your products. Moreover, the structure of custom boxes can be modified totally according to your demand. Packprinters.com gives customers a privilege to choose custom window cut out, gold/silver foiling, embossing/embellishing, raised ink and PVC sheet. The print (CMYK, PMS, No Printing) along with the covering (Gloss, Matte, Spot UV) can be made in an assortment of ways. Besides, the paper [10pt to 28pt (60lb to 400lb)] can be made with an assortment of top-notch quality oriented materials. Eco-friendly Kraft is by all accounts our most well-known choice of today’s customers. Hence, all kinds of customization options are available under a single platform packprinters.com.
                                     </p>
                                 </article>
                             </div>

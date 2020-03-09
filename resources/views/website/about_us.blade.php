@@ -3,7 +3,7 @@
 @section('main_content')
             <!-- Private Policy -->
             <section class="boxesByIndustry">
-                <header class="commonHeader mb-5">
+                <header class="commonHeader mb-5"><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
                     <h1 class="text-capitalize">About Us</h1>
                     <p>
                         <!-- Any small Description Here -->
@@ -15,26 +15,93 @@
                             <!-- about us Detail -->
                             <div class="col-md-5">
                                 <div class="detail-area" data-simplebar data-simplebar-auto-hide="false">
-                                    <p>PackPrinters.com® provides quality custom printing services.</p>
-                                    <p>Economical and High Quality:<br>We provide the best quality to our valuable
-                                        customers
-                                        and very low prices. We are sure that no one else will do the job as fine as we
-                                        do
-                                        at such affordable prices.</p>
-                                    <p>Plus Printers has been serving thousands of customers all around the globe. We
-                                        provide Free Design Support to our valuable clients.</p>
-                                    <p>Free Shipping at your Doorstep with very short turnaround time.</p>
-                                    <p>PackPrinters offer bulk discounts to our businesses.<br>We also provide other
-                                        perks
-                                        such as Free Lamination.</p>
-                                    <p>Our 24/7 Live Chat Support is available for your assistance.</p>
+                                    <p>
+                                        Packprinters.com is a leading website providing quality oriented and flexible
+                                        custom
+                                        packaging designs. Until now we have targeted a large number of well-known
+                                        brands
+                                        all around the globe by facilitating them with our exceptional designing,
+                                        printing
+                                        and shipping services. We have a strong competitive edge of being less costly as
+                                        well as providing desirable customer services to meet their needs.
+                                        Packprinters.com
+                                        pledge our customers with 100% satisfaction through top-notch quality, best
+                                        experience, flexible communication, inventive designs, creative ideas and free
+                                        shipping at your given address in a shorter period. We are sure that no one else
+                                        would carry out these responsibilities as fine as we do. Our customers get
+                                        discount
+                                        on bulk of custom printed & packaging boxes including free lamination as well.
+                                    </p>
+                                    <p>
+                                        Our representative is available for your concerns 24/7 through live chat. So,
+                                        please
+                                        feel free to consult at any time for further details.
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-7">
                                 <img class="img-fluid" src="{{ asset('website/assets/images/aboutUs/a1.jpg')}}" alt="about-us">
                             </div>
                         </div>
-
+                           <div class="row py-5">
+                            <div class="col-lg-12">
+                                <header class="commonHeader mb-5">
+                                    <h1 class="text-capitalize">Mission & Vision</h1>
+                                    <p></p>
+                                </header>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="detail-area h-auto">
+                                    <p>
+                                        To maintain quality of our custom packaging and printed boxes by engaging in
+                                        sustainable practices and foresee the requirements of our clients. To establish
+                                        long-term relationships with potential and valuable clients. To provide our
+                                        customers the best web based experience from start to finish to stand out their
+                                        business. We are 100% capable to produce any kind of product boxes and
+                                        packaging.
+                                        <strong class="border-bottom"> We are providing:</strong>
+                                    </p>
+                                    <ol>
+                                        <li>
+                                            <strong> Premium printing:</strong> our offset presses produce digital
+                                            artwork along
+                                            with
+                                            the latest printing techniques that ensures quality oriented stock of any
+                                            product.
+                                        </li>
+                                        <li>
+                                            <strong>Turnaround time:</strong> Packprinters.com is also known for meeting
+                                            deadlines
+                                            with flexible communication. The facility of same day printing is also
+                                            available.
+                                            You can expect your delivery within 8 to 10 days. If you are in a rush then
+                                            you
+                                            can get your boxes in minimum time as well.
+                                        </li>
+                                        <li>
+                                            <strong>Free shipment:</strong> we deliver your products without any extra
+                                            charges all
+                                            around US and Canada.
+                                        </li>
+                                        <li>
+                                            <strong>Green printing:</strong> while manufacturing and box printing we
+                                            make sure to use
+                                            100% biodegradable material for custom boxes and packaging.
+                                        </li>
+                                        <li>
+                                            <strong>Customer service support:</strong> clients can do 24/7 online
+                                            communication with
+                                            our
+                                            expert to carefully listen all your concerns, desires and requirements.
+                                            Hence, Packprinters.com gives your brand a signature look by analyzing
+                                            competitor's techniques, strategies and by keeping in mind about your
+                                            desire,
+                                            requirements, and vision of the product to make it valuable in the market.
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row mt-1">
                             <div class="col-lg-2">
                                 <div class="social-links">
@@ -70,9 +137,9 @@
                                     <br>
                                     <span>&#8594;</span>
                                 </h3>
-                                <h3 style="color: grey; margin-top: 80px;">
-                                    PHONE: <br> +1-818-476-7382
-                                </h3>
+                                <!--<h3 style="color: grey; margin-top: 80px;">-->
+                                <!--    PHONE: <br> +1-818-476-7382-->
+                                <!--</h3>-->
                             </div>
                         </div>
                     </div>
@@ -170,14 +237,18 @@
                                         why we are best
                                     </h3>
                                     <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. It has survived not only five centuries, but also the leap into electronic
-                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s
-                                        with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                        recently with desktop publishing software like Aldus PageMaker including
-                                        versions of Lorem Ipsum.
+                                        Packprinters.com brings perfection in your customized boxes. We can do
+                                        transformation in any size, color, text/font, layout, structure, dimension, cuts
+                                        that fits for your products. Moreover, the structure of custom boxes can be
+                                        modified totally according to your demand. Packprinters.com gives customers a
+                                        privilege to choose custom window cut out, gold/silver foiling,
+                                        embossing/embellishing, raised ink and PVC sheet. The print (CMYK, PMS, No
+                                        Printing) along with the covering (Gloss, Matte, Spot UV) can be made in an
+                                        assortment of ways. Besides, the paper [10pt to 28pt (60lb to 400lb)] can be
+                                        made with an assortment of top-notch quality oriented materials. Eco-friendly
+                                        Kraft is by all accounts our most well-known choice of today's customers. Hence,
+                                        all kinds of customization options are available under a single platform
+                                        packprinters.com.
                                     </p>
                                 </article>
                             </div>

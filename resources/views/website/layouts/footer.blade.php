@@ -1,8 +1,8 @@
-<div class="container pb-5" data-aos="fade-up" data-aos-duration="1500">
+<div class="container pb-5">
     <!-- Clients Slider -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="clients-slider">
+            <div class="clients-slider" data-aos="fade-up" data-aos-duration="1500">
                 <h4>
                     TRUSTED BY THE WORLD'S TOP BRANDS
                 </h4>
@@ -29,17 +29,13 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-between" data-aos="slide-up" data-aos-duration="1700">
+    <div class="row justify-content-between">
         <div class="col-lg-3">
             <a class="foot-img" href="/">
                 <img src="{{ asset('website/assets/images/Common/pack-printers.logo.svg')}}" alt="footer Logo">
             </a>
             <p>
-                Every custom box we create is made just for
-                you. You can customize every inch of your
-                box design inside and out, while our state of
-                the art printing ensures you'll love the
-                quality of your finished packaging boxes.
+                Packprinters.com provides suitable expert solutions for custom packaging, custom printed boxes, wholesale custom boxes and gives on time delivery at economical price.
             </p>
         </div>
         <div class="col-lg-3">
@@ -51,7 +47,7 @@
                 @if(count($boxByIndustry)>0)
                     @foreach($boxByIndustry as $data)
                         <?php $slug = str_replace(' ', '-', $data->title);?>
-                        <a href="{{ route('category_detail',['box-by-industry',$slug, $data->id]) }}" target="_blank">{{$data->title}}</a>
+                        <a href="{{ route('category_detail',$slug) }}" target="_blank">{{$data->title}}</a>
                     @endforeach
                 @endif
             </div>
@@ -64,7 +60,7 @@
                 <a href="{{ route('contact_us') }}" target="_blank">Contact Us</a>
                 <a href="{{ route('about_us') }}" target="_blank">About Us</a>
                 <a href="{{ route('terms_of_use') }}" target="_blank">Terms of Use</a>
-                <a href="{{ route('private_policy') }}" target="_blank">Private policy</a>
+                <a href="{{ route('private_policy') }}" target="_blank">Privacy Policy</a>
             </div>
         </div>
         <div class="col-lg-3">
@@ -72,11 +68,11 @@
                 <h5>
                     contact
                 </h5>
-                <a href="http://www.googlemaps.com" target="_blank">Street: 114 spartan ave, staten <br>
+                <a href="https://goo.gl/maps/SaE3L6xgC1dwf8be6" target="_blank">Street: 114 spartan ave, staten <br>
                     island,
                     New Your, USA</a>
-                <a href="tel:18184767382" target="_blank">1-818-476-7382</a>
-                <a href="mailto:info@packprinters.com" target="_blank">info@packprinters.com</a>
+                <!--<a href="tel:18184767382" target="_blank">1-818-476-7382</a>-->
+                <a href="mailto:info@packprinters.com" target="_blank">sales@packprinters.com</a>
             </div>
             <div class="social-icons">
                 - &nbsp;

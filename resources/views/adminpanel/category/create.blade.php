@@ -55,7 +55,7 @@
                               <div class="col-md-4">
                                   <div class="custom-control custom-checkbox">
                                   <input id="is_active" value="1" type="checkbox" name="is_active" class="custom-control-input">
-                                  <label for="is_active" class="custom-control-label">Check to Active  </label>
+                                  <label for="is_active" class="custom-control-label">Check to Active the Treatment</label>
                                   </div>
                               </div>
                               <label class="col-md-2 form-control-label">Show in Menu</label>

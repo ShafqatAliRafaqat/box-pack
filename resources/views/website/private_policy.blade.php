@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 @extends('website.layouts.layout')
-@section('title', 'Pack Printers :: Private Policy')
+@section('title', 'Pack Printers :: Privacy Policy')
 @section('main_content')
             <section class="boxesByIndustry">
                 <header class="commonHeader mb-5">
-                    <h1 class="text-capitalize">Private Policy</h1>
+                    <h1 class="text-capitalize">Privacy Policy</h1>
                     <p>
                         <!-- Any small Description Here -->
                     </p>
@@ -199,10 +199,10 @@
                                 <h3><span class="light">Company</span> Info</h3>
                                 <br>
                                 <h3><strong>Pack Printers</strong></h3>
-                                <p><strong>Phone number:</strong>&nbsp;&nbsp;<a href="tel:18184767382" target="_blank"
-                                        rel="noopener noreferrer"> (818) 476 7382</a></p>
+                                <!--<p><strong>Phone number:</strong>&nbsp;&nbsp;<a href="tel:18184767382" target="_blank"-->
+                                <!--        rel="noopener noreferrer"> (818) 476 7382</a></p>-->
                                 <p><strong>Email:</strong>&nbsp;<a href="mailto:info@PackPrinters.com" target="_blank"
-                                        rel="noopener noreferrer">info@PackPrinters.com</a></p>
+                                        rel="noopener noreferrer">support@PackPrinters.com</a></p>
                                 <p><strong>Address:</strong> Street: 114 spartan ave<br> City: staten island<br>
                                     State/province: New
                                     York<br> Zip/postal code: 10303<br> Country: USA</p>

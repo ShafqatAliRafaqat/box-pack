@@ -27,15 +27,44 @@ class ProductController extends Controller
     {
         return view('website.product');
     }
-    public function productDetail($category_type,$category_title,$product_title,$id)
+    public function LiveSearch(Request $request)
     {
-        $categorytype = $category_type;
-        $categorytitle=$category_title;
-        $product     = Product::where('id',$id)->first();
+        $search = $request->search;
+        //var_dump($search);
+        //$categories = DB::table('products')->where('title','like','%' . $search . '%')->get();
+        $categories = DB::table('products')
+            ->join('product_images', 'products.id', '=', 'product_images.product_id')
+            ->where('products.title','like','%' . $search . '%')
+            ->where('product_images.main_picture',1)
+            ->select('products.*', 'product_images.picture as picture')
+            ->limit(16)
+            ->get();
+        //dd($users);    
+        // dd($categories);
+        $title = "Search Results for: ".$search = $request->search;
+        $search=true;
+        return view('website.product',compact('products','title','search'));
+    }
+    public function productDetail($product_title)
+    {
+        $title = str_replace('-', ' ', $product_title);
+        $product     = Product::where('title',$title)->first();
         if($product){
             $category_id = $product->category_id;
-            $related_products = Product::where('category_id',$category_id)->where('id','!=',$id)->take(12)->get();
-            return view('website.product_detail',compact('product','related_products','categorytype','categorytitle'));
+            $related_products = Product::where('category_id',$category_id)->where('id','!=',$product->id)->take(12)->get();
+            return view('website.product_detail',compact('product','related_products'));
+        }else{
+            return abort(404);
+        }
+    }
+    public function productDetailRedirect($product_title)
+    {
+        $product     = Product::where('id',session()->get('detail_id'))->first();
+       // dd($product);
+        if($product){
+            $category_id = $product->category_id;
+            $related_products = Product::where('category_id',$category_id)->where('id','!=',session()->get('detail_id'))->take(12)->get();
+            return view('website.product_detail',compact('product','related_products'));
         }else{
             return abort(404);
         }

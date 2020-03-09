@@ -43,7 +43,7 @@
                 <div class="row justify-content-center justify-content-md-around">
                     <div class="col-md-2 p-0">
                         <div class="pro-item mx-auto" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="{{ asset('website/assets/images/icons/cancel.png')}}">
+                            <img class="lazyload" alt="No Die & Plate Charges" data-src="{{ asset('website/assets/images/icons/cancel.png')}}">
                             <h4>
                                 No Die & Plate Charges
                             </h4>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-md-2 p-0">
                         <div class="pro-item mx-auto mt-5 mt-md-0" data-aos="fade-up" data-aos-duration="1200">
-                            <img src="{{ asset('website/assets/images/icons/box.png')}}">
+                            <img class="lazyload" data-src="{{ asset('website/assets/images/icons/box.png')}}">
                             <h4>
                                 starting from 100 boxes
                             </h4>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-md-2 p-0">
                         <div class="pro-item mx-auto mt-5 mt-md-0" data-aos="fade-up" data-aos-duration="1400">
-                            <img src="{{ asset('website/assets/images/icons/calendar.png')}}">
+                            <img class="lazyload" data-src="{{ asset('website/assets/images/icons/calendar.png')}}">
                             <h4>
                                 fast turnarounds 8-10 business days
                             </h4>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-md-2 p-0">
                         <div class="pro-item mx-auto mt-5 mt-md-0" data-aos="fade-up" data-aos-duration="1600">
-                            <img src="{{ asset('website/assets/images/icons/ribbon.png')}}">
+                            <img class="lazyload" data-src="{{ asset('website/assets/images/icons/ribbon.png')}}">
                             <h4>
                                 high quality offset printing
                             </h4>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="col-md-2 p-0">
                         <div class="pro-item mx-auto mt-5 mt-md-0" data-aos="fade-up" data-aos-duration="1800">
-                            <img src="{{ asset('website/assets/images/icons/wallet.png')}}">
+                            <img class="lazyload" data-src="{{ asset('website/assets/images/icons/wallet.png')}}">
                             <h4>
                                 competitive <br>pricing
                             </h4>
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-        <!-- Top 6 categories -->
+        <!-- Top 8 categories -->
         <div class="topCats">
             <div class="products">
                 <div class="container">
@@ -108,12 +108,12 @@
                         <?php $mainCategories = TopCategories(); ?>
                         @if(count($mainCategories)>0)
                             @foreach($mainCategories as $data)
-                            <div class="col-6 col-md-4">
+                            <div class="col-6 col-md-3">
                                 <?php $slug = str_replace(' ', '-', $data->title);?>
-                                <a href="{{ route('category_detail',['box-by-industry',$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up"
+                                <a href="{{ route('category_detail',$slug) }}" class="prod-item" data-aos="zoom-in-up"
                                     data-aos-duration="1200">
                                     <div class="img-wrap">
-                                        <img src="{{ asset('uploads/categories/'. $data->picture) }}" alt="product image">
+                                        <img class="lazyload" data-src="{{ asset('uploads/categories/'. $data->picture) }}" alt="{{$data->title}}">
                                     </div>
                                     <h4>
                                         {{$data->title}}
@@ -122,36 +122,11 @@
                             </div>
                             @endforeach
                         @endif
-                        <!-- View More Button -->
+                         <!--View More Button -->
                         <div class="col-12 text-center">
-                            <a href="/categories" class="btn viewMore">View All Categories</a>
+                            <a href="/box-by-industry" class="btn viewMore">View All Categories</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Video Link -->
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="video-link-title text-center" data-aos="fade-right" data-aos-duration="1700">
-                        <h1>
-                            Why 1,000s of Happy Customers Turn To Pack Printers
-                        </h1>
-                        <p>
-                            Watch to learn why thousands of brands nationwide choose Pack Printers for their
-                            custom packaging needs, from small startups to Fortune 500 brands alike.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center" data-aos="fade-left" data-aos-duration="1700">
-                <div class="col-md-8">
-                    <iframe width="100%" height="420" src="https://www.youtube.com/embed/Hhjj8ZYP80w"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -168,31 +143,53 @@
             <!-- Products -->
             <div class="products">
                 <div class="container">
-                    <div class="row">
-                    <?php $mainProducts = MainPageProducts(); ?>
-                        @if(count($mainProducts)>0)
-                            @foreach($mainProducts as $data)
-                            <?php $product_image = product_image($data->id);?>
-                            <?php $category_name = category_name($data->category_id);?>
-                            <?php $category_title = str_replace(' ', '-', $category_name->title);?>
-                                <div class="col-6 col-md-3">
-                                    <?php $slug = str_replace(' ', '-', $data->title);?>
-                                    <a href="{{ route('product_detail',['box-by-industry',$category_title,$slug, $data->id]) }}" class="prod-item" data-aos="zoom-in-up" data-aos-duration="1500">
-                                        <div class="img-wrap">
-                                            <img src="{{ asset('uploads/products/'. $product_image->picture) }}" alt="{{$data->title}}">
-                                        </div>
-                                        <h4>
-                                        {{$data->title}}
-                                        </h4>
-                                    </a>
+                      <div class="row">
+                                <!-- Product Categories Slider-->
+                                <div class="col-12">
+                                    <div id="category-slider" class="owl-carousel owl-theme">
+                                        <?php $mainProducts = MainPageProducts(); ?>
+                                        @if(count($mainProducts)>0)
+                                            @foreach($mainProducts as $data)
+                                                <?php $product_image = product_image($data->id);?>
+                                                <?php $slug = str_replace(' ', '-', $data->title);?>
+                                                <div class="item">
+                                                    <a href="{{ route('product_detail',$slug) }}" class="prod-item">
+                                                        <div class="img-wrap">
+                                                            <img class="lazyload" data-src="{{ asset('uploads/products/'. $product_image->picture) }}" alt="{{$data->title}}">
+                                                        </div>
+                                                        <h4>{{$data->title}}</h4>
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
                                 </div>
-                            @endforeach
-                        @endif
-                        <!-- View More Button -->
-                        <div class="col-12 text-center">
-                            <a href="/categories" class="btn viewMore">View more</a>
-                        </div>
-                    </div>
+
+                                <!-- Products Slider -->
+                                <div class="col-12">
+                                    <div id="products-slider" class="owl-carousel owl-theme">
+                                        <?php $mainProducts1 = MainPageProducts1(); ?>
+                                        @if(count($mainProducts1)>0)
+                                            @foreach($mainProducts1 as $data)
+                                                <?php $product_image = product_image($data->id);?>
+                                                <?php $slug = str_replace(' ', '-', $data->title);?>
+                                                <div class="item">
+                                                    <a href="{{ route('product_detail',$slug) }}" class="prod-item">
+                                                        <div class="img-wrap">
+                                                            <img class="lazyload" data-src="{{ asset('uploads/products/'. $product_image->picture) }}" alt="{{$data->title}}">
+                                                        </div>
+                                                        <h4>{{$data->title}}</h4>
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                                <!-- View More Button -->
+                                <div class="col-12 text-center">
+                                    <a href="/box-by-industry" class="btn viewMore">View more</a>
+                                </div>
+                            </div>
                 </div>
             </div>
         </section>
@@ -210,7 +207,7 @@
                 <div class="row justify-content-center no-gutters">
                     <div class="col-md-3 p-0">
                         <div class="serv-item mx-auto" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="{{ asset('website/assets/images/icons/policy.png')}}">
+                            <img class="lazyload" data-src="{{ asset('website/assets/images/icons/policy.png')}}">
                         </div>
                         <h4>
                             free design support
@@ -218,7 +215,7 @@
                     </div>
                     <div class="col-md-3 p-0">
                         <div class="serv-item mx-auto" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="{{ asset('website/assets/images/icons/sketch.png')}}">
+                            <img class="lazyload" data-src="{{ asset('website/assets/images/icons/sketch.png')}}">
                         </div>
                         <h4>
                             free custom box dieline
@@ -226,7 +223,7 @@
                     </div>
                     <div class="col-md-3 p-0">
                         <div class="serv-item mx-auto" data-aos="fade-up" data-aos-duration="1000">
-                            <img src="{{ asset('website/assets/images/icons/shipping.png')}}">
+                            <img class="lazyload" data-src="{{ asset('website/assets/images/icons/shipping.png')}}">
                         </div>
                         <h4>
                             free shipping
@@ -309,155 +306,303 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-11">
-                    <div class="detail-area" data-simplebar data-simplebar-auto-hide="false">
-                        <!-- Details Articel Item -->
-                        <article>
-                            <h3>
-                                pack custom boxes
-                            </h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It
-                                has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining
-                                essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset
-                                sheets
-                                containing Lorem Ipsum passages, and more recently with desktop publishing
-                                software
-                                like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                        </article>
-                        <!-- Details Articel Item -->
-                        <article>
-                            <h3>
-                                why pack boxes
-                            </h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It
-                                has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining
-                                essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset
-                                sheets.
-
-                            </p>
-                        </article>
-                        <!-- Details Articel Item -->
-                        <article>
-                            <h3>
-                                instant delivery system
-                            </h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown
-                                printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
-                        </article>
-                        <!-- Details Articel Item -->
-                        <article>
-                            <h3>
-                                efficient customer care
-                            </h3>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown
-                                printer took a galley of type and scrambled it to make a type specimen book.
-                            </p>
-                        </article>
-                    </div>
+                       <div class="detail-area" data-simplebar data-simplebar-auto-hide="false">
+                                <!-- Details Articel Item -->
+                                <article>
+                                    <h3>
+                                        Custom Printed Boxes and Custom Packaging Wholesale
+                                    </h3>
+                                    <p>
+                                        Packprinters.com has opened the new paths for exclusively printed boxes. We are
+                                        giving excellent quality oriented, modified and customized packages with four
+                                        shading computerized and extraordinary printing services. Our wide assortments
+                                        of items enables you to get any of the box of your decision and print it totally
+                                        according to your desired theme or subject.
+                                    </p>
+                                </article>
+                                <!-- Details Articel Item -->
+                                <article>
+                                    <h3>
+                                        Advance Wholesale Custom Boxes service
+                                    </h3>
+                                    <p>
+                                        On the off chance, if there is no product that matches your ideal measurements
+                                        in our inventory then we shall create a box as per your demand and
+                                        specifications. Packprinters.com is a cost effective website to afford our
+                                        custom boxes at a wholesale. We are advancing a large number of organizations by
+                                        providing attractive, unique, cost effective and rich custom building boxes. To
+                                        make your custom boxes progressively prominent we have a variety of extra and
+                                        finishing alternatives.
+                                    </p>
+                                    <p>
+                                        Packprinters.com is an intense supporter of packaging that is eco-friendly as we
+                                        use effectively recyclable materials to make your custom boxes. We offer premium
+                                        boxes’ printing to our potential and valuable customers. Packprinters.com is a
+                                        pioneer and trustworthy in designing rich custom packaging. Our 11 years of
+                                        experience give us competitive edge and preferred by a large number of main
+                                        leading brands. You just need to simply fill out the given form to make your
+                                        stress-free beginning with us. We are proving 24/7 customer service through our
+                                        delegate to quickly response your questions and concerns. Hence,
+                                        packprinters.com is your reliable and long-term partner for all the difficult
+                                        business ventures.
+                                    </p>
+                                </article>
+                                <!-- Details Articel Item -->
+                                <article>
+                                    <h3>
+                                        Custom Packaging Boxes
+                                    </h3>
+                                    <p>
+                                        The use of custom boxes have become part of our daily life. Custom printed boxes
+                                        is the need of the market to be uniquely identified from others.
+                                        Packprinters.com are providing you the variety of different options of designing
+                                        and renovating your boxes with inventive and splendid ideas to make your crates
+                                        one level up than others to hit the market.
+                                    </p>
+                                    <p>
+                                        Cardboard sheets and corrugated boxes are manufactured with recyclable
+                                        materials. Boxes’ printing focus on all means engaged in a process including
+                                        collecting, printing, covering and sticking that gives 100% flawlessness before
+                                        final delivery to make the item ideal for use all over the world. The top
+                                        crucial responsibility of packprinters.com is to make these custom crates fit
+                                        for product as per client’s given size and dimensions, affecting a brand image,
+                                        popping-out product in a market, storage and shipping of all kinds of products
+                                        like: electronic, ornamental and retailing items and many more.
+                                    </p>
+                                </article>
+                                <!-- Details Articel Item -->
+                                <article>
+                                    <h3>
+                                        Care and Attention
+                                    </h3>
+                                    <p>
+                                        Proper care and attention is given to satisfied client’s requirements in an
+                                        effective and efficient manner. Packprinters.com is easily accessible as being
+                                        less costly is gaining competitive edge. Boxes manufactured by packprinters.com
+                                        is 100% recyclable material to promote eco-friendly environment. We are offering
+                                        shipping services of all custom packaging boxes almost free of cost.
+                                    </p>
+                                </article>
+                            </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonial Slider -->
-    <section class="testmonials">
-        <div class="container">
-            <div class="row justify-content-center">
-                <header data-aos="fade" data-aos-duration="1500">
-                    <h1>
-                        WHAT OUR <br>CUSTOMERS SAY
-                    </h1>
-                    <p>
-                        simple
-                    </p>
-                </header>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="owl-carousel owl-theme" id="testimonials-slider" data-aos="slide-up"
-                        data-aos-duration="1500">
-                        <!-- Testimonial Slider Item -->
-                        <div class="item">
-                            <img style="width: 50px; margin: 15px auto;"
-                                src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
-                            <div class="testimonial">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book.
+     <!-- Testimonial Slider -->
+            <section class="testmonials">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <header data-aos="fade" data-aos-duration="1500">
+                            <h1>
+                                WHAT OUR <br>CUSTOMERS SAY
+                            </h1>
+                            <p>
+                                simple
+                            </p>
+                        </header>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="owl-carousel owl-theme" id="testimonials-slider" data-aos="slide-up"
+                                data-aos-duration="1500">
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        Exceptional services along with timely response every time. Have been getting
+                                        boxes from packprinters.com for so long. Always get boxes according to my
+                                        company and product requirements. Highly recommended being potential and old
+                                        client of packprinters.com.
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Benjamin Evans.jpg')}}" alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Benjamin Evans
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        Always go through excellent experience with packprinters.com. Go for it! Boxes
+                                        are not even stylish but recyclable and solid as well. I am highly impressed and
+                                        amazed after checking out the quality of boxes. Highly recommended. I never get
+                                        disappointed here. They act and deliver what they have written and promised.
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Ernest Boyd.jpg')}}" alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Ernest Boyd
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        I ordered 1500 boxes and each box is of high quality and properly laminated.
+                                        I am very impressed. Customer support is so friendly and guided me soooo very
+                                        well. I will definitely get back to you soon. Great effort! Thank you so much
+                                        guys.
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Jimmie Cooper.jpg')}}" alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Jimmie Cooper
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        An authentic website with no frauds I must say! I get exactly what I actually
+                                        asked for. I am so overwhelmed after seeing my boxes; they are looking super
+                                        attractive and eye pleasing to all my team. Definitely will be helpful in my
+                                        sales too. Keep going like that. Staff is so friendly and listened me so calmly
+                                        every time. Hats off to patience! Thank you so very much.
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Juanita Montgomery.jpg')}}"
+                                            alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Juanita Montgomery
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        served me with the best green packaging solution in cost-effective price.
+                                        Moreover, I had a very short turn-around time and I got delivery before
+                                        deadline. I am so thankful to all team. I ordered bulk of boxes but I am so
+                                        happy and amazed that each box is of same high quality plus super printing on
+                                        it. Thank you for listening my demand and all concerns. I must say “not even a
+                                        single change is required” they are just soooo perfectly designed and
+                                        manufactured. I am very happy.
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Kathy Ford.jpg')}}" alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Kathy Ford
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        I ordered boxes for my start-up cosmetic business. I paced an order for cosmetic
+                                        boxes. I was a little afraid as well but the way they responded me and listened
+                                        me is so professional and friendly. You must go for this website to get
+                                        realistic picture of your vision. Thanks for your free graphic assistance. You
+                                        people helped me with your all efforts and delivered my order before time.
+                                        Keep going!
+
+
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Krin Hart.jpg')}}" alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Krin Hart
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        I ordered bath bomb boxes and I cannot even explain how much I am in love with
+                                        the super magnetized design and rich quality material with neat lamination on
+                                        it. I am just speechless! You people are so awesome in your services. Highly
+                                        recommended and will definitely get back to you.
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Nicholas Simmmons.jpg')}}"
+                                            alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Nicholas Simmmons
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        Thank you Pack printers team for providing what you have mentioned in your
+                                        website. Food boxes are supper classy and convenient. The content you put on it
+                                        is looking super alluring. Everything is just perfect. Showed great patience,
+                                        rich quality of material and glamorous design in readable way. I am soon going
+                                        to order again for retail boxes now.
+                                        Thanks again! Thumbs up!
+
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Peter Ramirez.jpg')}}" alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Peter Ramirez
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        Besides being so confused I also changed my options for so many times but the
+                                        team of pack printers showed the level of professionalism and treated me so
+                                        great with full patience and friendly communication. I put my artwork and
+                                        designing responsibility on them as well along with the packaging of boxes. They
+                                        astounded me and impressed me by the effort they put to transform my vision into
+                                        reality. All boxes came into my budget without charging any extra shipping cost.
+                                        I am so grateful to you pack printers team.
+                                        Go for this authentic website!
+
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Ryan Mitchelle.jpg')}}" alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Ryan Mitchelle
+                                    </h5>
+                                </div>
+                                <!-- Testimonial Slider Item -->
+                                <div class="item">
+                                    <img style="width: 50px; margin: 15px auto;"
+                                        src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
+                                    <div class="testimonial">
+                                        I was tying service website for the first time and confused about placing an
+                                        order but the team of packprinters.com build trust and made me believe that I
+                                        will get the same thing like I ordered. They sent me proper 3d mockups, showed
+                                        me flat and physical sampling before starting manufacturing process. I am so
+                                        astonished that they are so committed to their words and work. Thank you so much
+                                        team. Will come back soon for next order.
+                                    </div>
+                                    <div class="img-wrap">
+                                        <img class="lazyload" data-src="{{ asset('website/assets/images/userImages/Vincent Bryant.jpg')}}" alt="testimonial image">
+                                    </div>
+                                    <h5>
+                                        Vincent Bryant
+                                    </h5>
+                                </div>
+
                             </div>
-                            <div class="img-wrap">
-                                <img src="{{ asset('website/assets/images/homepage/test-img1.jpg')}}" alt="testimonial image">
-                            </div>
-                            <h5>
-                                Chris Angel
-                            </h5>
-                        </div>
-                        <!-- Testimonial Slider Item -->
-                        <div class="item">
-                            <img style="width: 50px; margin: 15px auto;"
-                                src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
-                            <div class="testimonial">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book.
-                            </div>
-                            <div class="img-wrap">
-                                <img src="{{ asset('website/assets/images/homepage/test-img2.jpg')}}" alt="testimonial image">
-                            </div>
-                            <h5>
-                                Sofia Decker
-                            </h5>
-                        </div>
-                        <!-- Testimonial Slider Item -->
-                        <div class="item">
-                            <img style="width: 50px; margin: 15px auto;"
-                                src="{{ asset('website/assets/images/homepage/text-quotes-.png')}}" alt="quotes">
-                            <div class="testimonial">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book.
-                            </div>
-                            <div class="img-wrap">
-                                <img src="{{ asset('website/assets/images/homepage/test-img3.jpg')}}" alt="testimonial image">
-                            </div>
-                            <h5>
-                                Leyla
-                            </h5>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <img class="dots" src="{{ asset('website/assets/images/homepage/dots.png')}}" alt="dots">
-    </section>
+                <img class="dots" src="{{ asset('website/assets/images/homepage/dots.png')}}" alt="dots">
+            </section>
 
     <!-- Pretty Packing Section -->
     <section class="packaging">
@@ -488,7 +633,7 @@
     <div class="prods-slider">
         <div class="slider-wrap" data-aos="fade-left" data-aos-duration="1700">
             <div class="left-slider-btn">
-                <img src="{{ asset('website/assets/images/icons/arrow.png')}}" alt="arrow">
+                <img class="lazyload" data-src="{{ asset('website/assets/images/icons/arrow.png')}}" alt="arrow">
             </div>
             <div class="slide-area">
                 <div class="owlOne owl-carousel owl-theme">
@@ -514,7 +659,7 @@
                 </div>
             </div>
             <div class="right-slider-btn">
-                <img src="{{ asset('website/assets/images/icons/arrow.png')}}" alt="arrow">
+                <img class="lazyload" data-src="{{ asset('website/assets/images/icons/arrow.png')}}" alt="arrow">
             </div>
         </div>
     </div>

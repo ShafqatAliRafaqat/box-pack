@@ -61,14 +61,14 @@
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
                                 <input id="is_active" value="1" type="checkbox" name="is_active" class="custom-control-input">
-                                <label for="is_active" class="custom-control-label">Check to Active  </label>
+                                <label for="is_active" class="custom-control-label">Check to Active the Product</label>
                                 </div>
                             </div>
                             <label class="col-md-2 form-control-label">Show in Menu</label>
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
                                 <input id="in_menu" value="1" type="checkbox" name="in_menu" class="custom-control-input">
-                                <label for="in_menu" class="custom-control-label">Show in Main Menu</label>
+                                <label for="in_menu" class="custom-control-label">Show At Home Page</label>
                                 </div>
                             </div>
                             </div>

@@ -54,7 +54,7 @@
                             <div class="col-md-4">
                                 <div class="custom-control custom-checkbox">
                                 <input id="is_active" value="1" type="checkbox" name="is_active" class="custom-control-input" {{($blog->is_active == 1)? 'checked':''}}>
-                                <label for="is_active" class="custom-control-label">Check to Active  </label>
+                                <label for="is_active" class="custom-control-label">Check to Active the Treatment</label>
                                 </div>
                             </div>
                             </div>

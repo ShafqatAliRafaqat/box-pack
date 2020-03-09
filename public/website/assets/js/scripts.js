@@ -5,30 +5,6 @@
  * @Developed & Code by: Arslan Ameer | http://www.arslanameer.com/
  */
 
-//
-//  Image tag to Parents Background Image
-//  @version: v1.0.0
-//  @link: N/A
-//  @license: ISC
-//  @Developed & Code by: Arslan Ameer | http://.../
-//
-
-// Making img tag src image to parent's background image
-//
-function ImgToBg(parentClass, imgClass) {
-	$('.' + parentClass)
-		.css({
-			'background-image':
-				'url(' +
-				$('.' + parentClass)
-					.find('img.' + imgClass)
-					.attr('src') +
-				')',
-		})
-		.find('img.' + imgClass)
-		.remove();
-}
-
 // Uses Node, AMD or browser globals to create a module.
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -4099,43 +4075,6 @@ function ImgToBg(parentClass, imgClass) {
 	}
 
 })(window.Zepto || window.jQuery, window, document);
-function ReadMore(textsClass, charCount, buttonClass) {
-	// Readmore Text for ABOUT US Section
-	var showChar = charCount;
-	$('.' + textsClass).each(function() {
-		var content = $(this).html();
-		if (content.length > showChar) {
-			var c = content.substr(0, showChar);
-			var h = content.substr(showChar, content.length - showChar);
-			var html =
-				c +
-				'<span class="moreellipses">' +
-				'...' +
-				'&nbsp;</span><span class="morecontent d-none"><span>' +
-				h +
-				'</span>&nbsp;&nbsp;</span>';
-			$(this).html(html);
-		}
-	});
-	$('.' + buttonClass).click(function() {
-		$(this)
-			.prev('.detail-text')
-			.find('p span.moreellipses')
-			.toggleClass('d-none');
-		$(this)
-			.prev('.detail-text')
-			.find('p span.morecontent')
-			.toggleClass('d-none');
-		if ($(this).hasClass('toggled')) {
-			$(this).removeClass('toggled');
-			$(this).html('Read More+');
-		} else {
-			$(this).addClass('toggled');
-			$(this).html('Read Less-');
-		}
-	});
-}
-
 var scrollPos = {
     x: 0,
     y: 0
@@ -4191,40 +4130,46 @@ function transformElement(el, transform) {
     el.style.OTransform = transform;
     el.style.transform = transform;
 }
-const $dropdown = $(".dropdown");
-const $dropdownToggle = $(".dropdown-toggle");
-const $dropdownMenu = $(".dropdown-menu");
-const showClass = "show";
+// window.onload = function() {
+// 	this.setTimeout(() => {
+// 		$('#pageLoader').fadeOut(1000);
+// 	}, 2000);
+// };
 
-$(window).on("load resize", function () {
-		if (this.matchMedia("(min-width: 768px)").matches) {
-			$dropdown.hover(function () {
-					const $this = $(this);
-					$this.addClass(showClass);
-					$this.find($dropdownToggle).attr("aria-expanded", "true");
-					$this.find($dropdownMenu).addClass(showClass);
-				}
+const $dropdown = $('.dropdown');
+const $dropdownToggle = $('.dropdown-toggle');
+const $dropdownMenu = $('.dropdown-menu');
+const showClass = 'show';
 
-				,
-				function () {
-					const $this = $(this);
-					$this.removeClass(showClass);
-					$this.find($dropdownToggle).attr("aria-expanded", "false");
-					$this.find($dropdownMenu).removeClass(showClass);
-				}
+$(window).on('load resize', function() {
+	if (this.matchMedia('(min-width: 768px)').matches) {
+		$dropdown.hover(
+			function() {
+				const $this = $(this);
+				$this.addClass(showClass);
+				$this.find($dropdownToggle).attr('aria-expanded', 'true');
+				$this.find($dropdownMenu).addClass(showClass);
+			},
 
-			);
-		} else {
-			$dropdown.off("mouseenter mouseleave");
-		}
+			function() {
+				const $this = $(this);
+				$this.removeClass(showClass);
+				$this.find($dropdownToggle).attr('aria-expanded', 'false');
+				$this.find($dropdownMenu).removeClass(showClass);
+			}
+		);
+	} else {
+		$dropdown.off('mouseenter mouseleave');
 	}
-
-);
+});
 
 $(document).ready(() => {
+	this.setTimeout(() => {
+		$('#pageLoader').fadeOut(1000);
+	}, 3000);
 
 	// Custom function which toggles between sticky class (is-sticky)
-	var stickyToggle = function (sticky, stickyWrapper, scrollElement) {
+	var stickyToggle = function(sticky, stickyWrapper, scrollElement) {
 		var stickyHeight = sticky.outerHeight();
 		var stickyTop = stickyWrapper.offset().top;
 
@@ -4238,145 +4183,197 @@ $(document).ready(() => {
 	};
 
 	// Find all data-toggle="sticky-onscroll" elements
-	$('[data-toggle="sticky-onscroll"]').each(function () {
-			var sticky = $(this);
-			var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
-			sticky.before(stickyWrapper);
-			sticky.addClass('sticky');
+	$('[data-toggle="sticky-onscroll"]').each(function() {
+		var sticky = $(this);
+		var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
+		sticky.before(stickyWrapper);
+		sticky.addClass('sticky');
 
-			// Scroll & resize events
-			$(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function () {
-					stickyToggle(sticky, stickyWrapper, $(this));
-				}
+		// Scroll & resize events
+		$(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function() {
+			stickyToggle(sticky, stickyWrapper, $(this));
+		});
 
-			);
-
-			// On page load
-			stickyToggle(sticky, stickyWrapper, $(window));
-		}
-
-	);
-
-	$(".search").click(() => {
-		$(".search-bar").css("top", "0");
+		// On page load
+		stickyToggle(sticky, stickyWrapper, $(window));
 	});
-	$(".close-searchBar").click(() => {
-		$(".search-bar").css("top", "-100px");
+
+	$('.search').click(() => {
+		$('.search-bar').css('top', '0');
+	});
+	$('.close-searchBar').click(() => {
+		$('.search-bar').css('top', '-100px');
 	});
 
 	function myFunction(x) {
-		if (x.matches) { // If media query matches
-			window.onscroll = function () {
+		if (x.matches) {
+			// If media query matches
+			window.onscroll = function() {
 				// document.querySelector('#triangle').style.backgroundPosition = "0px " + (0 + (Math.max(document.documentElement.scrollTop, document.body.scrollTop) / 35)) + "px";
 				var tris = document.querySelectorAll('#triangle'),
-					i, pos = ['0px ', 'right '];
+					i,
+					pos = ['0px ', 'right '];
 
 				for (i = 0; i < tris.length; ++i) {
-					tris[i].style.backgroundPosition = pos[i] + (0 + (Math.max(document.documentElement.scrollTop, document.body.scrollTop) / 48)) + "px";
+					tris[i].style.backgroundPosition =
+						pos[i] + (0 + Math.max(document.documentElement.scrollTop, document.body.scrollTop) / 48) + 'px';
 				}
-			}
+			};
 		} else {
 			//   document.body.style.backgroundColor = "pink";
 		}
 	}
 
-	var x = window.matchMedia("(min-width: 992px)")
-	myFunction(x) // Call listener function at run time
-	x.addListener(myFunction) // Attach listener function on state changes 
+	var x = window.matchMedia('(min-width: 992px)');
+	myFunction(x); // Call listener function at run time
+	x.addListener(myFunction); // Attach listener function on state changes
+
+	$('.dropdown-toggle').click(function(e) {
+		if (window.matchMedia('(max-width: 768px)').matches) {
+			e.preventDefault();
+		} else {
+			window.location.href = $(this).attr('href');
+		}
+	});
 
 	// Testimonial SLider
-	$("#testimonials-slider").owlCarousel({
-			loop: true,
-			items: 1,
-			center: true,
-			margin: 30,
-			autoplay: true,
-			autoplayTimeout: 5000,
-			autoplayHoverPause: true,
-			smartSpeed: 800,
-			nav: false,
-			dots: false,
-			center: true,
-			mouseDrag: true,
-			touchDrag: true,
-			pullDrag: false,
+	$('#testimonials-slider').owlCarousel({
+		loop: true,
+		items: 1,
+		center: true,
+		margin: 30,
+		autoplay: true,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: true,
+		smartSpeed: 800,
+		nav: false,
+		dots: false,
+		center: true,
+		mouseDrag: true,
+		touchDrag: true,
+		pullDrag: false,
 
-			responsive: {
-				0: {
-					items: 1
-				}
+		responsive: {
+			0: {
+				items: 1,
+			},
 
-				,
-				768: {
-					items: 3,
+			768: {
+				items: 3,
+			},
+		},
+	});
 
-				}
-			}
-		}
+	// Category Slider
+	$('#category-slider').owlCarousel({
+		loop: true,
+		items: 4,
+		margin: 0,
+		dots: false,
+		mouseDrag: true,
+		touchDrag: true,
+		pullDrag: false,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		smartSpeed: 800,
+		responsive: {
+			0: {
+				items: 2,
+			},
+			600: {
+				items: 3,
+			},
+			1000: {
+				items: 4,
+			},
+		},
+	});
 
-	);
-
+	// Products Slider
+	$('#products-slider').owlCarousel({
+		loop: true,
+		items: 4,
+		margin: 0,
+		dots: false,
+		mouseDrag: true,
+		touchDrag: true,
+		pullDrag: false,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		smartSpeed: 800,
+		rtl: true,
+		responsive: {
+			0: {
+				items: 2,
+			},
+			600: {
+				items: 3,
+			},
+			1000: {
+				items: 4,
+			},
+		},
+	});
 
 	// Owl Carousel Products Slider
 	//
 	var owlone = $('.owlOne');
 
 	owlone.owlCarousel({
+		loop: true,
+		margin: 0,
+		nav: false,
+		dots: false,
+		autoplay: true,
+		autoplayTimeout: 2000,
+		smartSpeed: 500,
+		items: 1,
+		responsiveClass: true,
+		responsive: {
+			0: {
+				items: 3,
+			},
 
-			loop: true,
-			margin: 0,
-			nav: false,
-			dots: false,
-			autoplay: true,
-			autoplayTimeout: 2000,
-			smartSpeed: 500,
-			items: 1,
-			responsiveClass: true,
-			responsive: {
-				0: {
-					items: 3,
-				}
+			768: {
+				items: 5,
+			},
 
-				,
-				768: {
-					items: 5,
-				}
-
-				,
-				992: {
-					items: 6,
-				}
-			}
-		}
-
-	);
+			992: {
+				items: 6,
+			},
+		},
+	});
 
 	// Go to the next item
-	$('.right-slider-btn').click(function () {
-			owlone.trigger('next.owl.carousel');
-		}
-
-	);
+	$('.right-slider-btn').click(function() {
+		owlone.trigger('next.owl.carousel');
+	});
 
 	// Go to the previous item
-	$('.left-slider-btn').click(function () {
-			owlone.trigger('prev.owl.carousel');
-		}
-
-	);
+	$('.left-slider-btn').click(function() {
+		owlone.trigger('prev.owl.carousel');
+	});
 
 	// Blog Item Card Title Text Limiter
-	$(".card-title").each(function (i) {
+	$('.card-title').each(function(i) {
 		len = $(this).text().length;
 		if (len > 66) {
-			$(this).text($(this).text().substr(0, 67) + '...');
+			$(this).text(
+				$(this)
+					.text()
+					.substr(0, 67) + '...'
+			);
 		}
 	});
 	//Blog Item Card Detail Text Limiter
-	$(".card-text").each(function (i) {
+	$('.card-text').each(function(i) {
 		len = $(this).text().length;
 		if (len > 214) {
-			$(this).text($(this).text().substr(0, 215) + '...');
+			$(this).text(
+				$(this)
+					.text()
+					.substr(0, 215) + '...'
+			);
 		}
 	});
 
@@ -4386,7 +4383,7 @@ $(document).ready(() => {
 	$('.bi')
 		.slice(0, 6)
 		.show();
-	$('.loadMoreBlog').on('click', function (e) {
+	$('.loadMoreBlog').on('click', function(e) {
 		e.preventDefault();
 		// Assign the result of the media query to a variable
 
@@ -4408,41 +4405,37 @@ $(document).ready(() => {
 		}
 	});
 
-	$(".clients").owlCarousel({
-
-			loop: true,
-			margin: 0,
-			nav: false,
-			dots: false,
-			autoplay: true,
-			autoplayTimeout: 3000,
-			smartSpeed: 1000,
-			items: 4,
-			responsiveClass: true,
-			responsive: {
-				0: {
-					items: 4,
-				},
-				992: {
-					items: 6,
-				}
-			}
-		}
-
-	);
-
+	$('.clients').owlCarousel({
+		loop: true,
+		margin: 0,
+		nav: false,
+		dots: false,
+		autoplay: true,
+		autoplayTimeout: 3000,
+		smartSpeed: 1000,
+		items: 4,
+		responsiveClass: true,
+		responsive: {
+			0: {
+				items: 4,
+			},
+			992: {
+				items: 6,
+			},
+		},
+	});
 });
 
 function openTab(evt, tabName) {
 	var i, tabcontent, tablinks;
-	tabcontent = document.getElementsByClassName("tabcontent");
+	tabcontent = document.getElementsByClassName('tabcontent');
 	for (i = 0; i < tabcontent.length; i++) {
-		tabcontent[i].style.display = "none";
+		tabcontent[i].style.display = 'none';
 	}
-	tablinks = document.getElementsByClassName("tablinks");
+	tablinks = document.getElementsByClassName('tablinks');
 	for (i = 0; i < tablinks.length; i++) {
-		tablinks[i].className = tablinks[i].className.replace(" active", "");
+		tablinks[i].className = tablinks[i].className.replace(' active', '');
 	}
-	document.getElementById(tabName).style.display = "block";
-	evt.currentTarget.className += " active";
+	document.getElementById(tabName).style.display = 'block';
+	evt.currentTarget.className += ' active';
 }
